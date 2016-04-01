@@ -1,0 +1,19 @@
+{
+  "name": "horsetracker",
+  "version": "1.0.0",
+  "description": "horsetracker app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ros23232323/sandbox.git"
+  },
+  "author": "IT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ros23232323/sandbox/issues"
+  },
+  "homepage": "https://github.com/ros23232323/sandbox#readme"
+}
