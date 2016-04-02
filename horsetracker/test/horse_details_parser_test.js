@@ -4,7 +4,6 @@ var fs = require('fs');
 
 var file_name = './tmp/apache-outlaw.html';
 
-
 describe("Parse horse details", function() {
 
     before(function(done){

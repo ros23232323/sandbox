@@ -4,7 +4,8 @@ var fs = require('fs');
 var dateFormat = require('dateformat');
 
 var today_dt = dateFormat(new Date(), "dd-mm-yyyy");
-var file_name = './tmp/racecard_' + today_dt + ".html";
+// var file_name = './tmp/racecard_' + today_dt + '.html';
+var file_name = './tmp/racecard_01-04-2016.html';
 
 describe("Parse racecard details", function() {
 
