@@ -13,17 +13,12 @@ describe("GET url request tests", function() {
     });
 
     describe("GET todays racecard", function() {
-        
         it("GET todays racecard 200", function (done) {
-
             var url = 'http://www.sportinglife.com/racing/racecards/' + date_utils.today_yy_mm_yyyy();
-
             rest_request_utils.get(url, null, function (data) {
                 chai.expect(data).to.contain('</html>');
                 done();
             });
         });
-
     });
-
 });
