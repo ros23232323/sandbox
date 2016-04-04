@@ -20,3 +20,5 @@ using url as pk persist crawled pages to couchbase
             - create topic content from crawled
         - consumer
             - filter topic to my stable
+
+    oddschecker analysis
