@@ -64,7 +64,7 @@ module.exports = {
             }) ;
         });
 
-        string_utils.scrub_json_obj_strs(horse_details);
+        horse_details = string_utils.scrub_obj_whitespace(horse_details);
 
         return horse_details;
     }

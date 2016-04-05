@@ -17,9 +17,11 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "jsonminify": "^0.4.1",
     "kafka-node": "^0.3.2",
     "mocha": "^2.4.5",
     "morgan": "~1.6.1",
+    "node-json-minify": "^1.0.0",
     "serve-favicon": "~2.3.0",
     "url": "^0.11.0"
   }

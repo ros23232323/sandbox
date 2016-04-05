@@ -24,7 +24,7 @@ describe("Parse racecard details", function() {
         console.log(JSON.stringify(racecards));
         chai.expect(racecards.cards.length).to.equal(16);
         chai.expect(racecards.cards[0].track).to.equal('Newbury');
-        chai.expect(racecards.cards[0].track_surface).to.equal('Turf');
+        chai.expect(racecards.cards[0].track_surface.trim()).to.equal('Turf');
         chai.expect(racecards.cards[0].races.length).to.equal(7);
         chai.expect(racecards.cards[0].races[0].race_time).to.equal("13:50");
         chai.expect(racecards.cards[0].races[0].race_name).to.contain(" Premier Novices' Hurdle (4yo+, Class 3, 2m 4f 118y,");

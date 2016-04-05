@@ -50,7 +50,7 @@ module.exports = {
             oddschecker_data.entries_odds.push(entry_odds);
         });
 
-        string_utils.scrub_obj_whitespace(oddschecker_data);
+        oddschecker_data = string_utils.scrub_obj_whitespace(oddschecker_data);
 
         return oddschecker_data;
     }

@@ -42,7 +42,7 @@ module.exports = {
             daily_racecard.cards.push(racecard);
         });
 
-        string_utils.scrub_json_obj_strs(daily_racecard);
+        daily_racecard = string_utils.scrub_obj_whitespace(daily_racecard);
 
         return daily_racecard;
     }

@@ -1,6 +1,7 @@
 'use strict';
 
 var cheerio = require('cheerio');
+var string_utils = require('./../../utils/string_utils');
 
 module.exports = {
   parse: function(html){
@@ -17,7 +18,20 @@ module.exports = {
               form:race_entry.find('td:nth-child(2)').text().replace(/(\n|\s+)/g,' ').trim(),
               silk_img_link:race_entry.find('td:nth-child(3) img').attr('src'),
               horse:race_entry.find('td:nth-child(3) a').text().replace(/(\n|\s+)/g,' ').trim(),
-              profile_url:race_entry.find('td:nth-child(3) a').attr('href')
+              profile_url:race_entry.find('td:nth-child(3) a').attr('href'),
+              breeding:race_entry.find('td:nth-child(3) a').attr('title'),
+              age:race_entry.find('td:nth-child(4)').text(),
+              weight:race_entry.find('td:nth-child(5)').text(),
+              trainer:{
+                  name:race_entry.find('td:nth-child(6) a').text(),
+                  profile_url:race_entry.find('td:nth-child(6) a').attr('href')
+              },
+              jockey:{
+                  name:race_entry.find('td:nth-child(7) a').text(),
+                  profile_url:race_entry.find('td:nth-child(7) a').attr('href')
+              },
+              or:race_entry.find('td:nth-child(8)').text(),
+              sp:race_entry.find('td:nth-child(10)').text()
           });
       });
 
@@ -30,10 +44,24 @@ module.exports = {
               form:race_entry.find('td:nth-child(2)').text().replace(/(\n|\s+)/g,' ').trim(),
               silk_img_link:race_entry.find('td:nth-child(3) img').attr('src'),
               horse:race_entry.find('td:nth-child(3) strong').text().replace(/(\n|\s+)/g,' ').trim(),
-              profile_url:race_entry.find('td:nth-child(3) a').attr('href')
-
+              profile_url:race_entry.find('td:nth-child(3) a').attr('href'),
+              breeding:race_entry.find('td:nth-child(3) a').attr('title'),
+              age:race_entry.find('td:nth-child(4)').text(),
+              weight:race_entry.find('td:nth-child(5)').text(),
+              trainer:{
+                  name:race_entry.find('td:nth-child(6) a').text(),
+                  profile_url:race_entry.find('td:nth-child(6) a').attr('href')
+              },
+              jockey:{
+                  name:race_entry.find('td:nth-child(7) a').text(),
+                  profile_url:race_entry.find('td:nth-child(7) a').attr('href')
+              },
+              or:race_entry.find('td:nth-child(8)').text(),
+              sp:race_entry.find('td:nth-child(10)').text()
           });
       });
+      race_entries = string_utils.scrub_obj_whitespace(race_entries);
+
 
       return race_entries;
   }

@@ -40,7 +40,7 @@ module.exports = {
           });
       });
 
-      string_utils.scrub_json_obj_strs(race_result)
+      race_result = string_utils.scrub_obj_whitespace(race_result)
       return race_result;
   }
 };

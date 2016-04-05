@@ -19,10 +19,10 @@ describe("Parse horse details", function() {
         var race_result = race_result_parser.parse(html);
 
         console.log(JSON.stringify(race_result));
-        chai.expect(race_result.race_name).to.equal('Betway Spring Mile (Handicap) (Str)');
-        chai.expect(race_result.race_time).to.equal('14:15 Doncaster');
-        chai.expect(race_result.going).to.equal('Going: Soft');
-        chai.expect(race_result.surface).to.equal('Surface: Turf');
+        chai.expect(race_result.race_name.trim()).to.equal('Betway Spring Mile (Handicap) (Str)');
+        chai.expect(race_result.race_time.trim()).to.equal('14:15 Doncaster');
+        chai.expect(race_result.going.trim()).to.equal('Going: Soft');
+        chai.expect(race_result.surface.trim()).to.equal('Surface: Turf');
         chai.expect(race_result.results.length).to.equal(22);
 
         done();
