@@ -1,0 +1,1 @@
+java -cp "C:\Users\a449105\AppData\Local\Programs\SaxonEE9-6-0-7J\saxon9ee.jar" net.sf.saxon.Query -q:$1
