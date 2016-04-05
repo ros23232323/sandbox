@@ -1,0 +1,15 @@
+mknode --np "{'name':'Apache Outlaw (IRE)','type':'Horse','profile_url':'/racing/profiles/horse/914744/apache-outlaw'}"
+mknode --np "{'name':'Miss R Curtis','type':'Trainer','profile_url':'/racing/profiles/trainer/48366/miss-r-curtis'}"
+mknode --np "{'name':'R Johnson','type':'Jockey','profile_url':'/racing/profiles/jockey/238/r-johnson'}"
+
+#mkrel -d OUTGOING -t CONNECTED 1 --rp "{'Airline':'X','Start-Time':'1400'}"
+
+
+#mknode --np "{'name':Paris}" -v
+
+
+
+
+mkrel -d INCOMING -t TRAINS 3 
+mkrel -d INCOMING -t RIDES 4
+
