@@ -22,42 +22,22 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="race_entry_parser_test.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/race_entry_parser_test.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="neo4j_client_test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/neo4j_client_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            <state relative-caret-position="388">
+              <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="race_entries_parser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/race_entries_parser.js">
+      <file leaf-file-name="neo4j_client.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/services/integrations/neo4j_client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="string_utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/utils/string_utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oddschecker_parser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/oddschecker_parser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="658">
-              <caret line="53" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="1185">
+              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -81,7 +61,6 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/services/racecard_processor.js" />
         <option value="$PROJECT_DIR$/services/search-crawler.js" />
-        <option value="$PROJECT_DIR$/services/search-processor.js" />
         <option value="$PROJECT_DIR$/services/crawler.js" />
         <option value="$PROJECT_DIR$/services/crawlers/parsers/racecard_processor.js" />
         <option value="$PROJECT_DIR$/test/racecard_processor_test.js" />
@@ -97,8 +76,6 @@
         <option value="$PROJECT_DIR$/tmp/oddschecker_json_err" />
         <option value="$PROJECT_DIR$/test/html_util_test.js" />
         <option value="$PROJECT_DIR$/test/oddschecker_parser_test.js" />
-        <option value="$PROJECT_DIR$/tmp/detail_json_test" />
-        <option value="$PROJECT_DIR$/services/crawlers/parsers/horse_details_parser.js" />
         <option value="$PROJECT_DIR$/test/horse_details_parser_test.js" />
         <option value="$PROJECT_DIR$/test/string_util_test.js" />
         <option value="$PROJECT_DIR$/services/utils/string_utils.js" />
@@ -109,6 +86,12 @@
         <option value="$PROJECT_DIR$/test/task_runner_test.js" />
         <option value="$PROJECT_DIR$/services/crawlers/parsers/oddschecker_parser.js" />
         <option value="$PROJECT_DIR$/services/crawlers/parsers/race_entries_parser.js" />
+        <option value="$PROJECT_DIR$/services/integrations/neo4j-client.js" />
+        <option value="$PROJECT_DIR$/tmp/detail_json_test" />
+        <option value="$PROJECT_DIR$/services/search-processor.js" />
+        <option value="$PROJECT_DIR$/services/crawlers/parsers/horse_details_parser.js" />
+        <option value="$PROJECT_DIR$/test/neo4j_client_test.js" />
+        <option value="$PROJECT_DIR$/services/integrations/neo4j_client.js" />
       </list>
     </option>
   </component>
@@ -181,6 +164,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tmp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horsetracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -199,50 +196,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horsetracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horsetracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parsers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,8 +219,55 @@
       <recent name="$PROJECT_DIR$/services" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Parse horse details.get horse details">
-    <configuration default="false" name="test/string_util_test.js" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Mocha.Parse horse details (1)">
+    <configuration default="false" name="Parse horse details (1)" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>/usr/local/bin/node</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/neo4j_client_test.js</test-file>
+      <test-names>
+        <name value="Parse horse details" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="Parse horse details.Create Trainer Node test" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>/usr/local/bin/node</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/neo4j_client_test.js</test-file>
+      <test-names>
+        <name value="Parse horse details" />
+        <name value="Create Trainer Node test" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="Parse horse details.Create horse Node test" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>/usr/local/bin/node</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/neo4j_client_test.js</test-file>
+      <test-names>
+        <name value="Parse horse details" />
+        <name value="Create horse Node test" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="test/neo4j_client_test.js" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>/usr/local/bin/node</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -272,10 +276,10 @@
       <ui>bdd</ui>
       <extra-mocha-options />
       <test-kind>TEST_FILE</test-kind>
-      <test-file>$PROJECT_DIR$/test/string_util_test.js</test-file>
+      <test-file>$PROJECT_DIR$/test/neo4j_client_test.js</test-file>
       <method />
     </configuration>
-    <configuration default="false" name="Parse horse details.get horse details (1)" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Parse horse details.Create Dame Node test" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>/usr/local/bin/node</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -284,56 +288,10 @@
       <ui>bdd</ui>
       <extra-mocha-options />
       <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/race_result_parser_test.js</test-file>
+      <test-file>$PROJECT_DIR$/test/neo4j_client_test.js</test-file>
       <test-names>
         <name value="Parse horse details" />
-        <name value="get horse details" />
-      </test-names>
-      <method />
-    </configuration>
-    <configuration default="false" name="Parse racecard details" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>/usr/local/bin/node</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/racecard_parser_test.js</test-file>
-      <test-names>
-        <name value="Parse racecard details" />
-      </test-names>
-      <method />
-    </configuration>
-    <configuration default="false" name="Parse horse details" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>/usr/local/bin/node</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/race_entry_parser_test.js</test-file>
-      <test-names>
-        <name value="Parse horse details" />
-      </test-names>
-      <method />
-    </configuration>
-    <configuration default="false" name="Parse horse details.get horse details" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>/usr/local/bin/node</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/race_entry_parser_test.js</test-file>
-      <test-names>
-        <name value="Parse horse details" />
-        <name value="get horse details" />
+        <name value="Create Dame Node test" />
       </test-names>
       <method />
     </configuration>
@@ -392,19 +350,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.test/string_util_test.js" />
-      <item index="2" class="java.lang.String" itemvalue="Mocha.Parse horse details.get horse details (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.Parse racecard details" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.Parse horse details" />
-      <item index="5" class="java.lang.String" itemvalue="Mocha.Parse horse details.get horse details" />
+      <item index="1" class="java.lang.String" itemvalue="Mocha.Parse horse details (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create Trainer Node test" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create horse Node test" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.test/neo4j_client_test.js" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create Dame Node test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Mocha.Parse horse details.get horse details" />
-        <item index="1" class="java.lang.String" itemvalue="Mocha.Parse horse details" />
-        <item index="2" class="java.lang.String" itemvalue="Mocha.Parse racecard details" />
-        <item index="3" class="java.lang.String" itemvalue="Mocha.Parse horse details.get horse details (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Mocha.test/string_util_test.js" />
+        <item index="0" class="java.lang.String" itemvalue="Mocha.Parse horse details (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Mocha.test/neo4j_client_test.js" />
+        <item index="2" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create Dame Node test" />
+        <item index="3" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create horse Node test" />
+        <item index="4" class="java.lang.String" itemvalue="Mocha.Parse horse details.Create Trainer Node test" />
       </list>
     </recent_temporary>
   </component>
@@ -428,54 +386,55 @@
       <workItem from="1459637624364" duration="5503000" />
       <workItem from="1459804039279" duration="4072000" />
       <workItem from="1459876748262" duration="6792000" />
+      <workItem from="1459961971814" duration="9450000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Parse_horse_details - 2016.04.05 at 22h 04m 28s.xml">
-      <configuration name="Parse horse details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.06 at 23h 51m 36s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details - 2016.04.05 at 22h 10m 03s.xml">
-      <configuration name="Parse horse details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.06 at 23h 53m 10s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details_get_horse_details - 2016.04.05 at 22h 12m 47s.xml">
-      <configuration name="Parse horse details.get horse details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.07 at 00h 04m 15s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details_get_horse_details - 2016.04.05 at 22h 14m 49s.xml">
-      <configuration name="Parse horse details.get horse details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.07 at 00h 07m 05s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details_get_horse_details - 2016.04.05 at 22h 16m 51s.xml">
-      <configuration name="Parse horse details.get horse details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.07 at 00h 17m 27s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details_get_horse_details_(1) - 2016.04.05 at 22h 00m 58s.xml">
-      <configuration name="Parse horse details.get horse details (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.07 at 00h 17m 35s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_horse_details_get_horse_details_(1) - 2016.04.05 at 22h 01m 18s.xml">
-      <configuration name="Parse horse details.get horse details (1)" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_(1) - 2016.04.07 at 00h 18m 14s.xml">
+      <configuration name="Parse horse details (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_racecard_details - 2016.04.05 at 22h 01m 44s.xml">
-      <configuration name="Parse racecard details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Parse_horse_details_Create_Dame_Node_test - 2016.04.06 at 23h 51m 20s.xml">
+      <configuration name="Parse horse details.Create Dame Node test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_racecard_details - 2016.04.05 at 22h 01m 55s.xml">
-      <configuration name="Parse racecard details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_neo4j_client_test_js - 2016.04.07 at 00h 12m 42s.xml">
+      <configuration name="test/neo4j_client_test.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Parse_racecard_details - 2016.04.05 at 22h 04m 05s.xml">
-      <configuration name="Parse racecard details" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_neo4j_client_test_js - 2016.04.07 at 00h 14m 21s.xml">
+      <configuration name="test/neo4j_client_test.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30035000" />
+    <option name="totallyTimeSpent" value="39485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814017" sideWeight="0.70117956" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30825022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30825022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24905661" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18814017" sideWeight="0.29882044" order="2" side_tool="true" content_ui="tabs" />
@@ -539,63 +498,29 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/horse_details_parser_test.js</url>
           <line>20</line>
-          <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/string_util_test.js</url>
           <line>28</line>
-          <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/string_util_test.js</url>
           <line>19</line>
-          <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/string_util_test.js</url>
           <line>20</line>
-          <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/crawler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="64" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/racecard_processor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -677,42 +602,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/search-crawler.js" />
-    <entry file="file://$PROJECT_DIR$/services/crawler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/search-processor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/racecard_processor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/producers/race_entity_topic_producer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/consumers/race_entity_topic_consumer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -750,32 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/crawlers/racecard_crawler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/tasks/task_runner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/crawlers/search_crawler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/horse-details-processor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,22 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/detail_json_test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/horse_details_parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/race_result_parser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -821,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,17 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/search_parser_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -847,7 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -863,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,15 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/horse_details_parser_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,7 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/oddschecker_parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
+        <state relative-caret-position="795">
           <caret line="53" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
@@ -917,16 +743,144 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/race_entries_parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/race_entry_parser_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/search_parser_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/detail_json_test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/search-processor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/racecard_processor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/race_processor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/crawler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/consumers/race_entity_topic_consumer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/producers/race_entity_topic_producer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/crawlers/search_crawler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/crawlers/racecard_crawler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/app-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/horse-details-processor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/horse_details_parser_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/crawlers/parsers/horse_details_parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="9" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/neo4j_client_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/integrations/neo4j_client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
           <folding />
         </state>
       </provider>

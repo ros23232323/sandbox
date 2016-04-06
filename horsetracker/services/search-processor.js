@@ -21,7 +21,7 @@ var total_result_count = num_result_str.match(/[0-9]* (?=results)/g)[0].trim();
 console.log(num_result_str);
 console.log(total_result_count);
 
-$('.search-results .search-item.t2').each(function(i, element){
+$('.search-results .search-item.t2').each(function(i, element){     
     var search_result_tmp = $(this);
     search_result.results.push({
        name: search_result_tmp.find('h4').text().trim().replace(/\s+/g,' '),

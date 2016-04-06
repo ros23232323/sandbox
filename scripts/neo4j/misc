@@ -13,3 +13,43 @@ mknode --np "{'name':'R Johnson','type':'Jockey','profile_url':'/racing/profiles
 mkrel -d INCOMING -t TRAINS 3 
 mkrel -d INCOMING -t RIDES 4
 
+
+
+MERGE (robert:Critic) RETURN robert, labels(robert)
+
+MERGE (charlie:Person:Actor:Addict { name:'Charlie Sheen', age:10 }) RETURN charlie
+MERGE (colly:Person { name:'Colette McDermott', age:33 }) RETURN colly
+
+
+#create new node if one does not already exist
+MERGE (ian:Person { name:'Ian Towey', age:36 }) ;
+
+#add remove index
+CREATE INDEX ON :Person;
+CREATE INDEX ON :Person(name);
+DROP INDEX ON :Person(name);
+
+#add remove constraint
+CREATE CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE;
+DROP CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE;
+
+#query for person	
+MATCH (p:Person) RETURN p;
+MATCH (p:Person {name: 'Ian Towey'}) RETURN p;
+MATCH (p:Person {name: 'Ian Towey'}) RETURN p.age;
+
+#delete all Person Nodes
+MATCH (n:Person) DELETE n;
+
+#delete all nodes / relations during test
+MATCH (n) DETACH DELETE n;
+
+#delete node and any relations going to form it
+MATCH (n { name:'Andres' }) DETACH DELETE n
+
+
+MATCH (dame:Horse { name:'Bermuda Bay (IRE)' }),(runner:Horse { name:'Apache Outlaw (IRE)' }) MERGE (dame)-[r:DAME_OF]->(runner);
+MATCH (sire:Horse { name:'Westerner' }),(runner:Horse { name:'Apache Outlaw (IRE)' }) MERGE (sire)-[r:SIRE_OF]->(runner);
+MATCH (trainer:Person { name:'Miss R Curtis' }),(runner:Horse { name:'Apache Outlaw (IRE)' }) MERGE (trainer)-[r:TRAINER_OF]->(runner);
+MATCH (owner:Person { name:'Owner: Mr G Costelloe' }),(runner:Horse { name:'Apache Outlaw (IRE)' }) MERGE (owner)-[r:OWNER_OF]->(runner);
+

@@ -4,7 +4,7 @@ var string_utils = require('./../../utils/string_utils');
 var cheerio = require('cheerio');
 
 module.exports = {
-    parse:function(html){
+    parse:function(html, options){
         var horse_details = {};
 
         var $ = cheerio.load(html);
@@ -15,6 +15,7 @@ module.exports = {
             name : racecard_header.find('h2').text(),
             age : racecard_header.find('ul li:nth-child(1)').text(),
             sex :  racecard_header.find('ul li:nth-child(2)').text(),
+            profile_url: (('url' in options) ? options['url'] : null),
             sire : {
                 name:racecard_header.find('ul li:nth-child(3) a').text(),
                 profile_url:racecard_header.find('ul li:nth-child(3) a').attr('href')
