@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/horsetracker.iml" filepath="$PROJECT_DIR$/horsetracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mystable/mystable.iml" filepath="$PROJECT_DIR$/mystable/mystable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/racecard/racecard.iml" filepath="$PROJECT_DIR$/racecard/racecard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/services.iml" filepath="$PROJECT_DIR$/services/services.iml" />
+    </modules>
+  </component>
+</project>
