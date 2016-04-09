@@ -1,0 +1,30 @@
+@startuml
+actor  "Crawler" as C
+actor  "<<sporting life>>" as SL
+actor  "HorseTrackerServices" as S
+actor "Couchbase(cache)" as CB
+actor  "Kafka\n(racecard consumer\nrace producer)" as K
+actor  "Kafka\n(race consumer)" as K2
+actor  "Kafka\n(race consumer)" as K2
+actor  "Neo4J(Graph DB)" as GD
+C -> SL: :getRaceCard(url)
+SL -> C: <html>
+C -> C: processing
+note left: compute hash of \n<html>
+C -> CB : :checkCacheinValidated(url, bodyHash)
+CB -> C : <true|false>
+alt true: page state change
+    C -> K: :processPage(url, body)
+    K -> S: :htmlToJson(html)
+    S -> K: <json>
+    K -> K2: sendUrlForProcessing(url)
+    K2 -> K2: :getRace / :getResult
+    K2 -> S: :htmlToJson(html)
+    S -> K2: :<raceDetailsJson>
+    K2 -> CB: :updateUrlContent(raceDetailsJson)
+    K2 -> GD: :updateGraph(raceDetailsJson)
+
+else false :
+    C -> C: QED
+end
+@enduml

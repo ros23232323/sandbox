@@ -51,7 +51,7 @@ describe("Parse horse details", function() {
     });
 
     it("Create owner Node test", function (done) {
-
+v 
         neo4j_client.create_owner({
             name:horse_profile.owner.trim(),
             profile_url:""
