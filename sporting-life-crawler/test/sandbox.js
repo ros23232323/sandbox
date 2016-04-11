@@ -3,6 +3,7 @@ var couchbase = require("couchbase");
 var crypto = require('crypto');
 var fs = require('fs');
 var RacecardModel = require("../models/racecard");
+var race_crawler = require('../services/race_crawler');
 
 var hash_tesing = function(){
 
@@ -60,4 +61,18 @@ var couchbase_racecard_all = function(){
         console.log(JSON.stringify(result));
     });
 }
-couchbase_racecard_all ();
+// couchbase_racecard_all ();
+
+var meeting_tester = function(){
+
+    RacecardModel.findByDate('11-04-2016', function(error, result) {
+        if(error) {
+            console.log("An error happened -> " + JSON.stringify(error));
+        }
+        var racecardMdl = result[0];
+        racecardMdl.cards.forEach(function(meeting, index, array){
+            race_crawler.race(meeting);
+        });
+    });
+}
+meeting_tester ();

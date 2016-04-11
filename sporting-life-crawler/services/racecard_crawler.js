@@ -1,7 +1,7 @@
 'use strict';
 
 var crud_service = require('./crud_service');
-var meeting_crawler = require('./meeting_crawler');
+var race_crawler = require('./race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
 var string_utils = require("../utils/string_utils");
 var racecard_parser = require("../parsers/racecard_parser");
@@ -35,13 +35,6 @@ module.exports = {
 
                         //save new document
                         crud_service.save(racecardNew);
-                        // racecardNew.save(function(error) {
-                        //     if(error) {
-                        //         console.error(error);
-                        //     } else {
-                        //         console.log("object saved");
-                        //     }
-                        // });
 
                         //remove previous
                         if(racecard !== undefined) {
@@ -54,7 +47,7 @@ module.exports = {
                         }
 
                         racecardNew.cards.forEach(function(meeting, index, array){
-                            meeting_crawler.meeting(meeting);
+                            race_crawler.race(meeting);
                         });
                         console.log(url + " body changed, updating");
                     }

@@ -55,6 +55,6 @@ ottoman.ensureIndices(function(err) {
     if (err) return console.error(err);
 });
 
-module.exports=RacecardMdl;
+module.exports=RaceMdl;
 
 

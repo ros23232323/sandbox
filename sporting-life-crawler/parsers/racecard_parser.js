@@ -32,7 +32,8 @@ module.exports = {
                     race_time:race_section.find('.ix.ixt').text(),
                     race_name:race_section.find('.ix.ixc').text().replace(/\n/g,' ').replace(/\s+/g,' '),
                     racecard_url:race_section.find('.ix.ixc a').attr('href'),
-                    result_url:race_section.find('.ix.ixv a').attr('href')
+                    result_url:race_section.find('.ix.ixv a').attr('href'),
+                    abandoned:race_section.find('.ix.ixv .dnf').text()
                 })
                 //time
             });

@@ -19,7 +19,8 @@ var RacecardMdl = ottoman.model("Racecard", {
             race_time:"string",
             race_name:"string",
             racecard_url:"string",
-            result_url:"string"
+            result_url:"string",
+            abandoned:"string"
         }]
     }]
 }, {
@@ -39,6 +40,5 @@ var RacecardMdl = ottoman.model("Racecard", {
 ottoman.ensureIndices(function(err) {
     if (err) return console.error(err);
 });
-
 
 module.exports=RacecardMdl;
