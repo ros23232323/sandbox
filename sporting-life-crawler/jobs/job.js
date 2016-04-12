@@ -1,7 +1,7 @@
 'use strict';
 
 var crontab = require('node-crontab');
-var racecard_crawler = require('./racecard_crawler');
+var racecard_crawler = require('./../services/racecard_crawler');
 
 var rest_request_utils = require("./../utils/rest_request_utils");
 var url_builder_utils = require("./../utils/url_builder_utils");

@@ -1,7 +1,7 @@
 'use strict';
 
 var cheerio = require('cheerio');
-var string_utils = require('./../../utils/string_utils');
+var string_utils = require('../utils/string_utils');
 
 module.exports = {
   parse: function(html, options){
@@ -19,7 +19,7 @@ module.exports = {
 
       $('#racecard tbody tr:not(.disabled)').each(function(i, element){
           var race_entry = $(this);
-          race_entries.push({
+          race_runners.push({
               running: true,
               stall:race_entry.find('td:nth-child(1)').text().replace(/(\n|\s+)/g,' ').trim(),
               form:race_entry.find('td:nth-child(2)').text().replace(/(\n|\s+)/g,' ').trim(),
@@ -45,7 +45,7 @@ module.exports = {
       //non runners
       $('#racecard tbody tr.disabled').each(function(i, element){
           var race_entry = $(this);
-          race_entries.push({
+          race_runners.push({
               running: false,
               stall:race_entry.find('td:nth-child(1)').text().replace(/(\n|\s+)/g,' ').trim(),
               form:race_entry.find('td:nth-child(2)').text().replace(/(\n|\s+)/g,' ').trim(),

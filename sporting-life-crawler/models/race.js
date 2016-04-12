@@ -22,7 +22,7 @@ var RaceMdl = ottoman.model("Race", {
         form: "string",
         horse: "string",
         profile_url: "string",
-        silk_img_url:"string",
+        silk_img_link:"string",
         breeding: "string",
         age: "string",
         weight: "string",
@@ -35,7 +35,7 @@ var RaceMdl = ottoman.model("Race", {
             profile_url: "string"
         },
         or: "string",
-        odds: "string"
+        sp: "string"
     }]
     }, {
     index: {

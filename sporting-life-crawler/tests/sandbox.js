@@ -35,7 +35,7 @@ var url_testing = function(){
 var couchbase_conn_test = function(){
 
     var cluster = new couchbase.Cluster('127.0.0.1');
-    var bucket = cluster.openBucket('horsetracker-test', "password", function(err) {
+    var bucket = cluster.openBucket('horsetracker-tests', "password", function(err) {
         if (err) {
             // Failed to make a connection to the Couchbase cluster.
             throw err;
