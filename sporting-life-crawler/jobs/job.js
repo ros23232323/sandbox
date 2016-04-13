@@ -19,11 +19,12 @@ module.exports = {
         console.log('******************************************************');
     },
     start: function(){
+        var dt = new Date();
         // var jobId = crontab.scheduleJob(config.cron.racecard, function(){ //This will call this function every 2 minutes
         //     if(!is_running) {
                 is_running = true;
-                console.log("crawling url..... " + url_builder_utils.sp_raceards_url(config, new Date()) );
-                racecard_crawler.racecard(url_builder_utils.sp_raceards_url(config, new Date()));
+                console.log("crawling url..... " + url_builder_utils.sp_raceards_url(config, dt) );
+                racecard_crawler.racecard(url_builder_utils.sp_raceards_url(config, dt));
                 is_running = false;
             // } else {
             //     console.log("job in progress");

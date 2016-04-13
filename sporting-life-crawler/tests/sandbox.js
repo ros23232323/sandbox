@@ -4,6 +4,9 @@ var crypto = require('crypto');
 var fs = require('fs');
 var RacecardModel = require("../models/racecard");
 var race_crawler = require('../services/race_crawler');
+var rest_request_utils = require("../utils/rest_request_utils");
+var result_parser = require("../parsers/result_parser");
+
 
 var hash_tesing = function(){
 
@@ -75,4 +78,13 @@ var meeting_tester = function(){
         });
     });
 }
-meeting_tester ();
+//meeting_tester ();
+
+var result_parse_test = function(){
+    var url = "http://www.sportinglife.com/racing/results/13-04-2016/newmarket/result/717970/celebrating-350-years-of-making-history-wood-ditton-stakes-plus-10";
+    rest_request_utils.get(url,null,function(html){
+        var a = result_parser.parse(html,null);
+        console.log(JSON.stringify(a))
+    });
+}
+result_parse_test();
