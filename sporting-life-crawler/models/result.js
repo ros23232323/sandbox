@@ -10,6 +10,7 @@ var ResultMdl = ottoman.model("Result", {
         page_url: "string",
         page_body_hash: "string",
         race_name:"string",
+        race_date:"string",
         race_time:"string",
         race_distance:"string",
         race_class:"string",

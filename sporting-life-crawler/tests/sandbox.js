@@ -6,6 +6,7 @@ var RacecardModel = require("../models/racecard");
 var race_crawler = require('../services/race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
 var result_parser = require("../parsers/result_parser");
+var string_utils = require("../utils/string_utils");
 
 
 var hash_tesing = function(){
@@ -30,9 +31,9 @@ var hash_tesing = function(){
 // hash_tesing();
 
 var url_testing = function(){
-    console.log(JSON.stringify(url_util.parse(" http://www.sportinglife.com/racing/racecards/09-04-2016", true)));
+    console.log(JSON.stringify(string_utils.url_parse("http://www.sportinglife.com/racing/racecards/14-04-2016/cheltenham/racecard/718172/thoroughbred-breeders-association-mares-novices-hurdle-listed")));
 }
-// url_testing();
+ url_testing();
 
 
 var couchbase_conn_test = function(){
@@ -87,4 +88,4 @@ var result_parse_test = function(){
         console.log(JSON.stringify(a))
     });
 }
-result_parse_test();
+//result_parse_test();

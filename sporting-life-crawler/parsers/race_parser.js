@@ -10,6 +10,14 @@ module.exports = {
       var race = {
           page_url:options.page_url,
           page_body_hash:options.page_body_hash,
+          race_name:null,
+          race_date:options.race_date,
+          race_time:null,
+          race_distance:null,
+          race_class:null,
+          prize_money:null,
+          race_going:null,
+          race_surface:null,
           runners:null
       }
       

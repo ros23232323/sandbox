@@ -17,7 +17,7 @@ var ResultModel = require('../models/result');
 
 var get_runners = function(url){
 
-    var url_parts = url_util.parse(url, true);
+    var url_parts = string_utils.url_parse(url);
     rest_request_utils.get(url,null,function(html){
 
         var htmlMD5 = string_utils.hash_string(html);
@@ -29,9 +29,9 @@ var get_runners = function(url){
                 } else {
                     //parse doc
                     var race_json = race_parser.parse(html, {
-                        dt:url_parts.path.split('/')[3],
                         page_url:url,
-                        page_body_hash:htmlMD5
+                        page_body_hash:htmlMD5,
+                        race_date:url_parts.path_array[3]
                     });
 
                     //set new docment
