@@ -3,6 +3,7 @@ var couchbase = require("couchbase");
 var crypto = require('crypto');
 var fs = require('fs');
 var RacecardModel = require("../models/racecard");
+var RaceModel = require("../models/race");
 var race_crawler = require('../services/race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
 var result_parser = require("../parsers/result_parser");
@@ -33,7 +34,7 @@ var hash_tesing = function(){
 var url_testing = function(){
     console.log(JSON.stringify(string_utils.url_parse("http://www.sportinglife.com/racing/racecards/14-04-2016/cheltenham/racecard/718172/thoroughbred-breeders-association-mares-novices-hurdle-listed")));
 }
- url_testing();
+ // url_testing();
 
 
 var couchbase_conn_test = function(){
@@ -89,3 +90,16 @@ var result_parse_test = function(){
     });
 }
 //result_parse_test();
+
+var couchbase_race_neo4j = function(){
+
+    RaceModel.findByPageUrl("http://www.sportinglife.com/racing/racecards/13-04-2016/penn-national/racecard/718570/claiming", function(error, result) {
+        if(error) {
+            console.log("An error happened -> " + JSON.stringify(error));
+        }
+        var race = result[0];
+        
+        console.log(JSON.stringify(result));
+    });
+}
+couchbase_race_neo4j ();
