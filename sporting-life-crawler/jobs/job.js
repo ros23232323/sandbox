@@ -20,6 +20,8 @@ module.exports = {
     },
     start: function(){
         var dt = new Date();
+        dt.setDate(dt.getDate()+1);
+
         // var jobId = crontab.scheduleJob(config.cron.racecard, function(){ //This will call this function every 2 minutes
         //     if(!is_running) {
                 is_running = true;

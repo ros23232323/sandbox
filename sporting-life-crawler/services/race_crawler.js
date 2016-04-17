@@ -48,7 +48,6 @@ var get_runners = function(url){
 }
 
 var get_result = function(url){
-    console.log('\t\t\tTODO:: parse result ' + url);
     var url_parts = url_util.parse(url, true);
 
     rest_request_utils.get(url,null,function(html){
@@ -82,7 +81,7 @@ var get_result = function(url){
 module.exports = {
     race:function(meeting){
 
-        console.log('TODO:: parse races ' + meeting.track);
+        console.log('TODO:: parse races/results ' + meeting.track);
         _.filter(meeting.races, function(ele){
             return ele.abandoned !== 'ABD';
         })

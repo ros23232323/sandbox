@@ -2,13 +2,17 @@ var url_util = require('url');
 var couchbase = require("couchbase");
 var crypto = require('crypto');
 var fs = require('fs');
-var RacecardModel = require("../models/racecard");
+var _ = require('underscore');
+var async = require('async');
 var RaceModel = require("../models/race");
+var RacecardModel = require("../models/racecard");
 var race_crawler = require('../services/race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
 var result_parser = require("../parsers/result_parser");
 var string_utils = require("../utils/string_utils");
-
+var neo4j_service = require('../services/neo4j_service');
+var dateformat = require('dateformat');
+var neo_graph_building_service = require('../services/neo_graph_building_service');
 
 var hash_tesing = function(){
 
@@ -66,11 +70,23 @@ var couchbase_racecard_all = function(){
         console.log(JSON.stringify(result));
     });
 }
-// couchbase_racecard_all ();
+ couchbase_racecard_all ();
+
+
+var couchbase_race_get = function(){
+
+    RaceModel.findByPageUrl('http://www.sportinglife.com/racing/racecards/13-04-2016/oaklawn-park/racecard/718586/maiden-claiming', function(error, result) {
+        if(error) {
+            console.log("An error happened -> " + JSON.stringify(error));
+        }
+        console.log(JSON.stringify(result));
+    });
+}
+// couchbase_race_get();
 
 var meeting_tester = function(){
 
-    RacecardModel.findByDate('11-04-2016', function(error, result) {
+    RacecardModel.findByDate('14-04-2016', function(error, result) {
         if(error) {
             console.log("An error happened -> " + JSON.stringify(error));
         }
@@ -80,7 +96,7 @@ var meeting_tester = function(){
         });
     });
 }
-//meeting_tester ();
+// meeting_tester ();
 
 var result_parse_test = function(){
     var url = "http://www.sportinglife.com/racing/results/13-04-2016/newmarket/result/717970/celebrating-350-years-of-making-history-wood-ditton-stakes-plus-10";
@@ -91,15 +107,37 @@ var result_parse_test = function(){
 }
 //result_parse_test();
 
-var couchbase_race_neo4j = function(){
+var neo4j_create_node_test = function(){
+    neo4j_service.create_horse({
+        name:"Soxy Ruby (USA)",
+        profile_url:"/racing/profiles/horse/876130/soxy-ruby"
+        },
+        function(err, results) {
+            if (err) throw err;
+            console.log("create response  " + JSON.stringify(results) + "\n");
+        }
+    );
+}
+// neo4j_create_node_test();
 
-    RaceModel.findByPageUrl("http://www.sportinglife.com/racing/racecards/13-04-2016/penn-national/racecard/718570/claiming", function(error, result) {
+var build_graph_from_todays_race_card = function(){
+
+    RacecardModel.find({}, function(error, result) {
         if(error) {
             console.log("An error happened -> " + JSON.stringify(error));
         }
-        var race = result[0];
-        
         console.log(JSON.stringify(result));
+        var racecard = result[0];
+        _.forEach(racecard.cards,function(meeting, meeting_index, meeting_list){
+            setTimeout(function(){
+                _.forEach(meeting.races, function(race, race_index, race_list){
+                    setTimeout(function(){
+                        neo_graph_building_service.build_graph("http://www.sportinglife.com" + race.racecard_url);
+                    },race_index);
+                });
+            }, meeting_index);
+        });
     });
 }
-couchbase_race_neo4j ();
+
+// build_graph_from_todays_race_card();

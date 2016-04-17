@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ros23232323/sandbox#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "body-parser": "^1.15.0",
     "chai": "^3.5.0",
     "cheerio": "^0.20.0",
@@ -31,6 +32,7 @@
     "jade": "^1.11.0",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
+    "neo4j": "^2.0.0-RC2",
     "node-crontab": "0.0.8",
     "ottoman": "^1.0.3",
     "request": "^2.70.0",
