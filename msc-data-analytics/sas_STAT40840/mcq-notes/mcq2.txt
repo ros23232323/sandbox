@@ -1,0 +1,80 @@
+data work.q1;
+	input Name $ Salary;
+	Original_Salary=Salary;
+	datalines;
+Abi 50000
+Mike 65000
+Jose 50000.00
+Joe 37000.50
+Ursula 142000
+Luis 49999.99
+;
+
+proc format;
+   value tiers  20000-<50000='Tier 1'                  
+               50000-<100000='Tier 2'
+               100000-250000='Tier 3';
+run;
+
+proc print data=work.salaries;
+   format Salary tiers.;
+run;
+
+
+
+
+data work.q2;
+	infile datalines dlm='#';
+	input Last_Name  $ First_Name $ Country $ Job_Title $;
+	datalines;
+Wu # Christine # AU # Sales Rep. I #
+Stone # Kimiko # AU # Sales Manager #
+Hofmann # Fred # AU # Insurance Sales #
+;
+
+
+proc print data=work.q2;
+where Job_Title contains 'I';
+run;
+
+
+proc print data=orion.staff;
+run;
+
+proc sort data=orion.staff out=work.staff_sorted;
+	by decending Salary Manager_ID;
+run;
+
+proc print data=work.staff_sorted;
+run;
+
+title1 'The First Line';
+title2 'The Second Line';
+proc print data=orion.sales;
+run;
+title2 'The Next Line';
+proc print data=orion.sales;
+run;
+title 'The Top Line';
+proc print data=orion.sales;
+run;
+
+
+proc print data=orion.sales;
+   var Employee_ID Salary;
+   where Country='AU';
+   by Gender;
+   label Salary='Annual Salary';
+run;
+
+
+proc sort data=orion.sales out=work.sales_sorted;
+   by Country;
+run;
+
+proc print data=work.sales_sorted;
+   var Employee_ID Salary;
+   where Country='AU';
+   by Gender;
+   label Salary='Annual Salary';
+run;
