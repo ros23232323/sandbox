@@ -1,0 +1,92 @@
+#list connected devices
+adb devices
+
+#install apk on connected device
+adb -s 192.168.56.101:5555 install ./app/build/outputs/apk/OApp-debug.apk
+
+#adb connect to device
+adb connect 192.168.56.101
+
+#adb
+adb -s 192.168.56.101:5555 shell monkey -p com.overstock.android.prototype -v 500
+
+#gradle ut it and sonar
+gradle clean connectedDebugAndroidTest testDebugUnitTestCoverage sonarqube
+
+
+#LIST POSSIBLE EMULATORS
+android list targets
+
+#list creaTED EMULATORS
+android list avd
+
+android create avd -n api_5_0_1__21_LOLLIPOP -t 1 --abi google_apis/x86_64 
+android create avd -n api_5_1_1__22_LOLLIPOP -t 2 --abi google_apis/x86_64
+android create avd -n api_6_0__23_MARSHMALLOW  -t 7 --abi google_apis/x86_64
+
+
+emulator -avd $(emulator -list-avds | grep 23) -memory 1024 &
+
+#kill emulator process running on port 5554
+and 
+
+kill -9 $(netstat -lpn 2>/dev/null | grep 5554 | awk '{print $7}' | grep -o [0-9]*/ | grep -o [0-9]*)
+kill -9 $(netstat -lpn 2>/dev/null | grep 5556 | awk '{print $7}' | grep -o [0-9]*/ | grep -o [0-9]*)
+kill -9 $(netstat -lpn 2>/dev/null | grep 5558 | awk '{print $7}' | grep -o [0-9]*/ | grep -o [0-9]*)
+
+android delete avd -n $(emulator -list-avds | grep 21)
+android delete avd -n $(emulator -list-avds | grep 22)
+android delete avd -n $(emulator -list-avds | grep 23)
+
+echo "no" | android create avd -n api_5_0_2__21_LOLLIPOP -t 1 --abi google_apis/x86_64
+echo "no" | android create avd -n api_5_1_1__22_LOLLIPOP -t 2 --abi google_apis/x86_64
+echo "no" | android create avd -n api_6_0__23_MARSHMALLOW  -t 7 --abi google_apis/x86_64
+android list avd
+
+
+emulator -avd $(emulator -list-avds | grep 21) -port 5554  &
+emulator -avd $(emulator -list-avds | grep 22) -port 5556  &
+kill -9 $(netstat -lpn 2>/dev/null | grep 5558 | awk '{print $7}' | grep -o [0-9]*/ | grep -o [0-9]*)
+emulator -avd $(emulator -list-avds | grep 23) -port 5558  &
+
+#list devices
+adb devices
+s
+#send shell cmds
+adb -s emulator-5554 shell "ls -al /data/app/ApiDemos"
+
+#delete apk from emulator
+adb -s emulator-5554 shell "pm uninstall com.overstock.android.prototype"
+
+#install apk on emlator
+adb -s emulator-5554  install /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk
+adb -s emulator-5556  install /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk
+adb -s emulator-5558  install /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk
+
+#logcat specific device
+adb -s emulator-5554 logcat *W
+
+adb kill-server
+adb start-server
+
+echo "no" | android create avd -n api_6_0__23_MARSHMALLOW  -t 7 --abi google_apis/x86_64
+emulator -avd $(emulator -list-avds | grep 23) -port 5558  &
+adb -s emulator-5558 logcat > it_run.log &
+adb -s emulator-5558 shell "pm uninstall com.overstock.android.prototype"
+adb -s emulator-5558  install /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug.apk
+sdk use gradle 2.10 && gradle connectedDebugAndroidTest
+
+adb -s emulator-5558 shell "cat /data/tombstones/tombstone_03"
+
+#run a specific instrumentation test from the commandline (emulator/device required to be running)
+./gradlew app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.android.testing.blueprint.ui.espresso.EspressoTest
+
+
+#This command will compile the code.
+./gradlew assembleDebug
+
+#install the APK on device with serial number 02157df2c2460c0b, -r will means overwrite any provious versions
+adb install -r app/build/outputs/apk/app-debug-unaligned.apk -s 02157df2c2460c0b
+
+#run the app
+adb shell am start -n com.example.android.sunshine.app/com.example.android.sunshine.app.MainActivityfsdfsdf
