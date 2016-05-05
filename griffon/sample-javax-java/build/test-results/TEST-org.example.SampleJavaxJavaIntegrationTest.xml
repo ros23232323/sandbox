@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.SampleJavaxJavaIntegrationTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2016-05-05T15:50:54" hostname="itowey-Latitude-E7450" time="3.67">
+  <properties/>
+  <testcase name="clickButton" classname="org.example.SampleJavaxJavaIntegrationTest" time="3.67">
+    <failure message="java.lang.AssertionError: &#10;Expected: Labeled has text &quot;1&quot;&#10;     but: was &lt;Label[id=clickLabel, styleClass=label]'0'&gt;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: Labeled has text &quot;1&quot;
+     but: was &lt;Label[id=clickLabel, styleClass=label]'0'&gt;
+	at org.testfx.api.FxAssert.verifyThatImpl(FxAssert.java:141)
+	at org.testfx.api.FxAssert.verifyThat(FxAssert.java:76)
+	at org.example.SampleJavaxJavaIntegrationTest.clickButton(SampleJavaxJavaIntegrationTest.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at griffon.javafx.test.GriffonTestFXRule$1.evaluate(GriffonTestFXRule.java:89)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:364)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</failure>
+  </testcase>
+  <system-out><![CDATA[[2016-05-05 16:50:55,056] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Griffon 2.6.0
+[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Build: 2016-03-04T09:20:04.661+0200
+[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Revision: c28a7fa9ea7bf8f5b658ddf11d64c4f30fea5c05
+[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - JVM: 1.8.0_71 (Oracle Corporation 25.71-b15)
+[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - OS: Linux 4.2.0-35-generic amd64
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

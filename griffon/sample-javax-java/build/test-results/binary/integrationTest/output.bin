@@ -1,0 +1,5 @@
+|[2016-05-05 16:50:55,056] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Griffon 2.6.0
+í[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Build: 2016-03-04T09:20:04.661+0200
+°[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Revision: c28a7fa9ea7bf8f5b658ddf11d64c4f30fea5c05
+õ[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - JVM: 1.8.0_71 (Oracle Corporation 25.71-b15)
+è[2016-05-05 16:50:55,057] [Thread-9] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - OS: Linux 4.2.0-35-generic amd64

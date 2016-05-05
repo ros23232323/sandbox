@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.SampleJavaxJavaControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-05T15:50:51" hostname="itowey-Latitude-E7450" time="1.477">
+  <properties/>
+  <testcase name="executeClickAction" classname="org.example.SampleJavaxJavaControllerTest" time="1.477"/>
+  <system-out><![CDATA[[2016-05-05 16:50:51,957] [Test worker] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Griffon 2.6.0
+[2016-05-05 16:50:51,960] [Test worker] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Build: 2016-03-04T09:20:04.661+0200
+[2016-05-05 16:50:51,960] [Test worker] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - Revision: c28a7fa9ea7bf8f5b658ddf11d64c4f30fea5c05
+[2016-05-05 16:50:51,961] [Test worker] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - JVM: 1.8.0_71 (Oracle Corporation 25.71-b15)
+[2016-05-05 16:50:51,961] [Test worker] INFO  org.codehaus.griffon.runtime.core.DefaultApplicationBootstrapper - OS: Linux 4.2.0-35-generic amd64
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
