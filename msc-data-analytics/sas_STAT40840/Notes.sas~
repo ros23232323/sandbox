@@ -48,8 +48,3 @@ proc import datafile="C:\temp\test.csv"
      replace;
      getnames=no;
 run;
-
-proc format;
-	value gender 0 = 'male' 1 = 'female';
-run;
-

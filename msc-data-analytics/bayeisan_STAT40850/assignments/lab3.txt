@@ -1,0 +1,44 @@
+Golf putting model
+
+model{ 
+	for (i in 1:N){
+			Tries[i] ~ dflat()    
+			Success[i] ~ dbin(p[i],Tries[i])
+			logit(p[i]) <- alpha + beta1*Dist[i]+ beta2*Tries[i]
+	}
+	alpha ~ dflat()
+	beta1 ~ dflat()
+	beta2 ~ dflat()
+}
+
+
+
+# The data
+list(N=20)
+	Dist[] Tries[] Success[]
+	2	1443	1346
+	3	694	 577
+	4	455	337
+	5	353	208
+	6	272	149
+	7	256	136
+	8	240	111
+	9	217	69
+	10	200	67
+	11	237	75
+	12	202	52
+	13	192	46
+	14	174	54
+	15	167	28
+	16	201	27
+	17	195	31
+	18	191	33
+	19	147	20
+	20	152	24
+	30  100   0
+END
+
+
+# Initial values
+list(alpha=0,beta1=0,beta2=0)
+
