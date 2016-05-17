@@ -28,7 +28,6 @@ SAS exam revision
 			=	infile data step
 			=	ste statement
 		-	reading in external 
-			=
 		-	create dataset from existing dataset
 		-	merging datasets
 			=	set datasets (concat datasets)
