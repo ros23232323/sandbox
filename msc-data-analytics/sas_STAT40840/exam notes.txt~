@@ -1,0 +1,89 @@
+SAS exam revision
+--------------------------------
+
+*	2 hour exam
+*	open book
+*	comment sas code in exam
+*	interprt output, p-values, model fit, etc
+*	70%
+*	2 questions
+*	q1 : data management / manipulation
+		-	structure of a sas dataset
+			=	perm v temp dataset, perm lib v work lib
+			=	description portion (proc contents)
+			=	data portion (prob print)
+			=	missing values
+		-	formats and labels
+			=	proc format, char ,numeric, data, user defined
+			=	labels
+		-	subsetting
+			=	where statement, proc sql
+			=	conditions, (<,>,ne,contains,etc)
+		-	sorting
+			= 	proc sort
+			= 	by statement
+			=	default asending order, 
+		-	reading
+			=	instream  cards / datalines import
+			=	infile data step
+			=	ste statement
+		-	reading in external 
+			=
+		-	create dataset from existing dataset
+		-	merging datasets
+			=	set datasets (concat datasets)
+			=	merge by, 1-1, 1-*, non-matches, proc sql
+		-	creating new variables
+			=	assignment statement sin the data set
+			=	numeric ops
+			=	in built sas functions
+			=	if / then / else
+		-	creating output
+			=	proc print
+				+	var statement to choose a subset of the columns
+				+	noobs to suppress output
+				+	label, print variable labels
+				+	split, split labels as variable headings
+				+	ID statement to emphasize key variables
+				+	format statemnt to format a var in a defined (proc) format
+				+	where statment to print a subset of the variables
+				+	sum certain variables (find out all the aggrigation functions)
+				+	by statment to print observation in groups
+
+*	q2 : data analysis
+		-	numeric and graphical descritive stats
+				+	univarte proc
+				+	normal option to tst for normality and QQplot
+				+	ods graphics,
+				+	ods select , select the printing of particular tables
+				+	ods output, save output tables as datasets 
+		-	correlations
+				+	proc corr, corrleation matrix
+				+	scattorplot matrix
+				+	partial correlations
+		-	regressions
+				+ 	proc reg
+				+	dianostic plots
+				+	create ooutput dataset with residuals and predicted values
+		-	linear model
+				+	proc glm,	
+				+	can inlcude categorical 'class' variables
+				+	create ooutput dataset with residuals and predicted values
+				+	proc genmod, data does not have to be normally generalized
+				+	link option, specify how the mean of a pop depends on linear 
+					predictor, logit, log link function
+				+	dist option, specify the response prob dist functuon
+		-	distributed linear model
+		-	linear mixed model
+				+	prox mixed
+				+	random statment to include a g-side random effect, particular variable as random
+				+	repeated statment to r-side random effect, resdiual side of thins,
+				+ 	specify the structire of the covariance matrix, autoregressive, etc 
+		-	generalized linear mixed model
+				+	proc GLIMMIX ,
+				+	 link option
+				+	dist option
+				+	random statment
+				+ 	where in the model are p-values and model fit
+*	2 script one for each question
+

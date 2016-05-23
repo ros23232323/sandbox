@@ -1,0 +1,7 @@
+proc import datafile="\\vmware-host\Shared Folders\host_documents\sandbox\msc-data-analytics\sas_STAT40840\exam\grass.csv"
+     out=work.grass_yield
+     dbms=csv
+     replace;
+     getnames=yes;
+run;
+
