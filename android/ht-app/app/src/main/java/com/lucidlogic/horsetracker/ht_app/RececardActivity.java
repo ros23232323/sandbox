@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observer;
+import rx.SingleSubscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class RececardActivity extends AppCompatActivity {
@@ -31,20 +33,17 @@ public class RececardActivity extends AppCompatActivity {
                 .getRacecardClient()
                 .getRacecard()
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new Observer<RacecardResponse>() {
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new SingleSubscriber<RacecardResponse>() {
+
                         @Override
-                        public void onCompleted() {
-                            Log.d(TAG, "RacecardService.getRacecard has no more data to emit.");
+                        public void onSuccess(RacecardResponse racecardResponse) {
+                            setAdapter(racecardResponse);
                         }
 
                         @Override
                         public void onError(Throwable e) {
-
-                        }
-
-                        @Override
-                        public void onNext(RacecardResponse racecardResponse) {
-                            setAdapter(racecardResponse);
+                            e.printStackTrace();
                         }
                     });
     }
@@ -74,6 +73,7 @@ public class RececardActivity extends AppCompatActivity {
             }
 
         });
+
     }
 
 

@@ -1,9 +1,11 @@
 package com.lucidlogic.horsetracker.ht_app;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
  * Adapter for our list of {@link GroupItem}s.
  */
 public class ExampleAdapter extends AnimatedExpandableListView.AnimatedExpandableListAdapter {
+    private static final String TAG = ExampleAdapter.class.getName();
     private LayoutInflater inflater;
 
     private List<Card> cards;
@@ -21,7 +24,6 @@ public class ExampleAdapter extends AnimatedExpandableListView.AnimatedExpandabl
     }
 
     public void setData(RacecardResponse racecardResponse) {
-
         this.cards = racecardResponse.getCards();
     }
 
@@ -38,10 +40,17 @@ public class ExampleAdapter extends AnimatedExpandableListView.AnimatedExpandabl
     @Override
     public View getRealChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildHolder holder;
-        Race race = getChild(groupPosition, childPosition);
+        final Race race = getChild(groupPosition, childPosition);
         if (convertView == null) {
             holder = new ChildHolder();
             convertView = inflater.inflate(R.layout.list_item, parent, false);
+            LinearLayout ll = (LinearLayout)convertView.findViewById(R.id.raceSummary);
+            ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG,"TODO :: Navigate to activity " + race.getRacecardUrl());
+                }
+            });
             holder.title = (TextView) convertView.findViewById(R.id.textTitle);
             holder.hint = (TextView) convertView.findViewById(R.id.textHint);
             convertView.setTag(holder);
@@ -50,7 +59,7 @@ public class ExampleAdapter extends AnimatedExpandableListView.AnimatedExpandabl
         }
 
         holder.title.setText(race.getRaceTime() + "\t"+ race.getRaceName());
-        holder.hint.setText(race.getRacecardUrl());
+        holder.hint.setText("");
 
         return convertView;
     }
