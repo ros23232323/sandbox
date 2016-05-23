@@ -57,6 +57,7 @@ adb -s emulator-5554 shell "ls -al /data/app/ApiDemos"
 
 #delete apk from emulator
 adb -s emulator-5554 shell "pm uninstall com.overstock.android.prototype"
+emulator -avd $(emulator -list-avds | grep 23) -port 5558  &
 
 #install apk on emlator
 adb -s emulator-5554  install /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk
@@ -122,3 +123,12 @@ gradle connectedDebugAndroidTest
 
 
 alias gradle_it='sdk use gradle 2.13 && gradle clean assembleDebug assembleDebugAndroidTest uninstallDebug :app:connectedDebugAndroidTest --stacktrace'
+
+
+sdk use gradle 2.13 && gradle clean assembleDebug
+emulator -avd $(emulator -list-avds | grep 23) -port 5558  &
+adb -s emulator-5558 shell "pm uninstall com.overstock.android.prototype"
+adb install -r app/build/outputs/apk/app-debug-unaligned.apk -s emulator-5558
+
+
+adb -s emulator-5558 logcat *W

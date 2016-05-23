@@ -91,3 +91,34 @@ adb install -r app/build/outputs/apk/app-debug-unaligned.apk -s 02157df2c2460c0b
 
 #run the app
 adb shell am start -n com.example.android.sunshine.app/com.example.android.sunshine.app.MainActivityfsdfsdf
+
+#load app
+adb push /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug.apk /data/local/tmp/com.overstock.android.prototype
+adb shell pm install -r "/data/local/tmp/com.overstock.android.prototype"
+
+#load test app
+adb push /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk /data/local/tmp/com.overstock.android.prototype.test
+adb shell pm install -r "/data/local/tmp/com.overstock.android.prototype.test"
+
+#Running a specific test
+adb shell am instrument -w -r   -e debug false -e class com.overstock.android.prototype.espresso.activity.CommunitiesActivityTest com.overstock.android.prototype.test android.support.test.runner.AndroidJUnitRunner
+
+#Running tests in a package
+adb shell am instrument -w -r   -e package com.overstock.android.prototype.espresso.activity -e debug false com.overstock.android.prototype.test/android.support.test.runner.AndroidJUnitRunner
+
+#
+sdk use gradle 2.13 && gradle clean assembleDebugAndroidTest uninstallDebug connectedDebugAndroidTest --stacktrace
+
+
+sdk use gradle 2.13
+gradle clean 
+find . -name *.apk
+gradle assembleDebug 
+gradle assembleDebugAndroidTest 
+gradle uninstallDebug 
+gradle connectedDebugAndroidTest 
+
+
+
+
+alias gradle_it='sdk use gradle 2.13 && gradle clean assembleDebug assembleDebugAndroidTest uninstallDebug :app:connectedDebugAndroidTest --stacktrace'
