@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupItem {
-    String title;
-    List<Race> items = new ArrayList<Race>();
-}
+  String title;
 
+  List<RaceDTO> items = new ArrayList<>();
+}

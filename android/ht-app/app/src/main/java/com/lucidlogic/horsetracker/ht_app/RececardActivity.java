@@ -1,80 +1,79 @@
 package com.lucidlogic.horsetracker.ht_app;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.ExpandableListView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.Observer;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ExpandableListView;
+
 import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class RececardActivity extends AppCompatActivity {
 
-    private static final String TAG = RececardActivity.class.getName();
-    private AnimatedExpandableListView listView;
-    private ExampleAdapter adapter;
-    private RacecardServiceClient racecardServiceClient;
+  private static final String TAG = RececardActivity.class.getName();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rececard);
-        List<GroupItem> items = new ArrayList<GroupItem>();
+  private AnimatedExpandableListView listView;
 
-        racecardServiceClient = new RacecardServiceClient(this);
+  private ExampleAdapter adapter;
 
-        racecardServiceClient
-                .getRacecardClient()
-                .getRacecard()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new SingleSubscriber<RacecardResponse>() {
+  private RacecardServiceClient racecardServiceClient;
 
-                        @Override
-                        public void onSuccess(RacecardResponse racecardResponse) {
-                            setAdapter(racecardResponse);
-                        }
+  @Override
+  protected void onCreate(final Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_rececard);
+    final List<GroupItem> items = new ArrayList<>();
 
-                        @Override
-                        public void onError(Throwable e) {
-                            e.printStackTrace();
-                        }
-                    });
-    }
+    this.racecardServiceClient = new RacecardServiceClient(this);
 
-    private void setAdapter(RacecardResponse racecardResponse){
-        adapter = new ExampleAdapter(this);
-        adapter.setData(racecardResponse);
+    this.racecardServiceClient.getRacecardClient().getRacecard(getString(R.string.racecard_query))
+        .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new SingleSubscriber<RacecardDTO>() {
 
-        listView = (AnimatedExpandableListView) findViewById(R.id.listView);
-        listView.setAdapter(adapter);
+          @Override
+          public void onSuccess(final RacecardDTO racecardDTO) {
+            setAdapter(racecardDTO);
+          }
 
-        // In order to show animations, we need to use a custom click handler
-        // for our ExpandableListView.
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                // We call collapseGroupWithAnimation(int) and
-                // expandGroupWithAnimation(int) to animate group
-                // expansion/collapse.
-                if (listView.isGroupExpanded(groupPosition)) {
-                    listView.collapseGroupWithAnimation(groupPosition);
-                } else {
-                    listView.expandGroupWithAnimation(groupPosition);
-                }
-                return true;
-            }
-
+          @Override
+          public void onError(final Throwable e) {
+            e.printStackTrace();
+          }
         });
+  }
 
-    }
+  private void setAdapter(final RacecardDTO racecardDTO) {
+    this.adapter = new ExampleAdapter(this);
+    this.adapter.setData(racecardDTO);
 
+    this.listView = (AnimatedExpandableListView) findViewById(R.id.listView);
+    this.listView.setAdapter(this.adapter);
+
+    // In order to show animations, we need to use a custom click handler
+    // for our ExpandableListView.
+    this.listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+      @Override
+      public boolean onGroupClick(final ExpandableListView parent, final View v, final int groupPosition,
+        final long id) {
+        // We call collapseGroupWithAnimation(int) and
+        // expandGroupWithAnimation(int) to animate group
+        // expansion/collapse.
+        if (com.lucidlogic.horsetracker.ht_app.RececardActivity.this.listView.isGroupExpanded(groupPosition)) {
+          com.lucidlogic.horsetracker.ht_app.RececardActivity.this.listView.collapseGroupWithAnimation(groupPosition);
+        }
+        else {
+          com.lucidlogic.horsetracker.ht_app.RececardActivity.this.listView.expandGroupWithAnimation(groupPosition);
+        }
+        return true;
+      }
+
+    });
+
+  }
 
 }
