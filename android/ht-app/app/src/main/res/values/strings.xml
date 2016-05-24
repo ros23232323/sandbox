@@ -8,4 +8,7 @@
         select h.* from `horsetracker-test` h where _type=\'Race\' and
         h.page_url=\'http://www.sportinglife.com/racing/racecards/14-04-2016/newmarket/racecard/718159/newmarket350-co-uk-maiden-fillies-stakes-plus-10\'
     </string>
+    <string name="title_activity_view_pager_activity_racecards">ViewPagerActivityRacecards</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

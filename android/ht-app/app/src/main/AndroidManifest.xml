@@ -11,9 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RececardActivity">
+
+        </activity>
+        <activity
+            android:name=".viewpager.ViewPagerActivityRacecards"
+            android:label="@string/title_activity_view_pager_activity_racecards"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
