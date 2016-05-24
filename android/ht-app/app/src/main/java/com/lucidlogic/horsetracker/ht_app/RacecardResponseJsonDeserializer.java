@@ -35,8 +35,8 @@ public class RacecardResponseJsonDeserializer implements JsonDeserializer<Raceca
                 race.setAbandoned(races.get(j).getAsJsonObject().get("abandoned").getAsString());
                 race.setRaceName(races.get(j).getAsJsonObject().get("race_name").getAsString());
                 race.setRaceTime(races.get(j).getAsJsonObject().get("race_time").getAsString());
-                race.setRacecardUrl(races.get(j).getAsJsonObject().get("racecard_url").getAsString());
-                //race.setResultUrl(races.get(j).getAsJsonObject().get("result_url") == null ? "" : races.get(j).getAsJsonObject().get("result_url").getAsString());
+                race.setRacecardUrl(races.get(j).getAsJsonObject().has("racecard_url") ? races.get(j).getAsJsonObject().get("racecard_url").getAsString() : "");
+                race.setResultUrl(races.get(j).getAsJsonObject().has("result_url") ? races.get(j).getAsJsonObject().get("result_url").getAsString() : "");
                 card.getRaces().add(race);
             }
         }

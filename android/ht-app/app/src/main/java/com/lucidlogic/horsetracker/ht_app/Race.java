@@ -8,6 +8,7 @@ public class Race {
     private String  raceName;
     private String  raceTime;
     private String  racecardUrl;
+
     private String  resultUrl;
 
     public String getAbandoned() {

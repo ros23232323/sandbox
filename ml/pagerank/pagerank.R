@@ -19,7 +19,6 @@ Adjancy_Matrix <- matrix(data, nrow = N, ncol = N, byrow = TRUE)
 tmp <- Adjancy_Matrix/rowSums(Adjancy_Matrix)
 Transition_Probability_Matrix <- (1 - damping_factor) * tmp + damping_factor/N
 
-func
 currSOSValue <- sum(principal_left_eigenvector[1,]^2) 
 i <- 1
 
