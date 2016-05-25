@@ -1,5 +1,6 @@
 'use strict';
 
+var parse_service = require('./parse_service');
 var crud_service = require('./crud_service');
 var race_crawler = require('./race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
@@ -35,7 +36,7 @@ module.exports = {
 
                         //save new document
                         crud_service.save(racecardNew);
-
+                        parse_service.save_obj('Racecard',racecardNew);
                         //remove previous
                         if(racecard !== undefined) {
                             racecard.remove(function (error) {
