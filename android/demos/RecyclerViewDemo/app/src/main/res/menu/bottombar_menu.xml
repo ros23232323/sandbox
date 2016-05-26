@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottomBarItemRacecards"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="Racecards" />
+
+    <item
+        android:id="@+id/bottomBarItemResults"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Results" />
+
+    <item
+        android:id="@+id/bottomBarItemMyStable"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="My Stable" />
+    <item
+        android:id="@+id/bottomBarItemOddstracker"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Oddstracker" />
+    <item
+        android:id="@+id/bottomBarItemMisc"
+        android:icon="@drawable/ic_more_horiz"
+        android:title="More" />
+</menu>

@@ -1,0 +1,833 @@
+{
+  "requestID": "26e6bfe3-4b6c-4062-b30d-daf0dcdc0f1c",
+  "signature": {
+    "*": "*"
+  },
+  "results": [
+    {
+      "_id": "a0c19f29-fbb4-4958-862d-2ca988307e62",
+      "_type": "Racecard",
+      "cards": [
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " newmarket350.co.uk Maiden Fillies' Stakes (Plus 10) (3yo, Class 4, 7f, 10 runners) ",
+              "race_time": "14:10",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718159/newmarket350-co-uk-maiden-fillies-stakes-plus-10",
+              "result_url": "/racing/results/14-04-2016/newmarket/result/718159/newmarket350-co-uk-maiden-fillies-stakes-plus-10"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Montaz Restaurant EBF Stallion Fillies' Maiden Stakes (Plus 10) (2yo, Class 4, 5f, 10 runners) ",
+              "race_time": "14:45",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718160/montaz-restaurant-ebf-stallion-fillies-maiden-stakes-plus-10"
+            },
+            {
+              "abandoned": "",
+              "race_name": " 200,000 Tattersalls Millions 3-Y-O Trophy (3yo, Class 2, 1m 2f, 9 runners) ",
+              "race_time": "15:20",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/703251/200-000-tattersalls-millions-3-y-o-trophy"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Connaught Access Flooring Abernant Stakes (Group 3) (3yo+, Class 1, 6f, 11 runners) ",
+              "race_time": "15:55",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718161/connaught-access-flooring-abernant-stakes-group-3"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Novae Bloodstock Insurance Craven Stakes (Group 3) (3yo, Class 1, 1m, 6 runners) ",
+              "race_time": "16:30",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718162/novae-bloodstock-insurance-craven-stakes-group-3"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Ben Burgess & Co Handicap (4yo+, Class 2, 7f, 16 runners) ",
+              "race_time": "17:05",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718163/ben-burgess-co-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Rossdales Handicap (3yo, Class 2, 6f, 10 runners) ",
+              "race_time": "17:40",
+              "racecard_url": "/racing/racecards/14-04-2016/newmarket/racecard/718164/rossdales-handicap"
+            }
+          ],
+          "track": "Newmarket",
+          "track_going": " Good to Soft",
+          "track_surface": " Turf",
+          "track_url": "/racing/meeting/newmarket/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Thoroughbred Breeders' Association Mares' Novices' Hurdle (Listed) (4yo+, Class 1, 2m 4f 56y, 10 runners) ",
+              "race_time": "13:50",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718172/thoroughbred-breeders-association-mares-novices-hurdle-listed",
+              "result_url": "/racing/results/14-04-2016/cheltenham/result/718172/thoroughbred-breeders-association-mares-novices-hurdle-listed"
+            },
+            {
+              "abandoned": "",
+              "race_name": " European Breeders' Fund/Thoroughbred Breeders' Association Mares' Novices' Chase Finale (Listed Handicap) (5yo+, Class 1, 2m 4f 166y, 11 runners) ",
+              "race_time": "14:25",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718173/european-breeders-fund-thoroughbred-breeders-association-mares-novices-chase-finale-listed-handicap",
+              "result_url": "/racing/results/14-04-2016/cheltenham/result/718173/european-breeders-fund-thoroughbred-breeders-association-mares-novices-chase-finale-listed-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Arkells Brewery Mares' Handicap Hurdle (Listed) (4yo+, Class 1, 2m 4f 56y, 13 runners) ",
+              "race_time": "15:00",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718174/arkells-brewery-mares-handicap-hurdle-listed"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Llewellyn Humphreys Handicap Chase (5yo+, Class 2, 3m 2f, 8 runners) ",
+              "race_time": "15:35",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718175/llewellyn-humphreys-handicap-chase"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Barbury International Supporting The IJF Handicap Hurdle (4yo+, Class 2, 2m 7f 213y, 19 runners) ",
+              "race_time": "16:10",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718176/barbury-international-supporting-the-ijf-handicap-hurdle"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Nicholson Holman Novices' Limited Handicap Chase (5yo+, Class 3, 3m 1f 56y, 12 runners) ",
+              "race_time": "16:45",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718177/nicholson-holman-novices-limited-handicap-chase"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Spreadex Sports And Financial Betting Mares' Standard Open NH Flat Race (4-6yo, Class 4, 2m 179y, 16 runners) ",
+              "race_time": "17:20",
+              "racecard_url": "/racing/racecards/14-04-2016/cheltenham/racecard/718178/spreadex-sports-and-financial-betting-mares-standard-open-nh-flat-race"
+            }
+          ],
+          "track": "Cheltenham",
+          "track_going": " Good (Good to Soft in places)",
+          "track_surface": " Turf",
+          "track_url": "/racing/meeting/cheltenham/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " EBF/Nags Head Pickhill Novice Fillies' Stakes (Plus 10) (2yo, Class 5, 5f, 7 runners) ",
+              "race_time": "14:00",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718165/ebf-nags-head-pickhill-novice-fillies-stakes-plus-10",
+              "result_url": "/racing/results/14-04-2016/ripon/result/718165/ebf-nags-head-pickhill-novice-fillies-stakes-plus-10"
+            },
+            {
+              "abandoned": "",
+              "race_name": " PPR Foundation Handicap (4yo+, Class 4, 6f, 17 runners) ",
+              "race_time": "14:35",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718166/ppr-foundation-handicap",
+              "result_url": "/racing/results/14-04-2016/ripon/result/718166/ppr-foundation-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " RiponBET Silver Bowl Handicap (4yo+, Class 3, 1m 1f 170y, 11 runners) ",
+              "race_time": "15:10",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718167/riponbet-silver-bowl-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Ripon 'Cock O' The North' Handicap (3yo, Class 3, 1m, 8 runners) ",
+              "race_time": "15:45",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718168/ripon-cock-o-the-north-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Go Racing In Yorkshire Apprentice Handicap (4yo+, Class 4, 5f, 12 runners) ",
+              "race_time": "16:20",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718169/go-racing-in-yorkshire-apprentice-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Peter Roberts Memorial Handicap (3yo, Class 5, 6f, 14 runners) ",
+              "race_time": "16:55",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718170/peter-roberts-memorial-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " SIS Maiden Stakes (3yo, Class 5, 1m, 9 runners) ",
+              "race_time": "17:30",
+              "racecard_url": "/racing/racecards/14-04-2016/ripon/racecard/718171/sis-maiden-stakes"
+            }
+          ],
+          "track": "Ripon",
+          "track_going": " Heavy (Soft in places)",
+          "track_surface": " Turf",
+          "track_url": "/racing/meeting/ripon/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Play Scoop6Soccer Every Week Maiden Auction Stakes (3yo, Class 5, 1m 2f, 7 runners) ",
+              "race_time": "18:10",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718152/play-scoop6soccer-every-week-maiden-auction-stakes"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Scoop6Soccer The 1 Million Football Bet Handicap (4yo+, Class 4, 1m 2f, 7 runners) ",
+              "race_time": "18:40",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718153/scoop6soccer-the-1-million-football-bet-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Win A Football Fortune With Scoop6Soccer Handicap (3yo, Class 5, 6f, 7 runners) ",
+              "race_time": "19:10",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718154/win-a-football-fortune-with-scoop6soccer-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Bet Scoop6Soccer At Betfred Shops Fillies' Handicap (3yo+, Class 4, 6f, 6 runners) ",
+              "race_time": "19:40",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718155/bet-scoop6soccer-at-betfred-shops-fillies-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Bet Scoop6Soccer At betfred.com Handicap (4yo+, Class 5, 5f, 7 runners) ",
+              "race_time": "20:10",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718156/bet-scoop6soccer-at-betfred-com-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Bet Scoop6Soccer At totesport.com Handicap (4yo+, Class 5, 1m 5f 66y, 9 runners) ",
+              "race_time": "20:40",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718157/bet-scoop6soccer-at-totesport-com-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Simply Red Here On 1st July Maiden Stakes (3yo+, Class 5, 5f, 6 runners) ",
+              "race_time": "21:10",
+              "racecard_url": "/racing/racecards/14-04-2016/chelmsford-city/racecard/718158/simply-red-here-on-1st-july-maiden-stakes"
+            }
+          ],
+          "track": "Chelmsford City",
+          "track_going": " Standard",
+          "track_surface": " Polytrack",
+          "track_url": "/racing/meeting/chelmsford-city/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " National Student Raceday Mares Maiden Hurdle (4yo+, 2m 3f, 12 runners) ",
+              "race_time": "14:15",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717963/national-student-raceday-mares-maiden-hurdle",
+              "result_url": "/racing/results/14-04-2016/limerick/result/717963/national-student-raceday-mares-maiden-hurdle"
+            },
+            {
+              "abandoned": "",
+              "race_name": " I.N.H. Stallion Owners E.B.F. Maiden Hurdle (5yo+, 2m 3f, 9 runners) ",
+              "race_time": "14:50",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717964/i-n-h-stallion-owners-e-b-f-maiden-hurdle"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Book Online At www.limerickraces.ie Mares Handicap Hurdle (4yo+, 2m 6f, 7 runners) ",
+              "race_time": "15:25",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717965/book-online-at-www-limerickraces-ie-mares-handicap-hurdle"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Martinstown Opportunity Handicap Hurdle (4yo+, 2m 2f, 7 runners) ",
+              "race_time": "16:00",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717966/martinstown-opportunity-handicap-hurdle"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Greenmount Park Beginners Chase (5yo+, 2m 3f 120y, 5 runners) ",
+              "race_time": "16:35",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717967/greenmount-park-beginners-chase"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Follow Limerick Racecourse On Facebook Handicap Chase (5yo+, 2m 1f, 6 runners) ",
+              "race_time": "17:10",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717968/follow-limerick-racecourse-on-facebook-handicap-chase"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Racing Again At Limerick April 23rd Flat Race (4yo, 2m, 10 runners) ",
+              "race_time": "17:45",
+              "racecard_url": "/racing/racecards/14-04-2016/limerick/racecard/717969/racing-again-at-limerick-april-23rd-flat-race"
+            }
+          ],
+          "track": "Limerick",
+          "track_going": " Heavy",
+          "track_surface": " Turf",
+          "track_url": "/racing/meeting/limerick/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Welcome To The Vaal Workriders Maiden Plate (F & M) (3yo+, 1m 3f 205y, 13 runners) ",
+              "race_time": "11:30",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718645/welcome-to-the-vaal-workriders-maiden-plate-f-m",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718645/welcome-to-the-vaal-workriders-maiden-plate-f-m"
+            },
+            {
+              "abandoned": "",
+              "race_name": " All To Come Maiden Juvenile Plate (2yo, 4f 214y, 13 runners) ",
+              "race_time": "12:05",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718646/all-to-come-maiden-juvenile-plate",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718646/all-to-come-maiden-juvenile-plate"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Champions Day 30 April Maiden Juvenile Plate (Fillies) (2yo, 4f 214y, 11 runners) ",
+              "race_time": "12:40",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718647/champions-day-30-april-maiden-juvenile-plate-fillies",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718647/champions-day-30-april-maiden-juvenile-plate-fillies"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Soccer GG Maiden Juvenile Plate (Fillies) (2yo, 4f 214y, 10 runners) ",
+              "race_time": "13:15",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718648/soccer-gg-maiden-juvenile-plate-fillies",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718648/soccer-gg-maiden-juvenile-plate-fillies"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Intercontinental Village Day 30 April Mr 72 Handicap (3yo+, 1m 99y, 14 runners) ",
+              "race_time": "13:50",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718649/intercontinental-village-day-30-april-mr-72-handicap",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718649/intercontinental-village-day-30-april-mr-72-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Racing. It's A Rush Mr 91 Divided Handicap (3yo+, 5f 212y, 9 runners) ",
+              "race_time": "14:25",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718650/racing-its-a-rush-mr-91-divided-handicap",
+              "result_url": "/racing/results/14-04-2016/vaal/result/718650/racing-its-a-rush-mr-91-divided-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Racing Association Mr 74 Divided Handicap (3yo+, 5f 212y, 14 runners) ",
+              "race_time": "15:00",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718651/racing-association-mr-74-divided-handicap"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Book A Table 011 6811702 Maiden Plate (3yo+, 1m 1f 208y, 10 runners) ",
+              "race_time": "15:35",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718652/book-a-table-011-6811702-maiden-plate"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Next Vaal Race Meeting Is Thursday 21 Apr - Maiden Plate (3yo+, 6f 211y, 11 runners) ",
+              "race_time": "16:10",
+              "racecard_url": "/racing/racecards/14-04-2016/vaal/racecard/718653/next-vaal-race-meeting-is-thursday-21-apr-maiden-plate"
+            }
+          ],
+          "track": "Vaal",
+          "track_going": " Good",
+          "track_surface": " Turf",
+          "track_url": "/racing/meeting/vaal/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1m 110y, 8 runners) ",
+              "race_time": "18:20",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718669/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 1m, 8 runners) ",
+              "race_time": "18:53",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718670/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo, 1m 110y, 8 runners) ",
+              "race_time": "19:26",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718671/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance Optional Claiming (3yo+, 1m, 6 runners) ",
+              "race_time": "19:59",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718672/allowance-optional-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 1m 110y, 16 runners) ",
+              "race_time": "20:32",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718673/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m, 8 runners) ",
+              "race_time": "21:05",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718674/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance Optional Claiming (3yo+, 1m 110y, 8 runners) ",
+              "race_time": "21:38",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718675/allowance-optional-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1m, 9 runners) ",
+              "race_time": "22:11",
+              "racecard_url": "/racing/racecards/14-04-2016/aqueduct/racecard/718676/claiming"
+            }
+          ],
+          "track": "Aqueduct",
+          "track_going": " Turf, Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/aqueduct/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 6f 110y, 9 runners) ",
+              "race_time": "00:00",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718661/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 7f, 8 runners) ",
+              "race_time": "00:29",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718662/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 6f 110y, 6 runners) ",
+              "race_time": "00:57",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718663/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 7f, 7 runners) ",
+              "race_time": "01:24",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718664/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 4f 110y, 9 runners) ",
+              "race_time": "01:51",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718665/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 7f, 6 runners) ",
+              "race_time": "02:18",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718666/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 6f 110y, 8 runners) ",
+              "race_time": "02:47",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718667/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 4f 110y, 8 runners) ",
+              "race_time": "03:15",
+              "racecard_url": "/racing/racecards/15-04-2016/charles-town/racecard/718668/claiming"
+            }
+          ],
+          "track": "Charles Town",
+          "track_going": " Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/charles-town/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1m, 7 runners) ",
+              "race_time": "23:50",
+              "racecard_url": "/racing/racecards/14-04-2016/evangeline-downs/racecard/718722/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 7f, 8 runners) ",
+              "race_time": "00:17",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718723/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo, 1m, 12 runners) ",
+              "race_time": "00:44",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718724/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m, 10 runners) ",
+              "race_time": "01:11",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718725/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 5f 110y, 11 runners) ",
+              "race_time": "01:38",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718726/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m 70y, 10 runners) ",
+              "race_time": "02:05",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718727/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 6f, 10 runners) ",
+              "race_time": "02:32",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718728/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance Optional Claiming (3yo+, 7f, 11 runners) ",
+              "race_time": "02:59",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718729/allowance-optional-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 7f, 14 runners) ",
+              "race_time": "03:26",
+              "racecard_url": "/racing/racecards/15-04-2016/evangeline-downs/racecard/718730/maiden-claiming"
+            }
+          ],
+          "track": "Evangeline Downs",
+          "track_going": " Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/evangeline-downs/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 6f, 6 runners) ",
+              "race_time": "20:10",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718677/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1m 110y, 7 runners) ",
+              "race_time": "20:40",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718678/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m 70y, 7 runners) ",
+              "race_time": "21:10",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718679/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 1m, 8 runners) ",
+              "race_time": "21:40",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718680/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Starter Optional Claiming (4yo+, 6f, 7 runners) ",
+              "race_time": "22:10",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718681/starter-optional-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 5f 110y, 8 runners) ",
+              "race_time": "22:40",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718682/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance (3yo+, 6f, 10 runners) ",
+              "race_time": "23:10",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718683/allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 6f, 10 runners) ",
+              "race_time": "23:40",
+              "racecard_url": "/racing/racecards/14-04-2016/hawthorne/racecard/718684/claiming"
+            }
+          ],
+          "track": "Hawthorne",
+          "track_going": " Dirt, Turf",
+          "track_surface": "",
+          "track_url": "/racing/meeting/hawthorne/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (2yo, 4f 110y, 7 runners) ",
+              "race_time": "18:05",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718702/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 6f, 8 runners) ",
+              "race_time": "18:39",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718703/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance (3yo, 5f 110y, 14 runners) ",
+              "race_time": "19:12",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718704/allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 1m 2f, 7 runners) ",
+              "race_time": "19:45",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718705/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Starter Allowance (4yo+, 1m 110y, 12 runners) ",
+              "race_time": "20:18",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718706/starter-allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance (4yo+, 1m 4f, 14 runners) ",
+              "race_time": "20:51",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718707/allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1m 110y, 11 runners) ",
+              "race_time": "21:24",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718708/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Stakes (3yo, 1m, 11 runners) ",
+              "race_time": "21:57",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718709/stakes"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 6f, 10 runners) ",
+              "race_time": "22:30",
+              "racecard_url": "/racing/racecards/14-04-2016/keeneland/racecard/718710/maiden-claiming"
+            }
+          ],
+          "track": "Keeneland",
+          "track_going": " Dirt, Turf",
+          "track_surface": "",
+          "track_url": "/racing/meeting/keeneland/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 5f 110y, 9 runners) ",
+              "race_time": "19:30",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718693/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Waiver Claiming (4yo+, 6f, 11 runners) ",
+              "race_time": "19:57",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718694/waiver-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo+, 1m 110y, 11 runners) ",
+              "race_time": "20:25",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718695/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Waiver Claiming (3yo+, 6f, 12 runners) ",
+              "race_time": "20:52",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718696/waiver-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Special Weight (3yo+, 6f, 11 runners) ",
+              "race_time": "21:19",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718697/maiden-special-weight"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Starter Allowance (3yo+, 6f, 12 runners) ",
+              "race_time": "21:46",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718698/starter-allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance Optional Claiming (3yo, 1m 110y, 10 runners) ",
+              "race_time": "22:14",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718699/allowance-optional-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Stakes (4yo+, 6f, 7 runners) ",
+              "race_time": "22:42",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718700/stakes"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo, 6f, 12 runners) ",
+              "race_time": "23:10",
+              "racecard_url": "/racing/racecards/14-04-2016/oaklawn-park/racecard/718701/maiden-claiming"
+            }
+          ],
+          "track": "Oaklawn Park",
+          "track_going": " Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/oaklawn-park/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 5f 110y, 7 runners) ",
+              "race_time": "23:00",
+              "racecard_url": "/racing/racecards/14-04-2016/penn-national/racecard/718685/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m 70y, 8 runners) ",
+              "race_time": "23:27",
+              "racecard_url": "/racing/racecards/14-04-2016/penn-national/racecard/718686/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (4yo+, 5f 110y, 8 runners) ",
+              "race_time": "23:54",
+              "racecard_url": "/racing/racecards/14-04-2016/penn-national/racecard/718687/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m 70y, 8 runners) ",
+              "race_time": "00:22",
+              "racecard_url": "/racing/racecards/15-04-2016/penn-national/racecard/718688/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo, 6f, 7 runners) ",
+              "race_time": "00:49",
+              "racecard_url": "/racing/racecards/15-04-2016/penn-national/racecard/718689/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance (4yo+, 6f, 8 runners) ",
+              "race_time": "01:16",
+              "racecard_url": "/racing/racecards/15-04-2016/penn-national/racecard/718690/allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3yo, 6f, 7 runners) ",
+              "race_time": "01:43",
+              "racecard_url": "/racing/racecards/15-04-2016/penn-national/racecard/718691/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (4yo+, 1m 70y, 9 runners) ",
+              "race_time": "02:10",
+              "racecard_url": "/racing/racecards/15-04-2016/penn-national/racecard/718692/claiming"
+            }
+          ],
+          "track": "Penn National",
+          "track_going": " Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/penn-national/14-04-2016"
+        },
+        {
+          "races": [
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1f 110y, 10 runners) ",
+              "race_time": "00:00",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718711/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (2yo, 1f 80y, 10 runners) ",
+              "race_time": "00:26",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718712/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3-5yo, 1f 130y, 10 runners) ",
+              "race_time": "00:52",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718713/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden Claiming (3-5yo, 1f 130y, 10 runners) ",
+              "race_time": "01:18",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718714/maiden-claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden (3yo, 1f 130y, 10 runners) ",
+              "race_time": "01:44",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718715/maiden"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo, 1f 130y, 10 runners) ",
+              "race_time": "02:10",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718716/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Maiden (2yo, 1f 80y, 10 runners) ",
+              "race_time": "02:36",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718717/maiden"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1f 80y, 10 runners) ",
+              "race_time": "03:02",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718718/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Claiming (3yo+, 1f 180y, 10 runners) ",
+              "race_time": "03:28",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718719/claiming"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Allowance (3yo+, 1f 130y, 10 runners) ",
+              "race_time": "03:54",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718720/allowance"
+            },
+            {
+              "abandoned": "",
+              "race_name": " Starter Allowance (3yo+, 1f 110y, 10 runners) ",
+              "race_time": "04:20",
+              "racecard_url": "/racing/racecards/15-04-2016/remington-park/racecard/718721/starter-allowance"
+            }
+          ],
+          "track": "Remington Park",
+          "track_going": " Dirt",
+          "track_surface": "",
+          "track_url": "/racing/meeting/remington-park/14-04-2016"
+        }
+      ],
+      "createdON": "2016-04-14T13:49:11.969Z",
+      "date": "14-04-2016",
+      "page_body_hash": "d4a495d4841155752c5b38ced2d26a50",
+      "page_url": "http://www.sportinglife.com/racing/racecards/14-04-2016"
+    }
+  ],
+  "status": "success",
+  "metrics": {
+    "elapsedTime": "157.781276ms",
+    "executionTime": "157.683665ms",
+    "resultCount": 1,
+    "resultSize": 49163
+  }
+}
