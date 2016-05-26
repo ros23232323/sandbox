@@ -11,6 +11,8 @@ var bucket = cluster.openBucket(conf.couchbase.bucket, conf.couchbase.bucket_pas
     }
 });
 
+bucket.operationTimeout = conf.couchbase.connection_timeout;
+
 module.exports = {
     get_bucket : function(){
         return bucket;

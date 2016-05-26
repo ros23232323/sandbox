@@ -1,14 +1,14 @@
 'use strict';
 
 var parse_service = require('./parse_service');
-var crud_service = require('./crud_service');
-var race_crawler = require('./race_crawler');
+// var crud_service = require('./crud_service');
+// var race_crawler = require('./race_crawler');
 var rest_request_utils = require("../utils/rest_request_utils");
 var string_utils = require("../utils/string_utils");
 var racecard_parser = require("../parsers/racecard_parser");
 var url_util = require('url');
 
-var RacecardModel = require("../models/racecard");
+// var RacecardModel = require("../models/racecard");
 
 module.exports = {
     racecard: function(url, options){
@@ -16,46 +16,56 @@ module.exports = {
         rest_request_utils.get(url,null,function(html){
 
             var htmlMD5 = string_utils.hash_string(html);
-            
-            RacecardModel.findByPageUrl(url, function(error, racecards){
-                if(!error){
-                    var racecard = racecards[0];
-                    if (racecard !== undefined && racecard.page_body_hash === htmlMD5){
-                        console.log(url + " body has not changed, doing nothing");
-                    } else {
 
-                        //parse doc
-                        var racecard_json = racecard_parser.parse(html, {
-                            dt:url_parts.path.split('/')[3],
-                            page_url:url,
-                            page_hash:htmlMD5
-                        });
-
-                        //set new docment
-                        var racecardNew = new RacecardModel(racecard_json);
-
-                        //save new document
-                        crud_service.save(racecardNew);
-                        parse_service.save_obj('Racecard',racecardNew);
-                        //remove previous
-                        if(racecard !== undefined) {
-                            racecard.remove(function (error) {
-                                if (error) {
-                                    console.log("An error happened -> " + JSON.stringify(error));
-                                }
-                                console.log("Document was removed!");
-                            });
-                        }
-
-                        racecardNew.cards.forEach(function(meeting, index, array){
-                            race_crawler.race(meeting);
-                        });
-                        console.log(url + " body changed, updating");
-                    }
-                } else {
-                    console.log(JSON.stringify(error));
-                }
+            ////////////////***************
+            var racecard_json = racecard_parser.parse(html, {
+                dt:url_parts.path.split('/')[3],
+                page_url:url,
+                page_hash:htmlMD5
             });
+            parse_service.save_obj('Racecard',racecard_json);
+            ////////////////***************
+            
+            // RacecardModel.findByPageUrl(url, function(error, racecards){
+            //     if(!error){
+            //         var racecard = racecards[0];
+            //         if (racecard !== undefined && racecard.page_body_hash === htmlMD5){
+            //             console.log(url + " body has not changed, doing nothing");
+            //         } else {
+            //
+            //             //parse doc
+            //             var racecard_json = racecard_parser.parse(html, {
+            //                 dt:url_parts.path.split('/')[3],
+            //                 page_url:url,
+            //                 page_hash:htmlMD5
+            //             });
+            //
+            //             //set new docment
+            //             var racecardNew = new RacecardModel(racecard_json);
+            //
+            //             //save new document
+            //             crud_service.save(racecardNew);
+            //             //remove previous
+            //             if(racecard !== undefined) {
+            //                 racecard.remove(function (error) {
+            //                     if (error) {
+            //                         console.log("An error happened -> " + JSON.stringify(error));
+            //                     }
+            //                     console.log("Document was removed!");
+            //                 });
+            //             }
+            //
+            //             racecardNew.cards.forEach(function(meeting, index, array){
+            //                 race_crawler.race(meeting);
+            //             });
+            //             console.log(url + " body changed, updating");
+            //         }
+            //     } else {
+            //         console.log(JSON.stringify(error));
+            //     }
+            // });
+            //
+
         });
     },
 

@@ -2,7 +2,8 @@
   "couchbase":{
     "server":"localhost",
     "bucket":"horsetracker-test",
-    "bucket_password":"password"
+    "bucket_password":"password",
+    "connection_timeout":15000
   },
   "kafka":{
     "url":"localhost",
