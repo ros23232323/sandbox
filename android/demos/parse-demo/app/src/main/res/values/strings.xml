@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ParseDemo</string>
+    <string name="parse_application_id">test</string>
+    <string name="parse_service_url">http://10.10.2.69:1337/parse</string>
+</resources>
