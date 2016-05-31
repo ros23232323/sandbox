@@ -2,6 +2,8 @@ var Parse = require('parse/node');
 Parse.initialize('test', 'test');
 Parse.serverURL = 'http://localhost:1337/parse';
 
+var subObj = new Parse.Object('GameScore');
+
 
 var obj = new Parse.Object('GameScore');
 obj.set('score', 1337);

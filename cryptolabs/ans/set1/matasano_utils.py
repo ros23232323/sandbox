@@ -63,6 +63,7 @@ from collections import Counter
 
 
 letters_ordered_by_frequency="ETAOINSHRDLCUMWFGYPBVKJXQZ"
+letters_ordered_by_frequency_map=dict(zip(letters_ordered_by_frequency,reversed(xrange(1, len(letters_ordered_by_frequency)+1))))
 
 hex_chrs="0123456789abcdef"
 hex_map=dict(zip(hex_chrs,xrange(0,len(hex_chrs))))
@@ -85,15 +86,39 @@ def fixed_xor(s1, s2):
 import re
 
 def line_fitness(line):
-    return sum([1 if ((c >= 'a' and c <= 'z') or (c >= 'A' and c <= 'Z') or c == ' ') else 0 for c in line])/float(len(line))
+    #count number of alphabetic chrs in the string
+    return sum([1 for c in line if c.isalpha()])/float(len(line))
+    #return sum([1 if ((c >= 'a' and c <= 'z') or (c >= 'A' and c <= 'Z') or c == ' ') else 0 for c in line])/float(len(line))
     #return sum([1 if (c >= ' ' and c <= '~') else 0 for c in line])/float(len(line))
 
+def line_fitness2(str):
+    #count of the chars with most frequent weighted
+    return sum([letters_ordered_by_frequency_map[c]/26.0 for c in str.upper() if c.isalpha()])/len(str)
     
 def single_byte_xor(ascii_str, key_chr):
     return [ascii_char ^ key_chr for ascii_char in ascii_str]
 
 def single_byte_xor_all_ascii_char(ascii_str):
     return [(chr(i),single_byte_xor(ascii_str, chr(i))) for i in xrange(255)]        
+
+def single_byte_xor_cipher_ascii(in_ascii_str):
+    best_score = None
+    best_key = None
+    best_value = None
+    for i in xrange(255):
+        line=[]
+        for j in xrange(0,len(in_ascii_str),1):       
+            decoded_chr_ord = ord(in_ascii_str[j]) ^ i
+            line.append(chr(decoded_chr_ord))
+        #line = re.sub( '\s+', ' ', ''.join(line).strip())
+        line = ''.join(line).strip()
+        best_tmp = (line_fitness2(line)  + line_fitness(line)) /2
+        if best_score == None or best_score < best_tmp:
+            best_score = best_tmp
+            best_key = i
+            best_value = line
+    return (best_key, chr(best_key), best_score, best_value)
+    
 
 def single_byte_xor_cipher(in_str):
     best_score = None
@@ -104,17 +129,27 @@ def single_byte_xor_cipher(in_str):
         for j in xrange(0,len(in_str),2):       
             decoded_chr_ord = int(format(hex_map[in_str[j]],'b').zfill(4)+format(hex_map[in_str[j+1]],'b').zfill(4),2) ^ i
             line.append(chr(decoded_chr_ord))
-        line = re.sub( '\s+', ' ', ''.join(line).strip())
-        best_tmp = line_fitness( line)
+        #line = re.sub( '\s+', ' ', ''.join(line).strip())
+        line = ''.join(line).strip()
+        best_tmp = (line_fitness2(line)  + line_fitness(line)) /2
         if best_score == None or best_score < best_tmp:
             best_score = best_tmp
             best_key = i
             best_value = line
-    return (best_key, chr(best_key),best_score, best_value)
+    return (best_key, chr(best_key), best_score, best_value)
 
 def read_file_to_list(file_path):
     f = open(file_path)
     return [line.strip() for line in f.readlines()]
+
+def repeated_key_xor_ascii(str1, key):
+    l=[]
+    for i in xrange(0,len(str1),len(key)):
+        for j in xrange(0,len(key)):
+            if (i+j) < len(str1):
+                l.append(chr(ord(str1[i+j]) ^ ord(key[j])))
+    return ''.join(l)
+
 
 def repeated_key_xor(str1, key):
     l=[]

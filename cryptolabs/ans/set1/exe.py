@@ -47,7 +47,7 @@ aa = mu.single_byte_xor_cipher(hex_str)
 aa
 
 from collections import Counter
-freq_dict=Counter(aa[3])#{c : int(get(c, 0)) + 1 for c in aa[3]}
+freq_dict=Counter(aa[3].upper())#{c : int(get(c, 0)) + 1 for c in aa[3]}
 freq_dict
 
 ##      End Set 1 challange 3
@@ -62,9 +62,11 @@ freq_dict
 #
 ##
 
-lines = mu.read_file_to_list("/home/ian/Desktop/matasano/set1/data/xor-cipher-strings.txt")
+reload(mu)
+
+lines = mu.read_file_to_list("/home/ian/Documents/sandbox/cryptolabs/set1/4.txt")
 ans_dict={}
-with open("/home/ian/Desktop/matasano/set1/data/xor-decoded-cipher-strings.txt", "a") as myfile:
+with open("/home/ian/Documents/sandbox/cryptolabs/set1/4-ans.txt", "a") as myfile:
     for idx,line in enumerate(lines):
         ans = mu.single_byte_xor_cipher(line)
         ans_dict[ans[2]]=ans
@@ -112,38 +114,70 @@ mu.repeated_key_xor(str1,key)
 # 7 for each block the single-byte xor jey that produces the best char frequency histogram is prob the key for that block 
 ##
 
-reload(set1.matasano_utils)
+reload(mu)
 
 s1 = "this is a test"
 s2 = "wokka wokka!!!"
 
-set1.matasano_utils.base64_to_binary('=')
-set1.matasano_utils.hamming_distance(s1, s2)
+mu.base64_to_binary('=')
+mu.hamming_distance(s1, s2)
 
-lines = mu.read_file_to_list("/home/ian/Desktop/matasano/set1/data/6.txt")
+lines = mu.read_file_to_list("/home/ian/Documents/sandbox/cryptolabs/set1/6.txt")
 full_text=''.join(lines)
 #aa = set1.matasano_utils.base64_str_to_binary_str(lines[0])
 # ***************    1
 full_text_binary = mu.base64_str_to_binary_str(full_text)
 
-#chr(int('00000000',2) ^ ord('E'))
-#chr(int('01001110',2) ^ ord('T'))
-#chr(int('00011101',2) ^ ord('A'))
+
+
+byte_len=8
+for j in xrange(2, 41, 1):
+    seq_one_list = []
+    seq_two_list = []
+    j = 2
+    for i in xrange(0,j):
+        i = 0
+        seq_one_list.append(mu.binary_to_ascii(full_text_binary[i*byte_len:i*byte_len + byte_len]))
+        seq_two_list.append(mu.binary_to_ascii(full_text_binary[byte_len*j + i*byte_len:byte_len*j + i*byte_len + byte_len]))
+    print str(j) +"\t\t\t\t"+ str(mu.hamming_distance(''.join(seq_one_list), ''.join(seq_two_list)))    
+
+full_text_ascii_encrypted =  mu.binary_str_to_ascii_str(full_text_binary)
+
+len(full_text_ascii_encrypted)
+
+chr(int('00000000',2) ^ ord('E'))
+chr(int('01001110',2) ^ ord('T'))
+chr(int('00011101',2) ^ ord('A'))
 
 #chr(ord('t') ^ ord('N'))
 
-#from collections import Counter
-#binary_tokens = [full_text_binary[i:i+8] for i in range(0, len(full_text_binary), 8)]
+from collections import Counter
+binary_tokens = [full_text_binary[i:i+8] for i in range(0, len(full_text_binary), 8)]
 #[ idx for idx,val in enumerate(binary_tokens) if val == '00000000']
 #Counter(binary_tokens)
 
-#len(full_text_binary)/8 #2876 ascii characters
+len(full_text_binary)/8 #2876 ascii characters
 
 import base64
 
 # ***************    2
 len(full_text)
 cipher_text = base64.b64decode(full_text)
+
+cipher_text_b1 = cipher_text[::2]
+cipher_text_b2 = cipher_text[1::2]
+
+ord(cipher_text_b1[0])
+
+reload(mu)
+
+mu.single_byte_xor_cipher_ascii(cipher_text_b1)[1]
+mu.single_byte_xor_cipher_ascii(cipher_text_b2)[1]
+
+mu.binary_str_to_ascii_str(mu.base64_str_to_binary_str(mu.repeated_key_xor(cipher_text,'OI')))
+
+ord(cipher_text_b1[0])
+
 len(cipher_text)
 cipher_text1 = mu.binary_str_to_ascii_str(full_text_binary)
 len(cipher_text1)
@@ -165,7 +199,7 @@ for i in xrange(0,len(cipher_text),N):
             map_char[j].append(cipher_text[i+j-1])
 map_str={i : ''.join(map_char[i]) for i in xrange(1,N+1)}
 
-reload(set1.matasano_utils)
+reload(mu)
 plain_text_map={}
 for i in xrange(1,N+1):
     plain_text_map[i] = mu.single_byte_xor_cipher(mu.ascii_str_to_hex_str(map_str[i]))
@@ -173,15 +207,7 @@ for i in xrange(1,N+1):
 len(cipher_text)
 len(plain_text_map[2][3])
 len(''.join([chr1 + chr2 + chr3 for chr1, chr2, chr3 in zip(plain_text_map[1][3],plain_text_map[2][3],plain_text_map[3][3])]))
-
-                                                                        
-                                                                                                                                                
-                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 print(str(i) + "  " + aa[i:i+8] + "   " + str(int(aa[i:i+8],2)) + "    " + chr(int(aa[i:i+8],2)))
 
 byte_len=8
