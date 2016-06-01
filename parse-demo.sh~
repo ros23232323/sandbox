@@ -1,0 +1,53 @@
+APPLICATION_ID=test
+MASTER_KEY=test
+npm install -g parse-server mongodb-runner parse-dashboard
+mongodb-runner start &
+sleep 5
+parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --clientKey $MASTER_KEY --cloud ~/Documents/sandbox/sandbox/local-parse/main.js & 
+sleep 5
+parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://localhost:1337/parse" --appName $APPLICATION_ID &
+sleep 5
+
+
+Parse.Cloud.define("hello", function(request, response) {
+  response.success("Hello world, Ian!");
+});
+
+parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://10.10.2.69:1337/parse" --appName demo &
+
+
+curl -X POST \
+  -H "X-Parse-Application-Id: test" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
+  http://10.10.2.69:1337/parse/functions/hello
+
+
+
+curl -X GET \
+  -H "X-Parse-Application-Id: test" \
+  -H "Content-Type: application/json" \
+  http://10.10.2.69:1337/parse/classes/_User
+
+curl -X POST \
+  -H "X-Parse-Application-Id: test" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"john2","password":"john2"}' \
+  http://10.10.2.69:1337/parse/classes/_User
+
+
+
+curl -X POST \
+  -H "X-Parse-Application-Id: DRIP" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"john2","password":"john2"}' \
+  http://nodeweb01.androidapp.dev.ostk.com:23741/parse/classes/_User
+
+
+
+
+curl -X POST \
+  -H "X-Parse-Application-Id: DRIP" \
+  -H "Content-Type: application/json" \
+  -d '{"body":"blah blah blah!!","title":"Samsung S6", "type":"brand"}' \
+  http://nodeweb01.androidapp.dev.ostk.com:23741/parse/classes/_Post

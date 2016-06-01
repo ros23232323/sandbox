@@ -1,0 +1,13 @@
+    1   racecard crawler persist to parse objects
+            *   Racecard
+                -   list meetings
+                -   date
+            *   Meeting
+                -   list races
+            *   Race
+                -   meeting
+            *   Result
+                -   meeting
+            *   Entity Details
+                                
+    2   
