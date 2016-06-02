@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 PARSE_APP_HOST=localhost
 PARSE_APP_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
@@ -11,7 +10,7 @@ sleep 5
 parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_APP_PORT & 
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse" --appName $APPLICATION_ID &
-=======
+
 APPLICATION_ID=DRIP
 MASTER_KEY=DRIP
 npm install -g parse-server mongodb-runner parse-dashboard
@@ -20,7 +19,6 @@ sleep 5
 parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --clientKey $MASTER_KEY --cloud ~/Documents/sandbox/sandbox/local-parse/main.js & 
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://localhost:23740/parse" --appName $APPLICATION_ID &
->>>>>>> 7c455a4142126b9afeab5b904dc6b00a63ca8fe4
 sleep 5
 
 parse-dashboard --appId DRIP --masterKey DEVMASTERKEY --serverURL "http://10.10.2.69:23740/parse" --appName DRIP &
@@ -33,11 +31,18 @@ Parse.Cloud.define("hello", function(request, response) {
 
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://10.10.2.69:1337/parse" --appName demo &
 
+sudo apt-get install jq
+#delete 
+for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
+do
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting/$objectId
+done
 
-<<<<<<< HEAD
 
 
-=======
 PARSE_HOST=nodeweb01.androidapp.dev.ostk.com
 PARSE_HOST=localhost
 PARSE_PORT=23743
@@ -46,7 +51,9 @@ PARSE_MASTER_KEY=DEVMASTERKEY
 #call cloud function
 PARSE_HOST=nodeweb01.iosoapp.dev.ostk.com
 PARSE_PORT=23740
->>>>>>> 7c455a4142126b9afeab5b904dc6b00a63ca8fe4
+PARSE_HOST=localhost
+PARSE_PORT=1337
+PARSE_APP=test
 curl -X POST \
   -H "X-Parse-Application-Id: $PARSE_APP" \
   -H "Content-Type: application/json" \
@@ -56,9 +63,7 @@ curl -X POST \
   -H "X-Parse-Application-Id: DRIP" \
   -H "Content-Type: application/json" \
   -d '{}' \
-<<<<<<< HEAD
   http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse/functions/hello
-=======
   "http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline?userId=m6RLkdTsAK&limit=100&skip=0"
 
 curl -X POST \
@@ -72,6 +77,17 @@ curl -X GET \
   -H "X-Parse-Application-Id: test" \
   -H "Content-Type: application/json" \
   http://10.10.2.69:1337/parse/classes/_User
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
+
+curl -X GET \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
+
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -258,4 +274,4 @@ function createPost(){
 createPost LwGyWLEJ2E "Apple iFag" "Check out the new Apple iFag!!!!" brand 82RPtkE6aF
 
 createPost 6vlpznuyEz "Apple iFag" "Check out the new Apple iFag!!!!" user 82RPtkE6aF "http://vignette2.wikia.nocookie.net/freeciv/images/3/3b/Apple_logo.png"
->>>>>>> 7c455a4142126b9afeab5b904dc6b00a63ca8fe4
+

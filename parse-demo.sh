@@ -31,7 +31,40 @@ Parse.Cloud.define("hello", function(request, response) {
 
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://10.10.2.69:1337/parse" --appName demo &
 
+sudo apt-get install jq
+#delete all Race
+for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race | jq '.[] | .[].objectId' | tr -d "\"")
+do
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race/$objectId
+done
 
+
+#delete all Meetings
+for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
+do
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting/$objectId
+done
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${Master_Key}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/schemas/Meeting
+
+#delete all Racecard
+for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard | jq '.[] | .[].objectId' | tr -d "\"")
+do
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard/$objectId
+done
 
 
 PARSE_HOST=nodeweb01.androidapp.dev.ostk.com
@@ -42,6 +75,9 @@ PARSE_MASTER_KEY=DEVMASTERKEY
 #call cloud function
 PARSE_HOST=nodeweb01.iosoapp.dev.ostk.com
 PARSE_PORT=23740
+PARSE_HOST=localhost
+PARSE_PORT=1337
+PARSE_APP=test
 curl -X POST \
   -H "X-Parse-Application-Id: $PARSE_APP" \
   -H "Content-Type: application/json" \
@@ -65,6 +101,17 @@ curl -X GET \
   -H "X-Parse-Application-Id: test" \
   -H "Content-Type: application/json" \
   http://10.10.2.69:1337/parse/classes/_User
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
+
+curl -X GET \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
+
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \

@@ -1,5 +1,6 @@
 'use strict';
 
+var parse_service = require('../services/parse_service');
 var cheerio = require('cheerio');
 var string_utils = require('../utils/string_utils')
 
@@ -18,7 +19,7 @@ module.exports = {
 
         $('.r .rac-dgp').each(function(i, element){
             var race_card_section = $(this);
-            var racecard = {
+            var meeting = {
                 track:race_card_section.find('.hdr.t2 a').text().trim(),
                 track_url:race_card_section.find('.hdr.t2 a').attr('href'),
                 track_going:race_card_section.find('.list.hdr-sublinks li:nth-child(1):has(strong)').html().replace(/<strong>.*<\/strong>/g,''),
@@ -28,20 +29,23 @@ module.exports = {
             var tmp_races = [];
             race_card_section.find('.rac-cards').each(function(i, element){
                 var race_section = $(this);
-                tmp_races.push({
+                var tmp_race = {
                     race_time:race_section.find('.ix.ixt').text(),
                     race_name:race_section.find('.ix.ixc').text().replace(/\n/g,' ').replace(/\s+/g,' '),
                     racecard_url:race_section.find('.ix.ixc a').attr('href'),
                     result_url:race_section.find('.ix.ixv a').attr('href'),
                     abandoned:race_section.find('.ix.ixv .dnf').text()
-                })
+                };
+                var race_parse = parse_service.save_obj('Race',tmp_race);
+                tmp_races.push(race_parse);
                 //time
             });
-            racecard.races = tmp_races;
-            daily_racecard.cards.push(racecard);
+            meeting.races = tmp_races;
+            var meeting_parse = parse_service.save_obj('Meeting',meeting);
+            daily_racecard.cards.push(meeting_parse);
         });
 
-        daily_racecard = string_utils.scrub_obj_whitespace(daily_racecard);
+        // daily_racecard = string_utils.scrub_obj_whitespace(daily_racecard);
 
         return daily_racecard;
     }
