@@ -17,9 +17,12 @@ full_text_binary[0:KEYSIZE_bytes]^full_text_binary[0:KEYSIZE_bytes]
 
 
 
+bin_str1='10101110'
+bin_str2='01011010'
 
 
 
+[ int(ch1) ^ int(ch2)  for ch1, ch2 in zip(bin_str1, bin_str2)]
 
 
 

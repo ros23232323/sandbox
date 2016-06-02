@@ -1,4 +1,4 @@
-PARSE_APP_HOST=localhost
+PARSE_APP_HOST=10.10.2.69
 PARSE_APP_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
 APPLICATION_ID=test

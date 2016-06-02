@@ -119,37 +119,38 @@ reload(mu)
 s1 = "this is a test"
 s2 = "wokka wokka!!!"
 
+
 mu.base64_to_binary('=')
 mu.hamming_distance(s1, s2)
 
 lines = mu.read_file_to_list("/home/ian/Documents/sandbox/cryptolabs/set1/6.txt")
 full_text=''.join(lines)
-#aa = set1.matasano_utils.base64_str_to_binary_str(lines[0])
-# ***************    1
 full_text_binary = mu.base64_str_to_binary_str(full_text)
 
 
-
+# 3 & 4 find the hamming distance between the N byte strings and normaliize, the one wiht the smallest edit distance s probably the key 
 byte_len=8
 for j in xrange(2, 41, 1):
     seq_one_list = []
     seq_two_list = []
-    j = 2
     for i in xrange(0,j):
-        i = 0
-        seq_one_list.append(mu.binary_to_ascii(full_text_binary[i*byte_len:i*byte_len + byte_len]))
-        seq_two_list.append(mu.binary_to_ascii(full_text_binary[byte_len*j + i*byte_len:byte_len*j + i*byte_len + byte_len]))
-    print str(j) +"\t\t\t\t"+ str(mu.hamming_distance(''.join(seq_one_list), ''.join(seq_two_list)))    
+        seq_one_list.append(full_text_binary[i*byte_len:i*byte_len + byte_len])
+        seq_two_list.append(full_text_binary[byte_len*j + i*byte_len:byte_len*j + i*byte_len + byte_len])
+    print str(j) +"\t\t\t\t"+ str(mu.hamming_distance_bin_str(''.join(seq_one_list), ''.join(seq_two_list))/float(j))    
 
-full_text_ascii_encrypted =  mu.binary_str_to_ascii_str(full_text_binary)
 
-len(full_text_ascii_encrypted)
+#break into blocks of length N
+N = 3
+full_text_ascii_str = mu.binary_str_to_ascii_str(mu.base64_str_to_binary_str(full_text))
+len(full_text_ascii_str)/float(3)
+full_text_ascii_arr = [full_text_ascii_str[i:i+N] for i in range(0, len(full_text_ascii_str ), N)]
 
-chr(int('00000000',2) ^ ord('E'))
-chr(int('01001110',2) ^ ord('T'))
-chr(int('00011101',2) ^ ord('A'))
+#transpose
+full_text_ascii_arr_trans = [[],[],[]]
+for i in xrange(0,len(full_text_ascii_arr)):
+    for j in xrange(0,len(full_text_ascii_arr[i])):
+        full_text_ascii_arr_trans[j].append(full_text_ascii_arr[i][j])
 
-#chr(ord('t') ^ ord('N'))
 
 from collections import Counter
 binary_tokens = [full_text_binary[i:i+8] for i in range(0, len(full_text_binary), 8)]
@@ -171,7 +172,9 @@ ord(cipher_text_b1[0])
 
 reload(mu)
 
-mu.single_byte_xor_cipher_ascii(cipher_text_b1)[1]
+mu.single_byte_xor_cipher_ascii(full_text_ascii_arr_trans[0])[1]
+mu.single_byte_xor_cipher_ascii(full_text_ascii_arr_trans[1])[1]
+mu.single_byte_xor_cipher_ascii(full_text_ascii_arr_trans[2])[1]
 mu.single_byte_xor_cipher_ascii(cipher_text_b2)[1]
 
 mu.binary_str_to_ascii_str(mu.base64_str_to_binary_str(mu.repeated_key_xor(cipher_text,'OI')))
@@ -189,7 +192,7 @@ freq_dict_norm = { k: float(v)/tot for k,v in freq_dict.items()}
 max(freq_dict_norm.values())
 
 # *************** 3 guess keysize
-N = 2
+N = 5
 # *************** 4 break ciphertext (ascii) into blocks of length keysize
 # *************** 5 transpose the blocks to make ekeysize number of rows all xor with the same character
 map_char={i:[] for i in xrange(1,N+1)}

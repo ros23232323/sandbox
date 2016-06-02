@@ -171,7 +171,7 @@ def hamming_distance_bin_str(bin_str1, bin_str2):
     #assert (len(str1) == len(str2)), "str1 and str2 must be the same length"
     if len(bin_str1) != len(bin_str2):
         return 1000000
-    return sum([ 1 if ch1 != ch2 else 0 for ch1, ch2 in zip(bin_str1, bin_str2)])
+    return sum([ int(ch1) ^ int(ch2) for ch1, ch2 in zip(bin_str1, bin_str2)])
 
 def ascii_to_binary(ascii_chr):
     return format(ord(ascii_chr),'b').zfill(8)
