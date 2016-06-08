@@ -11,6 +11,32 @@ parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --cloud $CLOUD_DIR/
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse" --appName $APPLICATION_ID &
 
+node node_modules/parse-dashboard/bin/parse-dashboard --appId DRIP --serverURL "http://localhost:23740/parse" --appName DRIP --allowInsecureHTTP true --masterKey DEVMASTERKEY &
+
+
+node node_modules/mongodb-runner/bin/mongodb-runner
+node ../drip-server/src/server.js
+node node_modules/parse-dashboard/bin/parse-dashboard --config parse-dashboard-config.json --allowInsecureHTTP true
+
+#eg parse-dashboard-config.json
+{
+  "apps": [
+    {
+      "serverURL": "http://nodeweb01.androidapp.dev.ostk.com:23741/parse",
+      "appId": "DRIP",
+      "masterKey": "DEVMASTERKEY"
+    }
+  ],
+   "users": [
+    {
+      "user":"admin",
+      "pass":"admin"
+    }
+  ]
+}
+
+
+
 APPLICATION_ID=DRIP
 MASTER_KEY=DRIP
 npm install -g parse-server mongodb-runner parse-dashboard
@@ -67,10 +93,19 @@ curl -X DELETE \
 done
 
 
+
+
 PARSE_HOST=nodeweb01.androidapp.dev.ostk.com
-PARSE_HOST=localhost
-PARSE_PORT=23743
+PARSE_PORT=23741
 PARSE_APP=DRIP
+curl -X POST \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  -d '{"body":"Blah blah blah ....","title":"Check out my new boot", "images":["http://www.prodirectsoccer.com/productimages/V3_1_Main/117574.jpg"],"type":"user","topics":[{"__type":"Pointer","className":"Topic","objectId":"NBUxduhSXs"}],"createdBy":{"__type":"Pointer","className":"_User","objectId":"vwmKdgXv20"}}' \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Post
+
+
+PARSE_HOST=10.10.2.13
 PARSE_MASTER_KEY=DEVMASTERKEY
 #call cloud function
 PARSE_HOST=nodeweb01.iosoapp.dev.ostk.com
@@ -92,8 +127,9 @@ curl -X POST \
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"userId":"6vlpznuyEz","limit":100,"skip":0}' \
+  -d '{"userId":"3lZ2jyObbx","limit":100,"skip":0}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline
 
 
@@ -112,12 +148,16 @@ curl -X GET \
   -H "Content-Type: application/json" \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
 
+PARSE_HOST=10.10.2.13
+PARSE_PORT=23740
+PARSE_APP=DRIP
+PARSE_MASTER_KEY=DEVMASTERKEY 
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
   -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"username":"js","password":"js","email":"js@o.com"}' \
+  -d '{"username":"john smith","password":"js","email":"js@o.com"}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/_User
 
 curl -X POST \
@@ -167,11 +207,6 @@ curl -X POST \
   -d '{"body":"Blah blah blah ....","title":"Checkout my post", "images":["http://vignette2.wikia.nocookie.net/freeciv/images/3/3b/Apple_logo.png"],"type":"user","topics":[{"__type":"Pointer","className":"Topic","objectId":"82RPtkE6aF"}],"createdBy":{"__type":"Pointer","className":"_User","objectId":"6vlpznuyEz"}}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Post
 
-curl -X POST \
-  -H "X-Parse-Application-Id: DRIP" \
-  -H "Content-Type: application/json" \
-  -d '{"body":"Blah blah blah ....","title":"Checkout my post 22", "images":["http://vignette2.wikia.nocookie.net/freeciv/images/3/3b/Apple_logo.png"],"type":"user","topics":[{"__type":"Pointer","className":"Topic","objectId":"MkN7FV9xM3"}],"createdBy":{"__type":"Pointer","className":"_User","objectId":"VDjgwRpbZK"}}' \
-  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Post
 
 
 #Create topic in parse 
