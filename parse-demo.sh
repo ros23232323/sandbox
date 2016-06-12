@@ -1,15 +1,17 @@
-PARSE_APP_HOST=localhost
-PARSE_APP_PORT=1337
+PARSE_HOST=192.168.1.101
+PARSE_APP=HorseTracker
+PARSE_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
-APPLICATION_ID=test
-MASTER_KEY=test
+APPLICATION_ID=$(echo -n $PARSE_APP | md5sum | awk '{print $1}')
+APPLICATION_ID=$PARSE_APP
+MASTER_KEY=$APPLICATION_ID
 export NODE_PATH=/usr/local/lib/node_modules
 sudo npm install -g parse-server mongodb-runner parse-dashboard parse
 mongodb-runner start &
+sleep 10
+parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
 sleep 5
-parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_APP_PORT & 
-sleep 5
-parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse" --appName $APPLICATION_ID &
+parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST:$PARSE_PORT/parse" --appName $PARSE_APP &
 
 APPLICATION_ID=DRIP
 MASTER_KEY=DRIP
@@ -17,8 +19,8 @@ npm install -g parse-server mongodb-runner parse-dashboard
 mongodb-runner start &
 sleep 5
 parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --clientKey $MASTER_KEY --cloud ~/Documents/sandbox/sandbox/local-parse/main.js & 
-sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://localhost:23740/parse" --appName $APPLICATION_ID &
+sleep 5
 sleep 5
 
 parse-dashboard --appId DRIP --masterKey DEVMASTERKEY --serverURL "http://10.10.2.69:23740/parse" --appName DRIP &
@@ -33,7 +35,14 @@ parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "htt
 
 sudo apt-get install jq
 #delete all Race
-for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race | jq '.[] | .[].objectId' | tr -d "\"")
+for objectId in $(for objectId in $(curl -s -X GET -H "X-Parse-Master-Key: ${MASTER_KEY}"  -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race | jq '.[] | .[].objectId' | tr -d "\"")
+do
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race/$objectId
+done
+ "\"")
 do
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -41,9 +50,8 @@ curl -X DELETE \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race/$objectId
 done
 
-
 #delete all Meetings
-for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
+for objectId in $(curl -s -X GET  -H "X-Parse-Master-Key: ${MASTER_KEY}" -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
 do
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -51,11 +59,33 @@ curl -X DELETE \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting/$objectId
 done
 
+for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard | jq '.[] | .[].objectId' | tr -d "\"")
+do
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
-  -H "X-Parse-Master-Key: ${Master_Key}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard/$objectId
+done
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
   http://$PARSE_HOST:$PARSE_PORT/parse/schemas/Meeting
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/schemas/Race
+
+curl -X DELETE \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/schemas/Racecard
+
+
 
 #delete all Racecard
 for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard | jq '.[] | .[].objectId' | tr -d "\"")
@@ -97,10 +127,11 @@ curl -X POST \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline
 
 
-curl -X GET \
-  -H "X-Parse-Application-Id: test" \
-  -H "Content-Type: application/json" \
-  http://10.10.2.69:1337/parse/classes/_User
+	curl -X GET \
+	  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+	  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+	  -H "Content-Type: application/json" \
+	  http://localhost:1337/parse/classes/_User
 
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -299,3 +330,10 @@ createPost LwGyWLEJ2E "Apple iFag" "Check out the new Apple iFag!!!!" brand 82RP
 
 createPost 6vlpznuyEz "Apple iFag" "Check out the new Apple iFag!!!!" user 82RPtkE6aF "http://vignette2.wikia.nocookie.net/freeciv/images/3/3b/Apple_logo.png"
 
+
+
+$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell "pm uninstall com.lucidlogic.horsetracker"
+ 1989  $ANDROID_HOME/platform-tools/adb push /home/ian/Documents/sandbox/app/horsetracker/android/Horsetracker/app/build/outputs/apk/app-debug.apk /data/local/tmp/com.lucidlogic.horsetracker
+ 1990  $ANDROID_HOME/platform-tools/adb shell pm install -r "/data/local/tmp/com.lucidlogic.horsetracker"
+ 1991  $ANDROID_HOME/platform-tools/adb shell am start -n "com.lucidlogic.horsetracker/com.lucidlogic.horsetracker.activity.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+ 1992  $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell "pm uninstall com.lucidlogic.horsetracker"

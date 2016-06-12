@@ -1,0 +1,9 @@
+'use strict';
+
+var conf = require('./config/' + process.env.NODE_ENV + '.json');
+var job = require('./services/' + process.env.JOB_NAME + '_job');
+
+job.init(process.env.NODE_ENV, conf);
+job.start_job();
+
+

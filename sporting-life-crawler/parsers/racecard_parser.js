@@ -14,7 +14,7 @@ module.exports = {
             // crawl_timestamp:new Date().getTime(),
             page_url:options.page_url,
             page_body_hash:options.page_hash,
-            cards:[]
+            meetings:[]
         };
 
         $('.r .rac-dgp').each(function(i, element){
@@ -36,13 +36,13 @@ module.exports = {
                     result_url:race_section.find('.ix.ixv a').attr('href'),
                     abandoned:race_section.find('.ix.ixv .dnf').text()
                 };
-                var race_parse = parse_service.save_obj('Race',tmp_race);
-                tmp_races.push(race_parse);
+                //var race_parse = parse_service.save_obj('Race',tmp_race);
+                tmp_races.push(tmp_race);
                 //time
             });
             meeting.races = tmp_races;
-            var meeting_parse = parse_service.save_obj('Meeting',meeting);
-            daily_racecard.cards.push(meeting_parse);
+            //var meeting_parse = parse_service.save_obj('Meeting',meeting);
+            daily_racecard.meetings.push(meeting);
         });
 
         // daily_racecard = string_utils.scrub_obj_whitespace(daily_racecard);

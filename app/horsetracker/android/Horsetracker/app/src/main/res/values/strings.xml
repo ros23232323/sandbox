@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Horsetracker</string>
+
+    <string name="parse_app_id">HorseTracker</string>
+    <string name="parse_client_id">HorseTracker</string>
+    <string name="parse_server_url">http://192.168.1.101:1337/parse/</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
