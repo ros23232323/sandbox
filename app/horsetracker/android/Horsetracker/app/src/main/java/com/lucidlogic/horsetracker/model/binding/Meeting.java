@@ -19,6 +19,7 @@ import com.lucidlogic.horsetracker.BeanTransformers;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.adapter.MeetingAdapter;
 import com.lucidlogic.horsetracker.adapter.RaceAdapter;
+import com.lucidlogic.horsetracker.layoutmanager.CustomLinearLayoutManager;
 import com.lucidlogic.horsetracker.model.parse.MeetingParse;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -163,7 +164,7 @@ public class Meeting extends BaseObservable implements Parcelable {
                         Meeting meeting = BeanTransformers.racecardFromRacecardParse(meetingParse, true);
                         final RecyclerView rv = (RecyclerView) expandableLinearLayout.findViewById(R.id.races_rv);
                         rv.setHasFixedSize(true);
-                        rv.setLayoutManager(new LinearLayoutManager(expandableLinearLayout.getContext()));
+                        rv.setLayoutManager(new CustomLinearLayoutManager(expandableLinearLayout.getContext(), meeting.getRaces().size()));
                         rv.setAdapter(new RaceAdapter(meeting.getRaces()));
 //                        ViewGroup.LayoutParams params=rv.getLayoutParams();
 //                        params.height=100*meeting.getRaces().size();

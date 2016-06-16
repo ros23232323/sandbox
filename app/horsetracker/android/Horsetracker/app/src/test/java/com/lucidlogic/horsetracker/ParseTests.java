@@ -4,9 +4,13 @@ import android.util.Log;
 
 import com.lucidlogic.horsetracker.model.binding.Racecard;
 import com.lucidlogic.horsetracker.model.parse.RacecardParse;
+import com.lucidlogic.horsetracker.model.parse.TrackableEntityParse;
+import com.lucidlogic.horsetracker.model.parse.UserTrackableEntityParse;
 import com.lucidlogic.horsetracker.service.ParseService;
+import com.lucidlogic.horsetracker.utils.DateUtils;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -19,6 +23,8 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -39,18 +45,45 @@ public class ParseTests {
         parseUser.signUp();
         parseUser.save();
         Log.i(TAG, String.format("user created %s",parseUser.getObjectId()));
-
     }
 
     @Test
+    @Ignore
     public void racecardParseTest() throws ParseException {
         ParseQuery<RacecardParse> racecardParseQuery = ParseQuery.getQuery(RacecardParse.class);
         racecardParseQuery.include("meetings");
         List<RacecardParse> racecardParseList = racecardParseQuery.find();
         Log.i(TAG, String.format("# %d",racecardParseList.size()));
-
         Racecard racecard = BeanTransformers.racecardFromRacecardParse(racecardParseList.get(0));
         Log.i(TAG, String.format("# %d",racecard.getMeetings().size()));
+    }
 
+    @Test
+    @Ignore
+    public void trackableEntityParseTest() throws ParseException, java.text.ParseException {
+        TrackableEntityParse trackableEntityParse = ParseObject.create(TrackableEntityParse.class);
+        trackableEntityParse.setName("Herald The Dawn (IRE)");
+        trackableEntityParse.setType(Constants._HORSE);
+        trackableEntityParse.setProfileUrl("http://www.sportinglife.com/racing/profiles/horse/894106/herald-the-dawn");
+        trackableEntityParse.setAttributes(new HashMap<String, Object>(){{
+            put("age",3);
+            put("dob", DateUtils.getDateFromString("20-05-2013"));
+            put("owner","Godolphin");
+            put("sex","Bay Colt");
+            put("last_profile_crawl_dt",new Date());
+        }});
+        trackableEntityParse.save();
+        Log.i(TAG, String.format("# %s",trackableEntityParse.getObjectId()));
+    }
+
+    @Test
+    public void userRrackableEntityParseTest() throws ParseException, java.text.ParseException {
+        TrackableEntityParse trackableEntityParse =
+                ParseQuery.getQuery(TrackableEntityParse.class).get("BzB3oLFlrD");
+        ParseUser parseUser = ParseUser.logIn("i","i");
+        UserTrackableEntityParse userTrackableEntityParse = ParseObject.create(UserTrackableEntityParse.class);
+        userTrackableEntityParse.setTrackableEntity(trackableEntityParse);
+        userTrackableEntityParse.setUser(parseUser);
+        userTrackableEntityParse.save();
     }
 }

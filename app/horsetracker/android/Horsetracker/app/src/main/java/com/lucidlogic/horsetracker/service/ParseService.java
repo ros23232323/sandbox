@@ -7,6 +7,8 @@ import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.model.parse.MeetingParse;
 import com.lucidlogic.horsetracker.model.parse.RaceParse;
 import com.lucidlogic.horsetracker.model.parse.RacecardParse;
+import com.lucidlogic.horsetracker.model.parse.TrackableEntityParse;
+import com.lucidlogic.horsetracker.model.parse.UserTrackableEntityParse;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.http.ParseHttpRequest;
@@ -31,6 +33,8 @@ public class ParseService {
         ParseObject.registerSubclass(RacecardParse.class);
         ParseObject.registerSubclass(MeetingParse.class);
         ParseObject.registerSubclass(RaceParse.class);
+        ParseObject.registerSubclass(TrackableEntityParse.class);
+        ParseObject.registerSubclass(UserTrackableEntityParse.class);
         Parse.enableLocalDatastore(context);
         Parse.initialize(
          new Parse.Configuration.Builder(context)

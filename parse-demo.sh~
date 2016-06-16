@@ -1,8 +1,9 @@
-PARSE_HOST=192.168.1.101
+PARSE_HOST=192.168.1.100
 PARSE_APP=HorseTracker
 PARSE_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
 APPLICATION_ID=$(echo -n $PARSE_APP | md5sum | awk '{print $1}')
+#APPLICATION_ID=$PARSE_APP
 MASTER_KEY=$APPLICATION_ID
 export NODE_PATH=/usr/local/lib/node_modules
 sudo npm install -g parse-server mongodb-runner parse-dashboard parse
@@ -60,7 +61,6 @@ parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "htt
 
 sudo apt-get install jq
 #delete all Race
-<<<<<<< HEAD
 for objectId in $(for objectId in $(curl -s -X GET -H "X-Parse-Master-Key: ${MASTER_KEY}"  -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race | jq '.[] | .[].objectId' | tr -d "\"")
 do
 curl -X DELETE \
@@ -69,9 +69,6 @@ curl -X DELETE \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race/$objectId
 done
  "\"")
-=======
-for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race | jq '.[] | .[].objectId' | tr -d "\"")
->>>>>>> 35cc96f255ce5e14a4ccfad946f031d3ab8df8ec
 do
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -79,14 +76,8 @@ curl -X DELETE \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Race/$objectId
 done
 
-<<<<<<< HEAD
 #delete all Meetings
 for objectId in $(curl -s -X GET  -H "X-Parse-Master-Key: ${MASTER_KEY}" -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
-=======
-
-#delete all Meetings
-for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting | jq '.[] | .[].objectId' | tr -d "\"")
->>>>>>> 35cc96f255ce5e14a4ccfad946f031d3ab8df8ec
 do
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -94,7 +85,6 @@ curl -X DELETE \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting/$objectId
 done
 
-<<<<<<< HEAD
 for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard | jq '.[] | .[].objectId' | tr -d "\"")
 do
 curl -X DELETE \
@@ -123,14 +113,6 @@ curl -X DELETE \
 
 
 
-=======
-curl -X DELETE \
-  -H "X-Parse-Application-Id: ${PARSE_APP}" \
-  -H "X-Parse-Master-Key: ${Master_Key}" \
-  -H "Content-Type: application/json" \
-  http://$PARSE_HOST:$PARSE_PORT/parse/schemas/Meeting
-
->>>>>>> 35cc96f255ce5e14a4ccfad946f031d3ab8df8ec
 #delete all Racecard
 for objectId in $(curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard | jq '.[] | .[].objectId' | tr -d "\"")
 do
@@ -139,11 +121,8 @@ curl -X DELETE \
   -H "Content-Type: application/json" \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Racecard/$objectId
 done
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 35cc96f255ce5e14a4ccfad946f031d3ab8df8ec
 
 
 PARSE_HOST=nodeweb01.androidapp.dev.ostk.com
@@ -156,7 +135,7 @@ curl -X POST \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Post
 
 
-PARSE_HOST=localhost
+PARSE_HOST=10.10.2.13
 PARSE_MASTER_KEY=DEVMASTERKEY
 #call cloud function
 PARSE_HOST=nodeweb01.iosoapp.dev.ostk.com
@@ -178,15 +157,17 @@ curl -X POST \
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"userId":"6vlpznuyEz","limit":100,"skip":0}' \
+  -d '{"userId":"3lZ2jyObbx","limit":100,"skip":0}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline
 
 
-curl -X GET \
-  -H "X-Parse-Application-Id: test" \
-  -H "Content-Type: application/json" \
-  http://10.10.2.69:1337/parse/classes/_User
+	curl -X GET \
+	  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+	  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+	  -H "Content-Type: application/json" \
+	  http://localhost:1337/parse/classes/_User
 
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \

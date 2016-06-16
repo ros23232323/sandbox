@@ -1,15 +1,15 @@
-PARSE_HOST=192.168.1.101
+PARSE_HOST=$(ifconfig wlp2s0 | grep 'inet addr:' | cut  -d: -f2 | awk '{print $1}')
 PARSE_APP=HorseTracker
 PARSE_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
 APPLICATION_ID=$(echo -n $PARSE_APP | md5sum | awk '{print $1}')
-APPLICATION_ID=$PARSE_APP
+#APPLICATION_ID=$PARSE_APP
 MASTER_KEY=$APPLICATION_ID
 export NODE_PATH=/usr/local/lib/node_modules
 sudo npm install -g parse-server mongodb-runner parse-dashboard parse
 mongodb-runner start &
 sleep 10
-parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
+parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --restAPIKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST:$PARSE_PORT/parse" --appName $PARSE_APP &
 
@@ -51,6 +51,11 @@ sleep 5
 
 parse-dashboard --appId DRIP --masterKey DEVMASTERKEY --serverURL "http://10.10.2.69:23740/parse" --appName DRIP &
 
+curl -X POST \
+  -H "X-Parse-Application-Id: $PARSE_APP" \
+  -H "X-Parse-REST-API-Key: $MASTER_KEY" \
+  -H "Content-Type: application/json" \
+  http://localhost:1337/parse/functions/hello
 
 
 Parse.Cloud.define("hello", function(request, response) {
@@ -143,10 +148,7 @@ PARSE_PORT=23740
 PARSE_HOST=localhost
 PARSE_PORT=1337
 PARSE_APP=test
-curl -X POST \
-  -H "X-Parse-Application-Id: $PARSE_APP" \
-  -H "Content-Type: application/json" \
-  http://$PARSE_HOST:$PARSE_PORT/parse/functions/hello
+
 
 curl -X POST \
   -H "X-Parse-Application-Id: DRIP" \
@@ -162,12 +164,11 @@ curl -X POST \
   -d '{"userId":"3lZ2jyObbx","limit":100,"skip":0}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline
 
-
-	curl -X GET \
-	  -H "X-Parse-Application-Id: ${PARSE_APP}" \
-	  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
-	  -H "Content-Type: application/json" \
-	  http://localhost:1337/parse/classes/_User
+curl -X GET \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  http://localhost:1337/parse/classes/_User
 
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \

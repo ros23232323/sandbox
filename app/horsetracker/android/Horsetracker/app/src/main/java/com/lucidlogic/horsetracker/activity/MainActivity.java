@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 ViewPager vpPager = (ViewPager) findViewById(R.id.racecard_vp);
                 adapterViewPager = new RacecardViewPagerAdapter(getSupportFragmentManager(), racecardFragments);
                 vpPager.setAdapter(adapterViewPager);
-                vpPager.setOffscreenPageLimit(racecardParses.size()/2);
-//                vpPager.setCurrentItem(currentPageIdx);
+                    vpPager.setOffscreenPageLimit(2);
             }
                 });
     }
