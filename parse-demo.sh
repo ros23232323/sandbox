@@ -12,6 +12,7 @@ sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse" --appName $APPLICATION_ID &
 
 node node_modules/parse-dashboard/bin/parse-dashboard --appId DRIP --serverURL "http://localhost:23740/parse" --appName DRIP --allowInsecureHTTP true --masterKey DEVMASTERKEY &
+node node_modules/parse-dashboard/bin/parse-dashboard --appId DRIP --serverURL "http://localhost:23740/parse" --appName DRIP --allowInsecureHTTP true --masterKey DEVMASTERKEY &
 
 
 node node_modules/mongodb-runner/bin/mongodb-runner
@@ -105,16 +106,18 @@ curl -X POST \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Post
 
 
-PARSE_HOST=10.10.2.13
-PARSE_MASTER_KEY=DEVMASTERKEY
+PARSE_HOST=nodeweb01.androiddrip.dev.ostk.com
+MASTER_KEY=DEVMASTERKEY
+PARSE_PORT=23740
+PARSE_APP=DRIP
 #call cloud function
 PARSE_HOST=nodeweb01.iosoapp.dev.ostk.com
-PARSE_PORT=23740
 PARSE_HOST=localhost
-PARSE_PORT=1337
-PARSE_APP=test
+PARSE_PORT=23740
+
 curl -X POST \
   -H "X-Parse-Application-Id: $PARSE_APP" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/hello
 
@@ -125,11 +128,26 @@ curl -X POST \
   http://$PARSE_APP_HOST:$PARSE_APP_PORT/parse/functions/hello
   "http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline?userId=m6RLkdTsAK&limit=100&skip=0"
 
+
+
+
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
   -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"userId":"3lZ2jyObbx","limit":100,"skip":0}' \
+  -d '{"userId":"ne5NsagzaR","limit":1000,"skip":0}' \
+  http://nodeweb01.iosdriptest.dev.ostk.com:23740/parse | jq '.'
+
+PARSE_HOST=nodeweb01.androiddrip.dev.ostk.com
+MASTER_KEY=DEVMASTERKEY
+PARSE_PORT=23740
+PARSE_APP=DRIP
+USER_ID=5HtWQji3By
+curl -X POST \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{\"userId\":\"${USER_ID}\",\"limit\":100,\"skip\":0}" \
   http://$PARSE_HOST:$PARSE_PORT/parse/functions/timeline
 
 
@@ -264,7 +282,7 @@ curl -X POST \
 
 
 
-PARSE_HOST=localhost
+PARSE_HOST=nodeweb01.androiddrip.dev.ostk.com
 PARSE_PORT=23740
 PARSE_APP=DRIP
 
@@ -292,10 +310,46 @@ function createTopic(){
       -H "X-Parse-Application-Id: DRIP" \
       -H "Content-Type: application/json" \
       -d "{\"name\":\"${name}\",\"type\":\"${type}\"}" \
-      http://$PARSE_HOST:$PARSE_PORT/parse/classes/Topic
+      "http://$PARSE_HOST:$PARSE_PORT/parse/classes/Topic"
 }
 
-createTopic Sport category
+function createTopic(){
+
+PARSE_HOST=nodeweb01.androiddrip.dev.ostk.com
+PARSE_PORT=23740
+PARSE_APP=DRIP
+MASTER_KEY=DEVMASTERKEY
+APPLICATION_ID=DRIP
+
+name="$1"
+type="$2"
+TOPIC_ID=$(curl -s -X POST -H "X-Parse-Application-Id: DRIP"  -H "Content-Type: application/json" -d "{\"name\":\"${name}\",\"type\":\"${type}\"}" "http://$PARSE_HOST:$PARSE_PORT/parse/classes/Topic" | jq '.objectId' | tr -d "\"")
+echo "Topic created $TOPIC_ID"
+FILE_PATH="$3"
+FILE_NAME="$(basename $FILE_PATH)"
+PARSE_FILE_NAME=$(curl -s -X POST -H "X-Parse-Application-Id: ${APPLICATION_ID}" -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" -H "Content-Type: image/jpeg" --data-binary "@$FILE_PATH" "http://$PARSE_HOST:$PARSE_PORT/parse/files/$FILE_NAME" | jq '.name' | tr -d "\"")
+echo "File uploaded $PARSE_FILE_NAME"
+curl -s -X PUT -H "X-Parse-Application-Id: ${PARSE_APP}" -H "X-Parse-Master-Key: ${MASTER_KEY}" -H "Content-Type: application/json" -d "{\"image\": {\"name\": \"$PARSE_FILE_NAME\",\"__type\": \"File\"}}" "http://$PARSE_HOST:$PARSE_PORT/parse/classes/Topic/$TOPIC_ID"
+echo "Topic image updated "
+}
+
+createTopic tmp tmp "Desktop/panasonic_416x416.jpg"
+createTopic "Michael Kors" brand "Desktop/michael-kors-holdings_416x416.jpg"
+createTopic "Ralph Lauren" brand "Desktop/ralph-lauren_416x416.jpg"
+
+createTopic Electronics category
+createTopic Gardening category
+createTopic Home category
+createTopic Prada brand
+createTopic Nike brand
+createTopic Samsung brand
+createTopic Adidas brand
+createTopic Prada brand
+
+
+createTopic Apple brand
+
+
 
 function createUserTopic(){
     
