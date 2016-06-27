@@ -1,0 +1,15 @@
+{
+  "parse":{
+	"url":"http://192.168.1.103:1337/parse",
+	"appId":"9c188b00235ac01ec4bff34fcd3f7838",
+	"masterKey":"9c188b00235ac01ec4bff34fcd3f7838"
+  },
+  "sporting_life_com":{
+    "url":"http://www.sportinglife.com",
+    "racecard":{
+      "url":"/racing/racecards/{dt}",
+      "url_dt_path_param_format":"dd-mm-yyyy"
+    }
+  },
+  "max_timeout": 15000
+}

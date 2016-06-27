@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <data>
+        <variable
+            name="meeting"
+            type="com.lucidlogic.horsetracker.model.binding.Meeting" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="TRACK NAME"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="@{meeting.track}"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:onClick="@{meeting::showRaces}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:src="@{meeting.showRacesList ? @drawable/ic_action_minus : @drawable/ic_action_add}"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="GOING"
+                    android:text="@{meeting.going}"/>
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="SURFACE"
+                    android:text="@{meeting.surface}"/>
+                />
+            </LinearLayout>
+            <com.github.aakira.expandablelayout.ExpandableLinearLayout
+                android:id="@+id/raceslist_expandableLayout"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:ael_duration="250"
+                app:ael_expanded="false" >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/races_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+
+            </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

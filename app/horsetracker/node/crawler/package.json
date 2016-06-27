@@ -1,0 +1,22 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "sproting life race info crawler",
+  "main": "index.js",
+  "scripts": {
+    "cron_job": "echo \"Starting cron\" && ./node_modules/nodemon/bin/nodemon.js ./src/app.js",
+    "start": "echo \"Starting webapp\" && ./node_modules/nodemon/bin/nodemon.js ./src/webapp.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "it",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "dateformat": "^1.0.12",
+    "express": "^4.13.4",
+    "nodemon": "^1.9.2",
+    "parse": "^1.8.5",
+    "request": "^2.72.0",
+    "underscore": "^1.8.3"
+  }
+}

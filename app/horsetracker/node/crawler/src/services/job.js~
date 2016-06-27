@@ -1,0 +1,15 @@
+module.exports = {
+    init: function(mode, cfg){
+
+        console.log('******************************************************');
+        console.log('******************************************************');
+        console.log('*****App Running in mode "' + mode + '"*****');
+        console.log('******************************************************');
+        config = cfg;
+        console.log('******************************************************');
+    },
+    start_racecard_crawler: function(){
+        console.log('TODO : start_racecard_crawler');
+;
+    }
+}
