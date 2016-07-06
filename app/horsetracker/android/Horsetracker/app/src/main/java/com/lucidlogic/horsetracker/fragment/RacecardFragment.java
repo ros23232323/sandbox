@@ -2,6 +2,7 @@ package com.lucidlogic.horsetracker.fragment;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,11 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.lucidlogic.fixtureui.binding.Racecard;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.adapter.MeetingAdapter;
-import com.lucidlogic.horsetracker.databinding.FragmentRacecardBinding;
-import com.lucidlogic.horsetracker.model.binding.Racecard;
 
 
 public class RacecardFragment extends Fragment {
@@ -28,7 +27,6 @@ public class RacecardFragment extends Fragment {
 
     public RacecardFragment() {
     }
-
 
     public static RacecardFragment newInstance(Racecard racecard) {
         RacecardFragment fragment = new RacecardFragment();
@@ -50,7 +48,7 @@ public class RacecardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentRacecardBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_racecard, container, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_racecard, container, false);
         View v = binding.getRoot();
 //        binding.setRacecard(racecard);
         initMeetingsRecyclerView(v);

@@ -1,4 +1,6 @@
+cd Documents/sandbox/local-parse
 PARSE_HOST=$(ifconfig wlp2s0 | grep 'inet addr:' | cut  -d: -f2 | awk '{print $1}')
+PARSE_HOST_LOCAL=localhost
 PARSE_APP=HorseTracker
 PARSE_PORT=1337
 CLOUD_DIR=/home/ian/Documents/sandbox/horsetracker-parse
@@ -6,14 +8,18 @@ APPLICATION_ID=$(echo -n $PARSE_APP | md5sum | awk '{print $1}')
 #APPLICATION_ID=$PARSE_APP
 MASTER_KEY=$APPLICATION_ID
 export NODE_PATH=/usr/local/lib/node_modules
-sudo npm install -g parse-server mongodb-runner parse-dashboard parse
+#sudo npm install -g parse-server mongodb-runner parse-dashboard parse
 mongodb-runner start &
 sleep 10
 parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --restAPIKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
 sleep 5
-parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST:$PARSE_PORT/parse" --appName $PARSE_APP &
+parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST_LOCAL:$PARSE_PORT/parse" --appName $PARSE_APP &
 
 node node_modules/parse-dashboard/bin/parse-dashboard --appId DRIP --serverURL "http://localhost:23740/parse" --appName DRIP --allowInsecureHTTP true --masterKey DEVMASTERKEY &
+
+#load racecards
+/home/ian/Documents/sandbox/app/horsetracker/node/crawler/src
+node app.js
 
 
 node node_modules/mongodb-runner/bin/mongodb-runner

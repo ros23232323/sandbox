@@ -7,7 +7,7 @@
     <data>
         <variable
             name="meeting"
-            type="com.lucidlogic.horsetracker.model.binding.Meeting" />
+            type="com.lucidlogic.fixtureui.binding.Meeting" />
     </data>
 
     <android.support.v7.widget.CardView

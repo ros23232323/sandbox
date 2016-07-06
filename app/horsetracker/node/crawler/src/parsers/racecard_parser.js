@@ -22,7 +22,7 @@ module.exports = {
             var meeting = {
                 track:race_card_section.find('.hdr.t2 a').text().trim(),
                 track_url:race_card_section.find('.hdr.t2 a').attr('href'),
-                track_going:race_card_section.find('.list.hdr-sublinks li:nth-child(1):has(strong)').html().replace(/<strong>.*<\/strong>/g,''),
+                track_going:string_utils.nvl(race_card_section.find('.list.hdr-sublinks li:nth-child(1):has(strong)').html()).replace(/<strong>.*<\/strong>/g,''),
                 track_surface:string_utils.nvl(race_card_section.find('.list.hdr-sublinks li:nth-child(2):has(strong)').html()).replace(/<strong>.*<\/strong>/g,''),
                 races:[]
             };
