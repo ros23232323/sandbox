@@ -1,0 +1,101 @@
+var Parse = require('parse/node');
+var lodash = require('lodash');
+var _ = require('underscore');
+
+#Parse.serverURL = "http://localhost:23740/parse"
+Parse.initialize('DRIP');
+Parse.serverURL = 'http://nodeweb01.androiddrip.dev.ostk.com/parse'
+
+var User = Parse.Object.extend("User");
+var UserFollows = Parse.Object.extend("UserFollows");
+
+var currentUser = new User();
+currentUser.id = "LY55c39dDr";
+var otherUser = new User();
+otherUser.id = "NGB89EYd0P";
+
+// UserFollows for a the given user
+var userFollows = new Parse.Query(UserFollows);
+userFollows.containedIn("user", [currentUser, otherUser]);
+userFollows.select(["user","follows","both"]);
+userFollows.include("follows.profile");
+
+userFollows.find({
+    error:onError,
+    success:function(result){
+        var groups = lodash.groupBy(users, function(user){
+            return user.get('user').id
+        });
+        var otherUserGroup = lodash.map(groups[otherUser.id], function (o_user){
+            var foundObj = lodash.find(groups[currentUser.id], function (c_user){
+                return c_user.get('follows').id === o_user.get('follows').id;
+            });
+            var found = (foundObj || false) ? true : false;
+            o_user.get('follows').set('both', found);
+            return o_user; 
+        });
+        return otherUserGroup;
+    }
+}).then(function(users){
+    onSuccess(users); 
+}).catch(function(err){
+    onError(err);
+});
+
+var users = undefined;
+
+userFollows.find({
+    error:function(err){
+        console.log(err);
+    },
+    success:function(result){
+        users = result;
+    }
+});
+
+var groups = lodash.groupBy(users, function(user){
+        return user.get('user').id
+    }); 
+var otherUserGroup = lodash.map(groups[otherUser.id], function (o_user){
+    var foundObj = lodash.find(groups[currentUser.id], function (c_user){
+        return c_user.get('follows').id === o_user.get('follows').id;
+    });
+    var found = (foundObj || false) ? true : false;
+    o_user.set('both', found);
+    return o_user; 
+});
+
+
+
+var currentUserGroup = new Set(groups[currentUser.id]);
+var otherUserGroup = new Set(groups[otherUser.id]);
+
+
+lodash.each(groups[otherUser.id], function (user){
+    console.log(user.get('follows').id);
+});
+
+
+lodash.each()
+
+
+lodash.intersection
+
+lodash.forEach(function(user) {
+  console.log(value);
+});
+
+users
+lodash.each(users, function(value){ console.log(value.get('follows').id); });
+
+_.each(users, 
+    function(userFollows){
+        console.log(userFollows.get('follows'));
+    }
+);
+
+_.each(users, 
+    function(userFollows){
+        console.log(userFollows.get('follows'));
+    }
+);

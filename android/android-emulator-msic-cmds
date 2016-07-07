@@ -114,6 +114,20 @@ adb shell pm install -r "/data/local/tmp/com.overstock.android.prototype.test"
 #Running a specific test
 adb shell am instrument -w -r   -e debug false -e class com.overstock.android.prototype.espresso.activity.FeedActivityTest com.overstock.android.prototype.test/android.support.test.runner.AndroidJUnitRunner
 
+
+find . -name *.apk
+adb push /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug.apk /data/local/tmp/com.overstock.android.prototype
+adb shell pm install -r "/data/local/tmp/com.overstock.android.prototype"
+
+gradle assembleAndroidTest
+adb -s LGD855c0663430 shell "pm uninstall com.overstock.android.prototype.test"
+adb -s LGD855c0663430 push /home/itowey/dev/git_repos/oapp-prototype/app/build/outputs/apk/OApp-debug-androidTest-unaligned.apk /data/local/tmp/com.overstock.android.prototype.test
+adb -s LGD855c0663430 shell pm install -r "/data/local/tmp/com.overstock.android.prototype.test"
+
+adb -s LGD855c0663430 shell am instrument -w -r   -e debug false -e class com.overstock.android.prototype.espresso.activity.HomeActivityInstrumentationTest_Google com.overstock.android.prototype.test/android.support.test.runner.AndroidJUnitRunner
+adb -s LGD855c0663430 shell am instrument -w -r   -e debug false -e class com.overstock.android.prototype.espresso.activity.NavDrawerTest com.overstock.android.prototype.test/android.support.test.runner.AndroidJUnitRunner
+
+
 gradle app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.overstock.android.prototype.espresso.activity.BrandActivityTest
 
 #Running tests in a package

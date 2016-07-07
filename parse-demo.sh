@@ -192,7 +192,7 @@ curl -X GET \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
   -H "X-Parse-Master-Key: ${MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  http://localhost:1337/parse/classes/_User
+  http://localhost:$PARSE_PORT/parse/classes/_User
 
 curl -X DELETE \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -204,17 +204,11 @@ curl -X GET \
   -H "Content-Type: application/json" \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Meeting
 
-PARSE_HOST=10.10.2.13
+PARSE_HOST=localhost
 PARSE_PORT=23740
 PARSE_APP=DRIP
 PARSE_MASTER_KEY=DEVMASTERKEY 
 
-curl -X POST \
-  -H "X-Parse-Application-Id: ${PARSE_APP}" \
-  -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
-  -H "Content-Type: application/json" \
-  -d '{"username":"john smith","password":"js","email":"js@o.com"}' \
-  http://$PARSE_HOST:$PARSE_PORT/parse/classes/_User
 
 curl -X POST \
   -H "X-Parse-Application-Id: ${PARSE_APP}" \
@@ -285,26 +279,80 @@ curl -X POST \
   http://nodeweb01.androidapp.dev.ostk.com:23741/parse/classes/Post
 
 
-#Create userFloows in parse 
+#Create Users 
+for idx in a b c d e f g
+do
+PASSWORD=$(printf "$idx%.0s" 1 2 3 4 5)
+curl -X POST \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$idx\",\"password\":\"aaaaa\",\"email\":\"$idx@drip.com\"}" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/classes/_User
+done
 
+#List all users
+curl -s -X GET   -H "X-Parse-Application-Id: ${PARSE_APP}"   -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}"   -H "Content-Type: application/json"   http://$PARSE_HOST:$PARSE_PORT/parse/classes/_User | jq '.[] | .[].objectId' | tr -d "\""
+
+#List follow user
 function addUserFollow(){
 
 user=$1
 follows=$2
 
 curl -X POST \
-  -H "X-Parse-Application-Id: DRIP" \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"user":{"__type":"Pointer","className":"_User","objectId":"${user}"},"follows":{"__type":"Pointer","className":"_User","objectId":"${follows}"} }' \
-  http://nodeweb01.androidapp.dev.ostk.com:23741/parse/classes/UserFollows
+  -d "{\"user\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"${user}\"},\"follows\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"${follows}\"} }" \
+  http://localhost:23740/parse/classes/UserFollows
+
+}
+
+    clear
+    PARSE_APP=DRIP
+    PARSE_MASTER_KEY=DEVMASTERKEY 
+    PARSE_HOST=localhost
+    PARSE_PORT=23740
+    USER_ID=LY55c39dDr
+    curl -s -X POST \
+      -H "X-Parse-Application-Id: ${PARSE_APP}" \
+      -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
+      -H "Content-Type: application/json" \
+      -d "{\"userId\":\"${USER_ID}\",\"limit\":100,\"skip\":0}" \
+      http://$PARSE_HOST:$PARSE_PORT/parse/functions/userfollowing | jq '.[]'
+
+
+clear
+PARSE_APP=DRIP
+PARSE_MASTER_KEY=DEVMASTERKEY 
+PARSE_HOST=nodeweb01.androiddrip.dev.ostk.com
+PARSE_PORT=23740
+CUR_USER_ID=F6sul8Ejw0
+OTHER_USER_ID=kpXwGv2Gzd
+curl -s -X POST \
+  -H "X-Parse-Application-Id: ${PARSE_APP}" \
+  -H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{\"currentUserId\":\"${CUR_USER_ID}\",\"otherUserId\":\"${OTHER_USER_ID}\",\"limit\":100,\"skip\":0}" \
+  http://$PARSE_HOST:$PARSE_PORT/parse/functions/otherUserFollowing | jq '.[]'
+
+
+
+#List network
+curl -X GET \
+-H "X-Parse-Application-Id: ${PARSE_APP}" \
+-H "X-Parse-Master-Key: ${PARSE_MASTER_KEY}" \
+-H "Content-Type: application/json" \
+http://localhost:23740/parse/classes/UserFollows
+
 
 curl -X POST \
   -H "X-Parse-Application-Id: DRIP" \
   -H "Content-Type: application/json" \
-  -d '{"user":{"__type":"Pointer","className":"_User","objectId":"${follows}"},"followedBy":{"__type":"Pointer","className":"_User","objectId":"${user}"} }' \
-  http://nodeweb01.androidapp.dev.ostk.com:23741/parse/classes/UserFollowedBy
+  -d "{\"user\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"${follows}\"},\"followedBy\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"${user}\"} }" \
+  http://localhost:23741/parse/classes/UserFollowedBy
 
-}
 
 
 addUserFollow vwmKdgXv20 iFU8Isbq7F
