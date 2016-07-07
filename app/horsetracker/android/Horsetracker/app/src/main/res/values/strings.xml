@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">Horsetracker</string>
 
-    <!--<string name="parse_app_id">HorseTracker</string>-->
-    <!--<string name="parse_client_id">HorseTracker</string>-->
-    <!--<string name="parse_server_url">http://192.168.1.101:1337/parse/</string>-->
-    <!---->
     <string name="parse_app_id">9c188b00235ac01ec4bff34fcd3f7838</string>
     <string name="parse_client_id">9c188b00235ac01ec4bff34fcd3f7838</string>
     <string name="parse_server_url">http://192.168.1.101:1337/parse/</string>

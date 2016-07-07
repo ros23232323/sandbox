@@ -1,8 +1,8 @@
 package com.lucidlogic.horsetracker.adapter;
 
+import com.lucidlogic.fixtureui.binding.Race;
 import com.lucidlogic.horsetracker.BR;
 import com.lucidlogic.horsetracker.R;
-import com.lucidlogic.horsetracker.model.binding.Race;
 
 import java.util.List;
 

@@ -1,3 +1,4 @@
+cd Documents/sandbox/local-parse
 PARSE_HOST=$(ifconfig wlp2s0 | grep 'inet addr:' | cut  -d: -f2 | awk '{print $1}')
 PARSE_APP=HorseTracker
 PARSE_PORT=1337

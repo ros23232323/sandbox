@@ -1,10 +1,11 @@
 package com.lucidlogic.horsetracker.adapter;
 
+import com.lucidlogic.fixtureui.binding.Meeting;
 import com.lucidlogic.horsetracker.BR;
 import com.lucidlogic.horsetracker.R;
-import com.lucidlogic.horsetracker.model.binding.Meeting;
 
 import java.util.List;
+
 
 /**
  * Created by ian on 08/06/16.

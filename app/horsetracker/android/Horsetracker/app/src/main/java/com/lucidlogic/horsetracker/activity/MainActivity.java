@@ -5,20 +5,21 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.lucidlogic.horsetracker.BeanTransformers;
+import com.lucidlogic.fixtureui.BeanTransformers;
+import com.lucidlogic.fixtureui.binding.Racecard;
+import com.lucidlogic.fixtureui.parse.RacecardParse;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.adapter.RacecardViewPagerAdapter;
 import com.lucidlogic.horsetracker.fragment.RacecardFragment;
-import com.lucidlogic.horsetracker.model.binding.Racecard;
-import com.lucidlogic.horsetracker.model.parse.RacecardParse;
-import com.lucidlogic.horsetracker.utils.DateUtils;
-import com.parse.FindCallback;
-import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.parse.ParseObservable;
+import rx.schedulers.Schedulers;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,38 +29,41 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_fixture);
         initViewPager();
     }
 
     private void initViewPager(){
-        new ParseQuery<RacecardParse>("Racecard")
+
+        ParseObservable.find(ParseQuery.getQuery(RacecardParse.class)
             .include("meetings")
-            .addAscendingOrder("date")
-            .findInBackground(new FindCallback<RacecardParse>() {
-                @Override
-                public void done(List<RacecardParse> racecardParses, ParseException e) {
-                int currentPageIdx = 0;
-
-                List<RacecardFragment> racecardFragments = new ArrayList<RacecardFragment>();
-                for(int i = 0; i < racecardParses.size(); i++){
-                    //Convert to bindable objects
-                    Racecard racecard = BeanTransformers.racecardFromRacecardParse(racecardParses.get(i));
-
-                    //Get index of todays racecard for setting default position
-                    Date now = new Date();
-                    if (DateUtils.compareDate(racecard.getDate(), now)){
-                        currentPageIdx = i;
+            .addAscendingOrder("date"))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .map(new Func1<RacecardParse, RacecardFragment>() {
+                    @Override
+                    public RacecardFragment call(RacecardParse racecardParse) {
+                        Racecard racecard = BeanTransformers.racecardFromRacecardParse(racecardParse);
+                        return RacecardFragment.newInstance(racecard);
                     }
-                    racecardFragments.add(RacecardFragment.newInstance(racecard));
-                }
+                })
+                .toList()
+                .subscribe(new Observer<List<RacecardFragment>>() {
+                    @Override
+                    public void onCompleted() {
+                    }
 
-
-                ViewPager vpPager = (ViewPager) findViewById(R.id.racecard_vp);
-                adapterViewPager = new RacecardViewPagerAdapter(getSupportFragmentManager(), racecardFragments);
-                vpPager.setAdapter(adapterViewPager);
-                    vpPager.setOffscreenPageLimit(2);
-            }
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+                    @Override
+                    public void onNext(List<RacecardFragment> racecardFragments) {
+                        ViewPager vpPager = (ViewPager) findViewById(R.id.racecard_vp);
+                        adapterViewPager = new RacecardViewPagerAdapter(getSupportFragmentManager(), racecardFragments);
+                        vpPager.setAdapter(adapterViewPager);
+                        vpPager.setOffscreenPageLimit(2);
+                    }
                 });
     }
 }

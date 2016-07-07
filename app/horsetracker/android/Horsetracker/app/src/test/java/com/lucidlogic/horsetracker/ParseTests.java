@@ -2,25 +2,21 @@ package com.lucidlogic.horsetracker;
 
 import android.util.Log;
 
-import com.lucidlogic.horsetracker.model.binding.Racecard;
-import com.lucidlogic.horsetracker.model.parse.RacecardParse;
-import com.lucidlogic.horsetracker.model.parse.TrackableEntityParse;
-import com.lucidlogic.horsetracker.model.parse.UserTrackableEntityParse;
-import com.lucidlogic.horsetracker.service.ParseService;
+import com.lucidlogic.fixtureui.BeanTransformers;
+import com.lucidlogic.fixtureui.binding.Racecard;
+import com.lucidlogic.fixtureui.parse.RacecardParse;
+import com.lucidlogic.fixtureui.parse.TrackableEntityParse;
+import com.lucidlogic.fixtureui.parse.UserTrackableEntityParse;
 import com.lucidlogic.horsetracker.utils.DateUtils;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import java.util.Date;
@@ -48,7 +44,6 @@ public class ParseTests {
     }
 
     @Test
-    @Ignore
     public void racecardParseTest() throws ParseException {
         ParseQuery<RacecardParse> racecardParseQuery = ParseQuery.getQuery(RacecardParse.class);
         racecardParseQuery.include("meetings");
@@ -59,7 +54,6 @@ public class ParseTests {
     }
 
     @Test
-    @Ignore
     public void trackableEntityParseTest() throws ParseException, java.text.ParseException {
         TrackableEntityParse trackableEntityParse = ParseObject.create(TrackableEntityParse.class);
         trackableEntityParse.setName("Herald The Dawn (IRE)");
