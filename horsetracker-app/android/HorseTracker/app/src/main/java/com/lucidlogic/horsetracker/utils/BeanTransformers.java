@@ -18,7 +18,7 @@ public class BeanTransformers {
         Racecard racecard = new Racecard();
         racecard.setId(racecardDTO.getObjectId());
         for(int i  = 0 ; i < racecardDTO.getMeetings().size(); i++){
-            racecard.getMeetings().add(racecardFromRacecardDTO(racecardDTO.getMeetings().get(i)));
+            racecard.getMeetings().add(meetingFromMeetingDTO(racecardDTO.getMeetings().get(i)));
         }
         racecard.setDate(racecardDTO.getDate());
 
@@ -26,12 +26,14 @@ public class BeanTransformers {
         return racecard;
     }
 
-    public static Meeting racecardFromRacecardDTO(MeetingDTO meetingDTO) {
+    public static Meeting meetingFromMeetingDTO(MeetingDTO meetingDTO) {
         Meeting meeting = new Meeting();
-        meeting.setGoing(meetingDTO.getTrackGoing());
+
         meeting.setId(meetingDTO.getObjectId());
+        meeting.setGoing(meetingDTO.getTrackGoing());
         meeting.setSurface(meetingDTO.getTrackSurface());
         meeting.setTrack(meetingDTO.getTrack());
+
         for (int i = 0; i < meetingDTO.getRaces().size(); i++) {
             meeting.getRaces().add(raceFromRaceDTO(meetingDTO.getRaces().get(i)));
         }
@@ -40,6 +42,7 @@ public class BeanTransformers {
 
     public static Race raceFromRaceDTO(RaceDTO raceDTO) {
         Race race = new Race();
+        race.setId(raceDTO.getObjectId());
         race.setAbandoned(raceDTO.getAbandoned());
         race.setName(raceDTO.getName());
         race.setTime(raceDTO.getTime());

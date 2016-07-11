@@ -3,7 +3,7 @@
 
     <string name="parse_app_id">9c188b00235ac01ec4bff34fcd3f7838</string>
     <string name="parse_client_id">9c188b00235ac01ec4bff34fcd3f7838</string>
-    <string name="parse_server_url">http://192.168.1.101:1337/parse/</string>
+    <string name="parse_server_url">http://192.168.1.104:1337/parse/</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
 

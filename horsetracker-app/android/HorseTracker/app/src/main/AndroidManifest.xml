@@ -4,10 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <meta-data
-        android:name="io.fabric.ApiKey"
-        android:value="064f175874fb3bf7da9dbd920377d5d008bf69fb"
-        />
+    <!--<meta-data-->
+        <!--android:name="io.fabric.ApiKey"-->
+        <!--android:value="064f175874fb3bf7da9dbd920377d5d008bf69fb"-->
+        <!--/>-->
 
     <application
         android:name=".App"
