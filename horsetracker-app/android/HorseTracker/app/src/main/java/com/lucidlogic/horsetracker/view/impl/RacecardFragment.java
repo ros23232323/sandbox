@@ -1,19 +1,20 @@
-package com.lucidlogic.horsetracker.fragment;
+package com.lucidlogic.horsetracker.view.impl;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 
 import com.lucidlogic.horsetracker.R;
-import com.lucidlogic.horsetracker.adapter.RacecardRecyclerViewAdapter;
-import com.lucidlogic.horsetracker.fragment.dummy.DummyContent;
+import com.lucidlogic.horsetracker.adapter.RacecardExpandableListAdapter;
 import com.lucidlogic.horsetracker.fragment.dummy.DummyContent.DummyItem;
+import com.lucidlogic.horsetracker.model.Racecard;
+import com.lucidlogic.horsetracker.presenter.RacecardPresenter;
+import com.lucidlogic.horsetracker.presenter.impl.RacecardPresenterImpl;
+import com.lucidlogic.horsetracker.view.RacecardView;
 
 /**
  * A fragment representing a list of Items.
@@ -21,7 +22,7 @@ import com.lucidlogic.horsetracker.fragment.dummy.DummyContent.DummyItem;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class RacecardFragment extends Fragment {
+public class RacecardFragment extends Fragment implements RacecardView {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -29,19 +30,18 @@ public class RacecardFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
+    RacecardPresenter racecardPresenter;
+    ExpandableListView expListView;
+
     public RacecardFragment() {
+        racecardPresenter = new RacecardPresenterImpl();
+        racecardPresenter.setView(this);
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static RacecardFragment newInstance(int columnCount) {
+    public static RacecardFragment newInstance() {
         RacecardFragment fragment = new RacecardFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        args.putInt(ARG_COLUMN_COUNT, 1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,18 +59,10 @@ public class RacecardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_racecard_list, container, false);
-
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new RacecardRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
+        // get the listview
+        expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
+        racecardPresenter.updateView();
         return view;
     }
 
@@ -91,6 +83,12 @@ public class RacecardFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        racecardPresenter.setView(null);
+    }
+
+    @Override
+    public void updateView(Racecard racecard) {
+        expListView.setAdapter(new RacecardExpandableListAdapter(this.getContext(), racecard));
     }
 
     /**

@@ -1,8 +1,6 @@
 package com.lucidlogic.horsetracker.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,17 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.crashlytics.android.Crashlytics;
 import com.lucidlogic.horsetracker.R;
-import com.lucidlogic.horsetracker.config.AppConfig;
 import com.lucidlogic.horsetracker.config.Constants;
-import com.lucidlogic.horsetracker.fragment.RacecardFragment;
+import com.lucidlogic.horsetracker.view.impl.RacecardFragment;
 import com.lucidlogic.horsetracker.fragment.ResultFragment;
 import com.lucidlogic.horsetracker.fragment.StableFragment;
-import com.lucidlogic.horsetracker.logging.ReleaseTree;
-import com.parse.Parse;
 
-import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity
@@ -65,7 +58,7 @@ public class MainActivity extends AppCompatActivity
             Timber.i(" new instance %s", label);
             switch (label) {
                 case Constants.RACECARD: {
-                    frag = RacecardFragment.newInstance(1);
+                    frag = RacecardFragment.newInstance();
                     break;
                 }
                 case Constants.RESULT: {

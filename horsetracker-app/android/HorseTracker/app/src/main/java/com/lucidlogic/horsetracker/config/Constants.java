@@ -11,6 +11,18 @@ public class Constants {
     public static final String RESULT = "Result";
     public static final String STABLE = "Stable";
 
-    public static final String TRACK = "track";
+    //Fields for RacecardDTO
     public static final String DATE = "date";
+    public static final String MEETINGS = "meetings";
+
+    //Fields for MeetingDTO
+    public static final String TRACK = "track";
+    public static final String TRACK_SURFACE = "track_surface";
+    public static final String TRACK_GOING = "track_going";
+    public static final String RACES = "races";
+
+    //Fields for RaceDTO
+    public static final String RACE_NAME = "race_name";
+    public static final String RACE_TIME = "race_time";
+    public static final String ABANDONED = "abandoned";
 }
