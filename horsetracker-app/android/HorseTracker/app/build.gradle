@@ -39,7 +39,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-
+    testCompile 'org.mockito:mockito-core:1.10.0'
+    testCompile "org.robolectric:robolectric:3.0"
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.0@aar') {
         transitive = true;
@@ -49,6 +50,7 @@ dependencies {
     compile 'com.parse:parse-android:1.13.0'
     compile 'io.reactivex:rxjava:1.1.5'
     compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'com.infstory:rxparse:2.0.1'
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
