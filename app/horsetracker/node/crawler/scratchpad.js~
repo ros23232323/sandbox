@@ -1,14 +1,18 @@
-var config = require('./config/' + (process.env.NODE_ENV || 'test') + '.json');
+var config = require('./src/config/' + (process.env.NODE_ENV || 'test') + '.json');
+var race_job = require('./src/services/race_job.js');
 var Parse = require('parse/node');
 
 Parse.initialize(config.parse.appId, config.parse.masterKey);
 Parse.serverURL = config.parse.url;
 
+race_job.init();
+
 var Race = Parse.Object.extend("Race");
 var query = new Parse.Query(Race);
-query.get('lUYfqYl6az',{
+query.get('QU9YCLl0Mw',{
   success: function(race) {
     console.log("Successfully retrieved " + race.get('race_name'));
+    race_job.start_job(race.get('racecard_url'));
   },
   error: function(error) {
     console.log("Error: " + error.code + " " + error.message);

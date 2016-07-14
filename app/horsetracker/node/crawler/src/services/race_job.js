@@ -31,12 +31,11 @@ module.exports = {
         console.log('******************************************************');
 	Parse.initialize(config.parse.appId, config.parse.masterKey);
 	Parse.serverURL = config.parse.url;
-        
+
     },
-    start_job: function(raceParseId){
-        console.log('TODO : start_race_crawler');
-		
-	    var  url = url_builder_utils.sp_race_url(config, raceRelativeUrl);
+    start_job: function(race){
+	    var url = config.sporting_life_com.url +  race.get('racecard_url');
+        console.log('crawler : ' + config.sporting_life_com.url +  race.get('racecard_url'));
 
 	    var url_parts = url_util.parse(url, true);
         rest_request_utils.get(url,null,function(html) {
@@ -46,12 +45,33 @@ module.exports = {
 
             var race_json = race_parser.parse(html, {
                 dt: url_parts.path.split('/')[3],
-                url: url,
+                page_url: url,
                 url_hash: urlMD5,
-                page_hash: htmlMD5
+                page_body_hash: htmlMD5
             });
 
-            console.log(race_json);
+            var race_runners = [];
+            _.forEach(race_json.runners,function(runner, runner_index, runner_list){
+                var horseParseEntity = create_parse_obj('Entity',runner.horse);
+                runner.horse = horseParseEntity;
+                var jockeyParseEntity = create_parse_obj('Entity',runner.jockey);
+                runner.jockey = jockeyParseEntity;
+                var trainerParseEntity = create_parse_obj('Entity',runner.trainer);
+                runner.trainer = trainerParseEntity;
+
+                race_runners.push(create_parse_obj('Runner',runner));
+            });
+            console.log('# runners :: ' + race_runners.length);
+            race.set('runners', race_runners);
+            Parse.Object.saveAll(race_runners)
+            .then(
+                function(obj){
+                    race.save();
+                    console.log('All saved');
+                }
+            );
+
+            // console.log(race_json);
         });
         //     _.forEach(racecard_json.meetings,function(meeting, meeting_index, meeting_list){
         //         _.forEach(meeting.races,function(race, race_index, race_list){
@@ -88,4 +108,3 @@ module.exports = {
         // });
     }
 }
-
