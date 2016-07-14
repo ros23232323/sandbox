@@ -4,6 +4,10 @@ var Parse = require('parse/node');
 
 race_job.init('test',config);
 
+Parse.initialize(config.parse.appId, config.parse.masterKey);
+Parse.serverURL = config.parse.url;
+
+
 var Race = Parse.Object.extend("Race");
 var query = new Parse.Query(Race);
 query.get('QU9YCLl0Mw',{
