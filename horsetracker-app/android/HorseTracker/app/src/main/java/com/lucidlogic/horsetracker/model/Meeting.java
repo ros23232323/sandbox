@@ -2,6 +2,7 @@ package com.lucidlogic.horsetracker.model;
 
 import android.databinding.BaseObservable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public class Meeting extends BaseObservable {
     private String id;
     private String surface;
     private String track;
-    private List<Race> races;
+    private List<Race> races = new ArrayList<>();
 
     public void setGoing(String going) {
         this.going = going;

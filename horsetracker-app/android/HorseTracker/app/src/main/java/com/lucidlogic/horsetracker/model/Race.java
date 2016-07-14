@@ -7,6 +7,7 @@ import android.databinding.BaseObservable;
  */
 public class Race extends BaseObservable {
 
+    private String id;
     private String abandoned;
     private String name;
     private String time;
@@ -33,5 +34,13 @@ public class Race extends BaseObservable {
 
     public String getTime() {
         return time;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

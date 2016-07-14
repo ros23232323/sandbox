@@ -35,7 +35,7 @@ public class ParseService {
         ParseObject.registerSubclass(RaceParse.class);
         ParseObject.registerSubclass(TrackableEntityParse.class);
         ParseObject.registerSubclass(UserTrackableEntityParse.class);
-        Parse.enableLocalDatastore(context);
+//        Parse.enableLocalDatastore(context);
         Parse.initialize(
          new Parse.Configuration.Builder(context)
                      .applicationId(appId)

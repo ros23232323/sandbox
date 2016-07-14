@@ -13,7 +13,6 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
@@ -27,12 +26,12 @@ import java.util.List;
  * Created by ian on 10/06/16.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21, application = MockApp.class)
+@Config(constants = BuildConfig.class, sdk = 21, application = App.class)
 public class ParseTests {
+
     public static final String TAG = ParseTests.class.getName();
 
     @Test
-    @Ignore
     public void createUserTest() throws ParseException {
         ParseUser parseUser = new ParseUser();
         parseUser.setEmail("i@ht.com");

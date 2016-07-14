@@ -4,6 +4,7 @@ import android.databinding.BaseObservable;
 
 import com.google.repacked.kotlin.collections.EmptyList;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class Racecard extends BaseObservable {
     private String id;
-    private List<Meeting> meetings;
+    private List<Meeting> meetings = new ArrayList<>();
     private Date date;
 
     public void setId(String id) {

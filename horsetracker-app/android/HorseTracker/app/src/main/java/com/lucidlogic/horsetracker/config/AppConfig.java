@@ -11,6 +11,7 @@ import com.lucidlogic.horsetracker.model.RaceDTO;
 import com.lucidlogic.horsetracker.model.RacecardDTO;
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.http.ParseHttpRequest;
 import com.parse.http.ParseHttpResponse;
 import com.parse.http.ParseNetworkInterceptor;
 
@@ -30,21 +31,29 @@ public class AppConfig {
         ParseObject.registerSubclass(RaceDTO.class);
         ParseObject.registerSubclass(MeetingDTO.class);
         ParseObject.registerSubclass(RacecardDTO.class);
-        Parse.enableLocalDatastore(context);
+//        Parse.enableLocalDatastore(context);
+
+        String appId = context.getString(R.string.parse_app_id);
+        String serverUrl = context.getString(R.string.parse_server_url);
+        String clientId = context.getString(R.string.parse_client_id);
 
         Parse.initialize(
-                new Parse.Configuration.Builder(context)
-                        .applicationId(context.getString(R.string.parse_app_id))
-//                        .addNetworkInterceptor(new ParseNetworkInterceptor() {
-//                            @Override
-//                            public ParseHttpResponse intercept(Chain chain) throws IOException {
-//                                return chain.proceed(chain.getRequest());
-//                            }
-//                        })
-                        .server(context.getString(R.string.parse_url))
-                        .build()
+            new Parse.Configuration.Builder(context)
+                .applicationId(appId)
+                .addNetworkInterceptor(new ParseNetworkInterceptor() {
+                    @Override
+                    public ParseHttpResponse intercept(Chain chain) throws IOException {
+                        ParseHttpRequest req = chain.getRequest();
+                        Timber.i(req.getUrl());
+                        ParseHttpResponse resp = chain.proceed(req);
+                        Timber.i(String.format("resp status code %d", resp.getStatusCode()));
+                        return resp;
+                    }
+                })
+                .server(serverUrl)
+                .clientKey(clientId)
+                .build()
         );
-
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
@@ -53,6 +62,5 @@ public class AppConfig {
             //Crashlytics
             Fabric.with(context, new Crashlytics());
         }
-
     }
 }
