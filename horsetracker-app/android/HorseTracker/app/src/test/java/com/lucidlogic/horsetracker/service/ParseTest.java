@@ -1,16 +1,8 @@
 package com.lucidlogic.horsetracker.service;
 
-import android.content.Context;
-
 import com.lucidlogic.horsetracker.BuildConfig;
 import com.lucidlogic.horsetracker.MockApp;
-import com.lucidlogic.horsetracker.model.MeetingDTO;
-import com.lucidlogic.horsetracker.model.RaceDTO;
-import com.lucidlogic.horsetracker.model.RacecardDTO;
-import com.parse.Parse;
-import com.parse.ParseObject;
 
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;

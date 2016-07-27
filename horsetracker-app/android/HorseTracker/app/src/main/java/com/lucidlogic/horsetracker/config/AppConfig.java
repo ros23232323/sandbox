@@ -6,9 +6,11 @@ import com.crashlytics.android.Crashlytics;
 import com.lucidlogic.horsetracker.BuildConfig;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.logging.ReleaseTree;
-import com.lucidlogic.horsetracker.model.MeetingDTO;
-import com.lucidlogic.horsetracker.model.RaceDTO;
-import com.lucidlogic.horsetracker.model.RacecardDTO;
+import com.lucidlogic.horsetracker.model.dto.EntityDTO;
+import com.lucidlogic.horsetracker.model.dto.MeetingDTO;
+import com.lucidlogic.horsetracker.model.dto.RaceDTO;
+import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
+import com.lucidlogic.horsetracker.model.dto.RunnerDTO;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.http.ParseHttpRequest;
@@ -31,8 +33,9 @@ public class AppConfig {
         ParseObject.registerSubclass(RaceDTO.class);
         ParseObject.registerSubclass(MeetingDTO.class);
         ParseObject.registerSubclass(RacecardDTO.class);
+        ParseObject.registerSubclass(RunnerDTO.class);
+        ParseObject.registerSubclass(EntityDTO.class);
 //        Parse.enableLocalDatastore(context);
-
         String appId = context.getString(R.string.parse_app_id);
         String serverUrl = context.getString(R.string.parse_server_url);
         String clientId = context.getString(R.string.parse_client_id);

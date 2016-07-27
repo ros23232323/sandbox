@@ -1,7 +1,11 @@
 package com.lucidlogic.horsetracker.service;
 
-import com.lucidlogic.horsetracker.model.RacecardDTO;
+import com.lucidlogic.horsetracker.model.Race;
+import com.lucidlogic.horsetracker.model.dto.RaceDTO;
+import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 
+import com.lucidlogic.horsetracker.model.dto.RunnerDTO;
+import com.lucidlogic.horsetracker.utils.BeanTransformers;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
@@ -24,5 +28,15 @@ public class ParseServiceTest extends ParseTest{
         Assert.assertTrue(racecardDTOList.size() > 0);
         RacecardDTO racecard = ParseService.getRacecards(new Date()).toBlocking().first();
         Assert.assertNotNull(racecard);
+    }
+
+    @Test
+    public void getRaceTest() throws ParseException {
+
+        RaceDTO raceDTO = ParseService.getRace("3YuurRwTvV").toBlocking().first();
+        Assert.assertNotNull(raceDTO);
+        Race race = BeanTransformers.raceFromRaceDTO(raceDTO);
+        Assert.assertNotNull(race);
+
     }
 }

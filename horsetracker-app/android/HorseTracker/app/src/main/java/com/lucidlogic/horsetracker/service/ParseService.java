@@ -1,9 +1,8 @@
 package com.lucidlogic.horsetracker.service;
 
-import android.text.format.DateUtils;
-
-import com.lucidlogic.horsetracker.config.Constants;
-import com.lucidlogic.horsetracker.model.RacecardDTO;
+import com.lucidlogic.horsetracker.model.dto.RaceDTO;
+import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
+import com.parse.ParseException;
 import com.parse.ParseQuery;
 
 import java.util.Calendar;
@@ -32,5 +31,17 @@ public class ParseService {
                 .include("meetings.races")
                 .addAscendingOrder("date"))
                 .first();
+    }
+
+    public static Observable<RaceDTO> getRace(String raceObjectId) {
+
+        return ParseObservable.find(
+                ParseQuery.getQuery(RaceDTO.class)
+                .whereEqualTo("objectId", raceObjectId)
+                .include("runners")
+                .include("runners.jockey")
+                .include("runners.horse")
+                .include("runners.trainer")
+                );
     }
 }

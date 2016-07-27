@@ -1,7 +1,7 @@
 package com.lucidlogic.horsetracker.presenter.impl;
 
 import com.lucidlogic.horsetracker.model.Racecard;
-import com.lucidlogic.horsetracker.model.RacecardDTO;
+import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 import com.lucidlogic.horsetracker.presenter.RacecardPresenter;
 import com.lucidlogic.horsetracker.service.ParseService;
 import com.lucidlogic.horsetracker.utils.BeanTransformers;
@@ -28,31 +28,19 @@ public class RacecardPresenterImpl implements RacecardPresenter {
 
     @Override
     public void updateView() {
-        ParseService.getRacecards(new Date()).observeOn(AndroidSchedulers.mainThread())
+        ParseService.getRacecards(new Date())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(new Func1<RacecardDTO, Racecard>() {
-                    @Override
-                    public Racecard call(RacecardDTO racecardDTO) {
-                        Racecard racecard = BeanTransformers.racecardFromRacecardDTO(racecardDTO);
-                        return racecard;
-                    }
-                })
-                .subscribe(new Observer<Racecard>() {
-                    @Override
-                    public void onCompleted() {
-                        Timber.i("Item retrival complete");
-                    }
+                .map(racecardDTO -> BeanTransformers.racecardFromRacecardDTO(racecardDTO))
+                .subscribe(racecard -> {
+                            Timber.i("Item retrieved");
+                            racecardView.updateView(racecard);
+                        },
+                        e -> {
+                            Timber.e(e,e.getMessage());
+                            e.printStackTrace();
+                        },
+                        () -> Timber.i("Item retrival complete"));
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Timber.e(e,e.getMessage());
-                        e.printStackTrace();
-                    }
-                    @Override
-                    public void onNext(Racecard racecard) {
-                        Timber.i("Item retrieved");
-                        racecardView.updateView(racecard);
-                    }
-                });
     }
 }

@@ -9,7 +9,7 @@ for(var i = -3; i <= 3; i++) {
     job.start_job(i);
 }
 
-Parse.Cloud.beforeSave(blahClass, function(request, response) {
+/*Parse.Cloud.beforeSave(blahClass, function(request, response) {
 
     var blahUniqueCol = 'uniqueCol';
     var query = new Parse.Query(blahClass);
@@ -26,4 +26,4 @@ Parse.Cloud.beforeSave(blahClass, function(request, response) {
             response.error('Could not validate uniqueness for this ' + blahClass+ ' object.');
         }
     });
-});
+});*/

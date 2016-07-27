@@ -15,8 +15,8 @@ import android.view.MenuItem;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.config.Constants;
 import com.lucidlogic.horsetracker.view.impl.RacecardFragment;
-import com.lucidlogic.horsetracker.fragment.ResultFragment;
-import com.lucidlogic.horsetracker.fragment.StableFragment;
+import com.lucidlogic.horsetracker.view.impl.ResultFragment;
+import com.lucidlogic.horsetracker.view.impl.StableFragment;
 
 import timber.log.Timber;
 
@@ -81,7 +81,18 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            onBackPressedFragment();
+        }
+    }
+
+    public void onBackPressedFragment() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
             super.onBackPressed();
+        } else {
+            getFragmentManager().popBackStack();
         }
     }
 

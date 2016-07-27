@@ -10,25 +10,17 @@ import android.widget.ExpandableListView;
 
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.adapter.RacecardExpandableListAdapter;
-import com.lucidlogic.horsetracker.fragment.dummy.DummyContent.DummyItem;
 import com.lucidlogic.horsetracker.model.Racecard;
 import com.lucidlogic.horsetracker.presenter.RacecardPresenter;
 import com.lucidlogic.horsetracker.presenter.impl.RacecardPresenterImpl;
 import com.lucidlogic.horsetracker.view.RacecardView;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
 public class RacecardFragment extends Fragment implements RacecardView {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
 
     RacecardPresenter racecardPresenter;
     ExpandableListView expListView;
@@ -68,21 +60,8 @@ public class RacecardFragment extends Fragment implements RacecardView {
 
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnListFragmentInteractionListener");
-//        }
-    }
-
-    @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
         racecardPresenter.setView(null);
     }
 
@@ -91,18 +70,4 @@ public class RacecardFragment extends Fragment implements RacecardView {
         expListView.setAdapter(new RacecardExpandableListAdapter(this.getContext(), racecard));
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
-    }
 }

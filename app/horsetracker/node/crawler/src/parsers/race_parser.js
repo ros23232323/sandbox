@@ -68,16 +68,21 @@ module.exports = {
               stall:race_entry.find('td:nth-child(1)').text().replace(/(\n|\s+)/g,' ').trim(),
               form:race_entry.find('td:nth-child(2)').text().replace(/(\n|\s+)/g,' ').trim(),
               silk_img_link:race_entry.find('td:nth-child(3) img').attr('src'),
-              horse:race_entry.find('td:nth-child(3) strong').text().replace(/(\n|\s+)/g,' ').trim(),
-              profile_url:race_entry.find('td:nth-child(3) a').attr('href'),
               breeding:race_entry.find('td:nth-child(3) a').attr('title'),
               age:race_entry.find('td:nth-child(4)').text(),
               weight:race_entry.find('td:nth-child(5)').text(),
+              horse:{
+                  type:'runner',
+                  name:race_entry.find('td:nth-child(3) a').text().replace(/(\n|\s+)/g,' ').trim(),
+                  profile_url:race_entry.find('td:nth-child(3) a').attr('href'),
+              },
               trainer:{
+                  type:'trainer',
                   name:race_entry.find('td:nth-child(6) a').text(),
                   profile_url:race_entry.find('td:nth-child(6) a').attr('href')
               },
               jockey:{
+                  type:'jockey',
                   name:race_entry.find('td:nth-child(7) a').text(),
                   profile_url:race_entry.find('td:nth-child(7) a').attr('href')
               },

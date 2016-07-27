@@ -1,0 +1,21 @@
+mongo
+help
+show dbs
+db
+use parse
+show collections
+db.Race.find().limit(5)
+
+mongo 
+use parse
+db.Race.find({_id:"l8Z3zmd60W"}).pretty()
+exit
+
+
+cat output.json | jq '.'
+
+
+mongo parse <(db.Race.find({_id:"l8Z3zmd60W"}))
+
+
+mongo localhost:27017/parse --quite --eval "db.Race.find({_id:\"l8Z3zmd60W\"}).pretty()" >> sample.json

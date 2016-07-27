@@ -10,6 +10,8 @@ public class Constants {
     public static final String RACE = "Race";
     public static final String RESULT = "Result";
     public static final String STABLE = "Stable";
+    public static final String RUNNER = "Runner";
+    public static final String ENTITY = "Entity";
 
     //Fields for RacecardDTO
     public static final String DATE = "date";
@@ -25,4 +27,25 @@ public class Constants {
     public static final String RACE_NAME = "race_name";
     public static final String RACE_TIME = "race_time";
     public static final String ABANDONED = "abandoned";
+    public static final String RUNNERS = "runners";
+
+    //Fields for RunnerDTO
+    public static final String JOCKEY = "jockey";
+    public static final String TRAINER = "trainer";
+    public static final String HORSE = "horse";
+    public static final String SP = "sp";
+    public static final String WEIGHT = "weight";
+    public static final String BREEDING = "breeding";
+    public static final String FORM = "form";
+    public static final String AGE = "age";
+    public static final String RUNNING = "running";
+    public static final String CREATEDAT = "created_at";
+
+    //Fields for EntityDTO
+    public static final String NAME = "name";
+    public static final String PROFILE_URL = "profile_url";
+    public static final String TYPE = "type";
+    public static final String OR = "or";
+    public static final String STALL = "stall";
+    public static final String SILK_IMG_LINK = "silk_img_link";
 }

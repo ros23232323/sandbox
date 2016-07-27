@@ -15,12 +15,15 @@ race_job.init('test',config);
 
 var Race = Parse.Object.extend("Race");
 var query = new Parse.Query(Race);
-query.get('QU9YCLl0Mw',{
-  success: function(race) {
-    console.log("Successfully retrieved " + race.get('racecard_url'));
-    race_job.start_job(race);
-  },
-  error: function(error) {
-    console.log("Error: " + error.code + " " + error.message);
-  }
-});
+var raceId = process.argv[2];
+if(raceId){
+	query.get(raceId,{
+	  success: function(race) {
+	    console.log("Successfully retrieved " + race.get('racecard_url'));
+	    race_job.start_job(race);
+	  },
+	  error: function(error) {
+	    console.log("Error: " + error.code + " " + error.message);
+	  }
+	});
+}
