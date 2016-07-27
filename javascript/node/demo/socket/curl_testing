@@ -1,0 +1,1 @@
+curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: localhost:3700" -H "Origin:http://localhost:3700" http://localhost:3700
