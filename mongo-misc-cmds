@@ -18,6 +18,9 @@ cat output.json | jq '.'
 
 mongo localhost:27017/parse --eval "db.Race.find({_id:\"l8Z3zmd60W\"}).pretty()" >> sample.json
 
+#get first 5 races from all meetings in Galway
+mongo localhost:27017/local --quiet --eval "db.getCollection('Meeting').find({'track':'Galway'},{'races':1}).pretty()" | jq '.races[].objectId' | tr -d "\"" | head -n 5
+
 
 #Export collection
 mongoexport --db dev --collection Topic --out Topic.json
