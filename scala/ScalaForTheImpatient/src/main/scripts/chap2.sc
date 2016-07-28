@@ -54,15 +54,14 @@ def product(s:String) = s.foldLeft(1L)((a,b) => a * b.toLong )
 
 
 def x_pow_n(x:Double, n:Int):Double = {
-  if( n % 2 == 1 && n > 0){
-    x * x_pow_n(x, n - 1)
-  } else if ( n % 2 == 0 && n > 0){
-    x_pow_n(x, n / 2)
-  } else if (n < 0){
-    1 / x_pow_n(x, -n)
-  } else{
+  if(n == 0){
     1
+  } else if ( n % 2 == 0 ){
+    val m = x_pow_n(x, n / 2)
+    m*m
+  } else {
+    x * x_pow_n(x, n-1)
   }
 }
 
-x_pow_n(1,2)
+x_pow_n(5, 3)

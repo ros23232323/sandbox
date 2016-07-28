@@ -15,7 +15,5 @@ exit
 cat output.json | jq '.'
 
 
-mongo parse <(db.Race.find({_id:"l8Z3zmd60W"}))
 
-
-mongo localhost:27017/parse --quite --eval "db.Race.find({_id:\"l8Z3zmd60W\"}).pretty()" >> sample.json
+mongo localhost:27017/parse --eval "db.Race.find({_id:\"l8Z3zmd60W\"}).pretty()" >> sample.json
