@@ -35,7 +35,7 @@ public class AppConfig {
         ParseObject.registerSubclass(RacecardDTO.class);
         ParseObject.registerSubclass(RunnerDTO.class);
         ParseObject.registerSubclass(EntityDTO.class);
-//        Parse.enableLocalDatastore(context);
+        Parse.enableLocalDatastore(context);
         String appId = context.getString(R.string.parse_app_id);
         String serverUrl = context.getString(R.string.parse_server_url);
         String clientId = context.getString(R.string.parse_client_id);
@@ -65,5 +65,6 @@ public class AppConfig {
             //Crashlytics
             Fabric.with(context, new Crashlytics());
         }
+
     }
 }

@@ -56,11 +56,13 @@ public class BeanTransformers {
         race.setAbandoned(raceDTO.getAbandoned().trim());
         race.setName(raceDTO.getName().trim());
         race.setTime(raceDTO.getTime().trim());
-        race.getRunners().addAll(
-            Stream.of(raceDTO.getRunners())
-                    .map(runnerDTO -> runnerFromRunnerDTO(runnerDTO))
-                    .collect(Collectors.toList())
-        );
+        if(raceDTO.getRunners() != null) {
+            race.getRunners().addAll(
+                    Stream.of(raceDTO.getRunners())
+                            .map(runnerDTO -> runnerFromRunnerDTO(runnerDTO))
+                            .collect(Collectors.toList())
+            );
+        }
         return race;
     }
 

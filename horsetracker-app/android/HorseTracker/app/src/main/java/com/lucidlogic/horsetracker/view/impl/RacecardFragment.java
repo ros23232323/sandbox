@@ -17,11 +17,6 @@ import com.lucidlogic.horsetracker.view.RacecardView;
 
 public class RacecardFragment extends Fragment implements RacecardView {
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
-
     RacecardPresenter racecardPresenter;
     ExpandableListView expListView;
 
@@ -31,28 +26,18 @@ public class RacecardFragment extends Fragment implements RacecardView {
     }
 
     public static RacecardFragment newInstance() {
-        RacecardFragment fragment = new RacecardFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, 1);
-        fragment.setArguments(args);
-        return fragment;
+        return new RacecardFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_racecard_list, container, false);
-        // Set the adapter
-        // get the listview
         expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
         racecardPresenter.updateView();
         return view;

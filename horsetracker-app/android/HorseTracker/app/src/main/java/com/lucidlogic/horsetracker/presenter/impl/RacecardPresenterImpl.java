@@ -23,6 +23,7 @@ public class RacecardPresenterImpl implements RacecardPresenter {
 
     @Override
     public void setView(RacecardView racecardView) {
+
         this.racecardView = racecardView;
     }
 
@@ -40,7 +41,8 @@ public class RacecardPresenterImpl implements RacecardPresenter {
                             Timber.e(e,e.getMessage());
                             e.printStackTrace();
                         },
-                        () -> Timber.i("Item retrival complete"));
-
+                        () -> {
+                            Timber.i("Item retrival complete");
+                        });
     }
 }

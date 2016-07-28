@@ -29,13 +29,18 @@
                 android:hint="12:35"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@{race.time}" />
+                android:text="@{race.time}"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
 
             <TextView
                 android:hint="the horsetracker clasic"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@{race.name}" />
+                android:text="@{race.name}"
+                android:textSize="12dp"
+                android:padding="10dp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </layout>

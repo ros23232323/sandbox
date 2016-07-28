@@ -1,6 +1,7 @@
 package com.lucidlogic.horsetracker.service;
 
 import com.lucidlogic.horsetracker.model.Race;
+import com.lucidlogic.horsetracker.model.Racecard;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 
@@ -26,7 +27,9 @@ public class ParseServiceTest extends ParseTest{
         ParseQuery parseQuery = ParseQuery.getQuery(RacecardDTO.class);
         List<RacecardDTO> racecardDTOList = parseQuery.find();
         Assert.assertTrue(racecardDTOList.size() > 0);
-        RacecardDTO racecard = ParseService.getRacecards(new Date()).toBlocking().first();
+        RacecardDTO racecardDTO = ParseService.getRacecards(new Date()).toBlocking().first();
+        Assert.assertNotNull(racecardDTO);
+        Racecard racecard = BeanTransformers.racecardFromRacecardDTO(racecardDTO);
         Assert.assertNotNull(racecard);
     }
 

@@ -3,6 +3,7 @@ PARSE_HOST_LOCAL=localhost
 PARSE_APP=HorseTracker
 PARSE_PORT=1337
 #CLOUD_DIR=/home/ian/Documents/sandbox/app/horsetracker/node/cloud
+#CLOUD_DIR=/home/itowey/Documents/sandbox/sandbox/app/horsetracker/node/cloud
 CLOUD_DIR=/home/itowey/Documents/sandbox/sandbox/app/horsetracker/node/cloud
 cd $CLOUD_DIR
 APPLICATION_ID=$(echo -n $PARSE_APP | md5sum | awk '{print $1}')
@@ -12,7 +13,8 @@ export NODE_PATH=/usr/local/lib/node_modules
 #sudo npm install -g parse-server mongodb-runner parse-dashboard parse
 mongodb-runner start &
 sleep 10
-parse-server --appId $APPLICATION_ID --masterKey $MASTER_KEY --restAPIKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
+MONGO_URI=mongodb://localhost:27017/local
+parse-server --databaseURI $MONGO_URI --appId $APPLICATION_ID --masterKey $MASTER_KEY --restAPIKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST_LOCAL:$PARSE_PORT/parse" --appName $PARSE_APP &
 
