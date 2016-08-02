@@ -1,6 +1,8 @@
 package com.lucidlogic.horsetracker.model;
 
 import android.databinding.BaseObservable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.lucidlogic.horsetracker.config.Constants;
 import com.parse.ParseClassName;
@@ -9,12 +11,15 @@ import com.parse.ParseObject;
 /**
  * Created by ian on 23/07/16.
  */
-public class Entity extends BaseObservable{
+public class Entity extends BaseObservable implements Parcelable{
 
     private String id;
     private String type;
     private String name;
     private String profileUrl;
+
+    public Entity() {
+    }
 
     public String getId() {
         return id;
@@ -47,4 +52,37 @@ public class Entity extends BaseObservable{
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(type);
+        dest.writeString(name);
+        dest.writeString(profileUrl);
+    }
+
+    protected Entity(Parcel in) {
+        id = in.readString();
+        type = in.readString();
+        name = in.readString();
+        profileUrl = in.readString();
+    }
+
+    public static final Creator<Entity> CREATOR = new Creator<Entity>() {
+        @Override
+        public Entity createFromParcel(Parcel in) {
+            return new Entity(in);
+        }
+
+        @Override
+        public Entity[] newArray(int size) {
+            return new Entity[size];
+        }
+    };
+
 }

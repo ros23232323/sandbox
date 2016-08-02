@@ -8,4 +8,4 @@ export NODE_ENV=test
 #done
 
 
-node ./src/raceCollect.js 2wpnuNTeYC
+node ./src/raceCollect.js nHYQEhOQGY

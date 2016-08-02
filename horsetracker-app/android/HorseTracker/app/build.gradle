@@ -37,11 +37,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue 'string', 'parse_server_url', 'http://192.168.1.102:1337/parse/'
+            resValue 'string', 'parse_server_url', 'http://192.168.1.103:1337/parse/'
         }
         debug {
             minifyEnabled false
-            resValue 'string', 'parse_server_url', 'http://192.168.1.102:1337/parse/'
+            resValue 'string', 'parse_server_url', 'http://192.168.1.103:1337/parse/'
         }
     }
     compileOptions {

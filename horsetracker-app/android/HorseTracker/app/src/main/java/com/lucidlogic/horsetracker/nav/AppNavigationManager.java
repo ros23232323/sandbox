@@ -1,6 +1,7 @@
 package com.lucidlogic.horsetracker.nav;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.lucidlogic.horsetracker.R;
@@ -30,5 +31,9 @@ public class AppNavigationManager {
     public static Fragment findFragment(String tag) {
         Fragment frag = _activity.getSupportFragmentManager().findFragmentByTag(tag);
         return frag;
+    }
+
+    public static FragmentManager getFragmentManager(){
+        return _activity.getSupportFragmentManager();
     }
 }

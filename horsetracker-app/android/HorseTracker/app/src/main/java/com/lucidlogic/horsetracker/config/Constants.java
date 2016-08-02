@@ -48,4 +48,7 @@ public class Constants {
     public static final String OR = "or";
     public static final String STALL = "stall";
     public static final String SILK_IMG_LINK = "silk_img_link";
+
+
+    public static final String USER = "user";
 }
