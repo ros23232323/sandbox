@@ -21,12 +21,12 @@ import com.parse.ParseQuery;
  */
 public class BeanTransformers {
 
-    public static Racecard racecardFromRacecardDTO(RacecardDTO racecardDTO) {
+    public static Racecard racecardFromRacecardDTO(RacecardDTO racecardDTO, boolean includeRunners) {
         Racecard racecard = new Racecard();
         racecard.setId(racecardDTO.getObjectId());
         racecard.getMeetings().addAll(
                 Stream.of(racecardDTO.getMeetings())
-                        .map(meetingDTO -> meetingFromMeetingDTO(meetingDTO))
+                        .map(meetingDTO -> meetingFromMeetingDTO(meetingDTO, includeRunners))
                         .collect(Collectors.toList())
         );
         racecard.setDate(racecardDTO.getDate());
@@ -35,7 +35,7 @@ public class BeanTransformers {
         return racecard;
     }
 
-    public static Meeting meetingFromMeetingDTO(MeetingDTO meetingDTO) {
+    public static Meeting meetingFromMeetingDTO(MeetingDTO meetingDTO, boolean includeRunners) {
         Meeting meeting = new Meeting();
 
         meeting.setId(meetingDTO.getObjectId());
@@ -45,18 +45,18 @@ public class BeanTransformers {
 
         meeting.getRaces().addAll(
                 Stream.of(meetingDTO.getRaces())
-                .map(raceDTO -> raceFromRaceDTO(raceDTO))
+                .map(raceDTO -> raceFromRaceDTO(raceDTO, includeRunners))
                 .collect(Collectors.toList()));
         return meeting;
     }
 
-    public static Race raceFromRaceDTO(RaceDTO raceDTO) {
+    public static Race raceFromRaceDTO(RaceDTO raceDTO, boolean includeRunners) {
         Race race = new Race();
         race.setId(raceDTO.getObjectId().trim());
         race.setAbandoned(raceDTO.getAbandoned().trim());
         race.setName(raceDTO.getName().trim());
         race.setTime(raceDTO.getTime().trim());
-        if(raceDTO.getRunners() != null) {
+        if(includeRunners && raceDTO.getRunners() != null && raceDTO.getRunners().size() > 0 ) {
             race.getRunners().addAll(
                     Stream.of(raceDTO.getRunners())
                             .map(runnerDTO -> runnerFromRunnerDTO(runnerDTO))

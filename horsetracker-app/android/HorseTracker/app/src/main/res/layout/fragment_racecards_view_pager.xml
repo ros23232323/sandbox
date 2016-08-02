@@ -8,10 +8,20 @@
         <variable name="pagerAdapter" type="com.lucidlogic.horsetracker.adapter.RacecardViewPagerAdapter"/>
     </data>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
+    <LinearLayout
         android:layout_height="match_parent"
-        app:setPageChangeListener="@{handlers}"
-        app:setPagerAdapter="@{pagerAdapter}" />
+        android:layout_width="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TODO"/>
+    </LinearLayout>
+
+
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:setPageChangeListener="@{handlers}"-->
+        <!--app:setPagerAdapter="@{pagerAdapter}" />-->
 </layout>

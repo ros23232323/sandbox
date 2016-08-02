@@ -37,11 +37,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue 'string', 'parse_server_url', 'http://192.168.1.101:1337/parse/'
+            resValue 'string', 'parse_server_url', 'http://192.168.1.102:1337/parse/'
         }
         debug {
             minifyEnabled false
-            resValue 'string', 'parse_server_url', 'http://192.168.1.101:1337/parse/'
+            resValue 'string', 'parse_server_url', 'http://192.168.1.102:1337/parse/'
         }
     }
     compileOptions {
@@ -68,6 +68,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.0'
     testCompile 'org.robolectric:robolectric:3.0'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.2'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.2'
+
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'io.reactivex:rxjava:1.1.5'

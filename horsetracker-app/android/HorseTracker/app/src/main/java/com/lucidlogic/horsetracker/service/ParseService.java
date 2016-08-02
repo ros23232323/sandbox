@@ -3,6 +3,7 @@ package com.lucidlogic.horsetracker.service;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.Calendar;
@@ -43,5 +44,18 @@ public class ParseService {
                 .include("runners.horse")
                 .include("runners.trainer")
                 );
+    }
+
+    public static void putInLocalParseStore(ParseObject parseObject){
+        parseObject.pinInBackground();
+    }
+
+    public static <T extends ParseObject> T getFromLocalParseStore(String objectId, Class<T> clazz){
+        try {
+            return ParseQuery.getQuery(clazz).fromLocalDatastore().get(objectId);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.lucidlogic.horsetracker.R;
+import com.lucidlogic.horsetracker.view.impl.RaceFragment;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -11,7 +12,9 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
-//        this.getSupportFragmentManager().beginTransaction().add(RaceFragment.newInstance("SOX5iuKPlk"),"").commit();
+        this.getSupportFragmentManager().beginTransaction().replace(
+                R.id.fragment_content,
+                RaceFragment.newInstance("yhLeEP2v4m"),"RaceFragment").commit();
     }
 
 }

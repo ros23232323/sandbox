@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.adapter.RunnerRecyclerViewAdapter;
+import com.lucidlogic.horsetracker.model.Entity;
 import com.lucidlogic.horsetracker.model.Race;
+import com.lucidlogic.horsetracker.model.Runner;
 import com.lucidlogic.horsetracker.presenter.RacePresenter;
 import com.lucidlogic.horsetracker.presenter.RacecardPresenter;
 import com.lucidlogic.horsetracker.presenter.impl.RacePresenterImpl;
@@ -57,14 +59,6 @@ public class RaceFragment extends Fragment implements RaceView {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_race_list, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.runner_list);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this.getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
         racePresenter.updateView(raceObjectId);
         return v;
     }
@@ -77,10 +71,15 @@ public class RaceFragment extends Fragment implements RaceView {
     }
 
     @Override
-    public void updateView(Race view) {
-        // specify an adapter (see also next example)
-        mAdapter = new RunnerRecyclerViewAdapter(view.getRunners());
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void updateView(Race race) {
+        mLayoutManager = new LinearLayoutManager(this.getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new RunnerRecyclerViewAdapter(race.getRunners());
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
     }
 }

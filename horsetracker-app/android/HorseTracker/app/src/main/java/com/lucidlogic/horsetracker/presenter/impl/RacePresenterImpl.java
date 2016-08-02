@@ -6,6 +6,7 @@ import com.lucidlogic.horsetracker.service.ParseService;
 import com.lucidlogic.horsetracker.utils.BeanTransformers;
 import com.lucidlogic.horsetracker.view.RaceView;
 import com.lucidlogic.horsetracker.view.RacecardView;
+import com.parse.ParseException;
 
 import java.util.Date;
 
@@ -30,7 +31,10 @@ public class RacePresenterImpl implements RacePresenter {
         ParseService.getRace(raceObjectId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(raceDTO -> BeanTransformers.raceFromRaceDTO(raceDTO))
+                .map(raceDTO -> {
+                    raceDTO.pinInBackground();
+                    return BeanTransformers.raceFromRaceDTO(raceDTO, true);
+                })
                 .subscribe(race -> {
                             Timber.i("Item retrieved");
                             raceView.updateView(race);
@@ -39,7 +43,9 @@ public class RacePresenterImpl implements RacePresenter {
                             Timber.e(e,e.getMessage());
                             e.printStackTrace();
                         },
-                        () -> Timber.i("Item retrival complete"));
+                        () -> {
+                            Timber.i("Item retrival complete");
+                        });
 
     }
 }

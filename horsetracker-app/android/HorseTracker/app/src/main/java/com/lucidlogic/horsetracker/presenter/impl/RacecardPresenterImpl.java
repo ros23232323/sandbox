@@ -32,7 +32,7 @@ public class RacecardPresenterImpl implements RacecardPresenter {
         ParseService.getRacecards(new Date())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(racecardDTO -> BeanTransformers.racecardFromRacecardDTO(racecardDTO))
+                .map(racecardDTO -> BeanTransformers.racecardFromRacecardDTO(racecardDTO, false))
                 .subscribe(racecard -> {
                             Timber.i("Item retrieved");
                             racecardView.updateView(racecard);

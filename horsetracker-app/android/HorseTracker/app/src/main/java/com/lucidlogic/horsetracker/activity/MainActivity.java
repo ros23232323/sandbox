@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.config.Constants;
+import com.lucidlogic.horsetracker.nav.AppNavigationManager;
 import com.lucidlogic.horsetracker.view.impl.RacecardFragment;
 import com.lucidlogic.horsetracker.view.impl.ResultFragment;
 import com.lucidlogic.horsetracker.view.impl.StableFragment;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppNavigationManager.initialize(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void addFragment(String label){
-        Fragment frag = getSupportFragmentManager().findFragmentByTag(label);
+        Fragment frag = AppNavigationManager.findFragment(label);
         if(frag  == null){
             Timber.i(" new instance %s", label);
             switch (label) {
@@ -62,8 +64,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_display, frag, label).addToBackStack(label).commit();
+        AppNavigationManager.addFragment(frag, label);
     }
 
     @Override

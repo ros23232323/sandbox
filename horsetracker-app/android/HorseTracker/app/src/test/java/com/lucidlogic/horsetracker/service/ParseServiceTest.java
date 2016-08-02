@@ -29,16 +29,16 @@ public class ParseServiceTest extends ParseTest{
         Assert.assertTrue(racecardDTOList.size() > 0);
         RacecardDTO racecardDTO = ParseService.getRacecards(new Date()).toBlocking().first();
         Assert.assertNotNull(racecardDTO);
-        Racecard racecard = BeanTransformers.racecardFromRacecardDTO(racecardDTO);
+        Racecard racecard = BeanTransformers.racecardFromRacecardDTO(racecardDTO, false);
         Assert.assertNotNull(racecard);
     }
 
     @Test
     public void getRaceTest() throws ParseException {
 
-        RaceDTO raceDTO = ParseService.getRace("3YuurRwTvV").toBlocking().first();
+        RaceDTO raceDTO = ParseService.getRace("yhLeEP2v4m").toBlocking().first();
         Assert.assertNotNull(raceDTO);
-        Race race = BeanTransformers.raceFromRaceDTO(raceDTO);
+        Race race = BeanTransformers.raceFromRaceDTO(raceDTO, true);
         Assert.assertNotNull(race);
 
     }
