@@ -1,0 +1,17 @@
+<assembly>
+  <id>bin</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <fileSets>
+    <fileSet>
+      <directory>${project.build.directory}</directory>
+      <outputDirectory>/lib</outputDirectory>
+      <includes>
+        <include>${artifactId}-${version}.jar</include>
+      </includes>    
+    </fileSet>
+  </fileSets>
+</assembly>

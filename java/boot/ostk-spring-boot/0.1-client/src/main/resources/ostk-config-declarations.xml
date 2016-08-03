@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://arch.overstock.com/xsd/ostk-config.xsd">
+
+  <parameter name="0.1.client.serviceUrl"  type="text" desc="URL for jaxrs example service.">
+   <!--  This will be used only for OSTK Config Based systems -->
+    <value env="local">http://localhost:${reserved.port.http}</value>
+    <value>@{global.com.overstock.webservices.0.1.url}</value>
+  </parameter>
+
+  <!--  Dynamic Service Discovery Config props -->
+  
+  <parameter name="0.1.client.dynamicServiceDiscoveryEnabled" type="text"
+    desc="Whether Dynamic Service discovery is enabled for this client">
+    <value>true</value>
+  </parameter>
+  
+  <parameter name="0.1.client.retryOnConnectionFailure" type="text" desc="Retry on failure of OkHttp">
+    <value>false</value>
+  </parameter>
+
+  <parameter name="0.1.client.readTimeout" type="number"
+    desc="Read Timeout for client. Time before the call is aborted for lack of response from server.">
+    <value>5000</value>
+  </parameter>
+
+  <parameter name="0.1.client.connectionRequestTimeout"
+    type="number"
+    desc="The time to wait to obtain a connection from the connection manager.">
+    <value>5000</value>
+  </parameter>
+
+  <parameter name="0.1.client.idleConnTimeoutMillis"
+    type="number" desc="Idle Connection Timeout for the client">
+    <value>10000</value>
+  </parameter>
+
+  <parameter name="0.1.client.idleConnTimeoutIntervalMillis"
+    type="number" desc="Idle Connection interval check for the client">
+    <value>5000</value>
+  </parameter>
+
+  <parameter name="0.1.client.maxConnectionsPerRoute"
+    type="number" desc="Max connections per route for the client">
+    <value>1000</value>
+  </parameter>
+
+  <parameter name="0.1.client.maxTotalConnections"
+    type="number" desc="Max total connections for the client">
+    <value>1000</value>
+  </parameter>
+
+  <parameter name="0.1.client.connectionTimeout" type="number"
+    desc="The timeout for establishing an http connection">
+    <value>5000</value>
+  </parameter>
+</config>

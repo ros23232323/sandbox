@@ -1,0 +1,27 @@
+<FindBugsFilter>
+     <Match>
+       <!-- not initializing instance variables in constructors -->
+       <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/>
+     </Match>
+     <Match>
+       <!-- catching Exception when Exception is not thrown (but subclasses are) -->
+       <Bug pattern="REC_CATCH_EXCEPTION"/>
+     </Match>
+     <Match>
+       <Class name="~.*Test"/>
+       <Or>
+         <Bug code="OS,ODR,UI"/>
+         <Bug pattern="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE"/>
+       </Or>
+     </Match>
+     <Match>
+       <Class name="~.*Test\$.*"/>
+       <Or>
+         <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
+         <Bug pattern="SE_NO_SERIALVERSIONID"/>
+       </Or>
+     </Match>
+     <Match>
+       <Bug pattern="DM_CONVERT_CASE"/>
+     </Match>
+</FindBugsFilter>

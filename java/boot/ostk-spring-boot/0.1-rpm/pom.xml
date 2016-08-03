@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>0.1</artifactId>
+    <groupId>0.1</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>0.1-rpm</artifactId>
+  <packaging>rpm</packaging>
+  <name>0.1-rpm</name>
+
+
+  <properties>
+    <runtime.user>b2c_runtime</runtime.user>
+    <runtime.group>b2c_runtime</runtime.group>
+    <process.grep.pattern>java.*0.1-webapp.*</process.grep.pattern>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <app.log.dir>${app.deploy.dir}/logs</app.log.dir>    
+    <dropbox.dir>/opt/ostk/drop-box</dropbox.dir>
+    <overrides.dir>/opt/ostk/config/xml</overrides.dir>
+    <keystore.file>/opt/ostk/keys/server-keystore.jks</keystore.file>
+    <truststore.file>/opt/ostk/keys/server-truststore.jks</truststore.file>
+    <password.file>/opt/ostk/keys/jmx-passwords.sh</password.file>
+    <jre.home>/opt/jre8</jre.home>
+    <jre.opts></jre.opts>
+    <java.heap.min>256m</java.heap.min>
+    <java.heap.max>1024m</java.heap.max>
+    <java.metaspace.max>256m</java.metaspace.max>
+    <gc.log>-XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -verbose:gc -XX:+PrintGCDetails -Xloggc:${app.log.dir}/gc-time.log.$(date +%Y-%m-%d-%H-%M)</gc.log>
+  </properties>
+
+  <dependencies>
+
+    <!-- Place the right version of the webapp here. -->
+    <dependency>
+      <groupId>0.1</groupId>
+      <artifactId>0.1-webapp</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <classifier>bin</classifier>
+      <type>tar.gz</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>0.1</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+     <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <banDuplicateClasses>
+              <ignoreClasses>
+                <!-- This is because of embedded Tomcat that decides to include
+                  persistence -->
+                <ignoreClass>javax.persistence.*</ignoreClass>
+                <ignoreClass>javax.el.*</ignoreClass>
+              </ignoreClasses>
+            </banDuplicateClasses>
+          </rules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>ostk-rpm-plugin</artifactId>
+        <groupId>com.overstock.mojo</groupId>
+        <configuration>
+          <filteredRpmArtifacts>
+            <filteredRpmArtifact>
+              <artifact>0.1:0.1-webapp</artifact>
+              <deployDir>${app.deploy.dir}</deployDir>
+            </filteredRpmArtifact>
+          </filteredRpmArtifacts>
+
+          <install>
+            mkdir -p $RPM_BUILD_ROOT/${app.deploy.dir}/logs
+            chmod a+x $RPM_BUILD_ROOT/${app.deploy.dir}/*.sh
+          </install>
+
+          <fileSection>
+          %defattr(-,${runtime.user},${runtime.group})
+          ${app.deploy.dir}
+          </fileSection>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

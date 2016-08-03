@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="LOG_PATTERN_FILE">%d [%t] %p %c - %m %O{WARN}%n</Property>
+    <Property name="LOG_FILE">${app.deploy.dir}/logs/0.1.log</Property>
+  </Properties>
+  <Appenders>
+    <RollingFile name="fileWriter" fileName="${LOG_FILE}"
+      filePattern="${LOG_FILE}.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="${LOG_PATTERN_FILE}" />
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <logger name="com.overstock" level="INFO" />
+    <Root level="ERROR">
+      <AppenderRef ref="fileWriter" />
+    </Root>
+  </Loggers>
+</Configuration>

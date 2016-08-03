@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://arch.overstock.com/xsd/ostk-config.xsd">
+
+  <parameter name="spring.application.name" type="text" desc="Name of the App">
+    <value>0.1</value>
+  </parameter>
+  
+  <parameter name="com.overstock.framework.mail.emailRedirection">
+    <value env="local dev test stage">@{global.com.overstock.framework.mail.emailRedirection}</value>
+  </parameter>
+  
+  <parameter name="server.context-path" desc="Server Context Path">
+    <value>${context.path}</value>
+  </parameter>
+
+  <parameter name="server.port" desc="Embedded tomcat port">
+    <value>${reserved.port.http}</value>
+  </parameter>
+  
+   <parameter name="eureka.client.serviceUrl.defaultZone" type="text" desc="Eureka Service URLS">
+    <!-- For local environment expects Eureka to be running. Alternately disable eureka locally
+         by setting eureka.client.enabled to false to prevent registration
+    -->
+    <value env="local">http://localhost:23290/eureka/</value>
+    <value>@{global.com.overstock.eureka.serviceUrl}</value>
+  </parameter>
+  
+  <parameter name="eureka.client.enabled" type="text" desc="Whether eureka client is enabled.">
+    <value>true</value>
+  </parameter>
+ 
+  <parameter name="eureka.client.fetchRegistry" type="text" desc="Whether or not to fetch the registry from Eureka. Setting eureka.client.enabled to false alone does not prevent the Discovery client from fetching the registry from Eureka">
+    <value>true</value>
+  </parameter>
+      
+  <parameter name="eureka.client.registerWithEureka" type="text" desc="Whether or not to register with eureka">
+    <value>true</value>
+  </parameter>
+
+  <parameter name="eureka.client.registryFetchIntervalSeconds" type="number" desc="How often (in seconds) to fetch the registry information from the eureka server.">
+    <value>10</value>
+  </parameter>
+
+  <parameter name="eureka.client.initialInstanceInfoReplicationIntervalSeconds" type="number" desc="How long initially (in seconds) to replicate instance info to the eureka server.">
+    <value>20</value>
+  </parameter>
+
+  <parameter name="eureka.instance.instanceId" type="text" desc="This property is needed to ensure consistent instanceId between Angel (1.0.x) and Brixton (1.1.x) spring-cloud-netflix releases. See https://github.com/spring-cloud/spring-cloud-netflix/issues/978 for more details">
+    <value>${spring.cloud.client.hostname}:${spring.application.name}</value>
+  </parameter>
+
+  <parameter name="eureka.instance.metadataMap.instanceId" type="text" desc="This property changes the instanceId which defaults to hostname">
+    <value>${spring.application.name}</value>
+  </parameter>
+  
+  <parameter name="eureka.instance.nonSecurePort" type="text" desc="This is the port on which this application will listen on. If this is set a -1, then registration will never occur">
+    <value>${reserved.port.http}</value>
+  </parameter>
+  
+  <parameter name="eureka.instance.healthCheckUrlPath" type="text" desc="Health Check URL Path for this app">
+    <value>/health</value>
+  </parameter>
+  
+  <parameter name="eureka.instance.statusPageUrlPath" type="text" desc="Status Page URL Path">
+    <value>/</value>
+  </parameter>
+  
+  <parameter name="eureka.instance.leaseRenewalIntervalInSeconds" type="number" desc="How often (in seconds) the eureka client needs to send heartbeats to the eureka server to indicate that it is still alive. If the heartbeats are not received for the period specified in leaseExpirationDurationInSeconds, eureka server will remove the instance from its view, there by disallowing traffic to this instance.">
+    <value>15</value>
+  </parameter>
+
+  <parameter name="eureka.instance.leaseExpirationDurationInSeconds" type="number" desc="The time (in seconds) that the eureka server waits since it received the last heartbeat before it can remove this instance from its view and there by disallowing traffic to this instance.  Setting this value too long could mean that the traffic could be routed to the instance even though the instance is not alive. Setting this value too small could mean, the instance may be taken out of traffic because of temporary network glitches.  This value should be set higher than the value specified in leaseRenewalIntervalInSeconds.">
+    <value>45</value>
+  </parameter>
+  
+  <!--  The below server.tomcat.basedir cannot be absorbed to the ostk-springboot-tomcat-config project -->
+  <parameter name="server.tomcat.basedir" type="text" desc="tomcat base dir">
+    <value env="local">${project.build.directory}/tomcat</value>
+    <value>${app.deploy.dir}</value>
+  </parameter>
+
+  <parameter name="tomcat.sslOffloadConnector.port" type="number" desc="Tomcat SSL Offload Port">
+    <value>${reserved.port.ssloffload}</value>
+  </parameter>
+
+  <parameter name="tomcat.ajpConnector.port" type="number" desc="Tomcat AJP Port">
+    <value>${reserved.port.ajp}</value>
+  </parameter>
+
+  <parameter name="com.overstock.log4j.properties" desc="location of the log4j properties file">
+    <value env="local">${local.log4j.properties}</value>
+    <value>${log4j.properties}</value>
+  </parameter>
+
+  <parameter name="management.context-path" desc="Spring Boot Actuator end points will be available at this context.">
+    <!-- API Gateway is expecting all management end points to be under /manage and will prevent external access to it.
+         Do not change this context   -->
+    <value>/manage</value>
+  </parameter>
+
+  <parameter name="info.tomcat.version" type="text" desc="Version of Tomcat">
+    <!-- This is used by Actuator end point. Do NOT remove -->
+    <value>${tomcat.version}</value>
+  </parameter>
+</config>

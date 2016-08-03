@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for 0.1-rpm" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="0.1-rpm" />
+      </profile>
+      <profile default="false" name="Annotation profile for 0.1-webapp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="0.1-webapp" />
+      </profile>
+      <profile default="false" name="Annotation profile for 0.1-client" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="0.1-client" />
+      </profile>
+      <profile default="false" name="Annotation profile for 0.1-common" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="0.1-common" />
+      </profile>
+      <profile default="false" name="Annotation profile for 0.1-integration-tests-1.0" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="0.1-integration-tests-1.0" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="0.1" target="1.8" />
+      <module name="0.1-client" target="1.8" />
+      <module name="0.1-common" target="1.8" />
+      <module name="0.1-integration-tests" target="1.8" />
+      <module name="0.1-integration-tests-1.0" target="1.8" />
+      <module name="0.1-rpm" target="1.8" />
+      <module name="0.1-webapp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

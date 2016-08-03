@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>0.1-integration-tests</artifactId>
+    <groupId>0.1</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>0.1-integration-tests-1.0</artifactId>
+  <name>0.1-integration-tests-1.0</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <findBugs.file.location>../../FindBugsFilter.xml</findBugs.file.location>
+    <pmd.file.location>../../pmd.xml</pmd.file.location>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.overstock.arch</groupId>
+      <artifactId>JavaFramework</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>0.1</groupId>
+      <artifactId>0.1-client</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>0.1</groupId>
+      <artifactId>0.1-webapp</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.overstock.arch</groupId>
+      <artifactId>JavaFrameworkTestUtils</artifactId>
+      <scope>test</scope>
+    </dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <!-- Reconfigure Test Source Directory from Default Setting -->
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <banDuplicateClasses>
+              <ignoreClasses>
+                <!-- This is because of embedded Tomcat that decides to include 
+                  persistence -->
+                <ignoreClass>javax.persistence.*</ignoreClass>
+                <ignoreClass>javax.servlet.*</ignoreClass>
+                <ignoreClass>javax.el.*</ignoreClass>
+                <ignoreClass>org.xmlpull.*</ignoreClass>
+                <ignoreClass>org.objectweb.*</ignoreClass>
+              </ignoreClasses>
+            </banDuplicateClasses>
+          </rules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>integration-test</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>none</exclude>
+              </excludes>
+              <includes>
+                <include>**/*IntegrationTest.java</include>
+              </includes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>verify</id>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <redirectTestOutputToFile>true</redirectTestOutputToFile>
+              <skip>false</skip>
+              <excludes>
+                <exclude>none</exclude>
+              </excludes>
+              <includes>
+                <include>**/*IntegrationTest.java</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/0.1.iml" filepath="$PROJECT_DIR$/0.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-client/0.1-client.iml" filepath="$PROJECT_DIR$/0.1-client/0.1-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-common/0.1-common.iml" filepath="$PROJECT_DIR$/0.1-common/0.1-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-integration-tests/0.1-integration-tests.iml" filepath="$PROJECT_DIR$/0.1-integration-tests/0.1-integration-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-integration-tests/0.1-integration-tests-1.0/0.1-integration-tests-1.0.iml" filepath="$PROJECT_DIR$/0.1-integration-tests/0.1-integration-tests-1.0/0.1-integration-tests-1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-rpm/0.1-rpm.iml" filepath="$PROJECT_DIR$/0.1-rpm/0.1-rpm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0.1-webapp/0.1-webapp.iml" filepath="$PROJECT_DIR$/0.1-webapp/0.1-webapp.iml" />
+    </modules>
+  </component>
+</project>
