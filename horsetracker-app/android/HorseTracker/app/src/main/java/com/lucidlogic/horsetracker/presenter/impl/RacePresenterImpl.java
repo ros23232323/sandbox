@@ -32,7 +32,7 @@ public class RacePresenterImpl implements RacePresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .map(raceDTO -> {
-                    raceDTO.pinInBackground();
+//                    raceDTO.pinInBackground();
                     return BeanTransformers.raceFromRaceDTO(raceDTO, true);
                 })
                 .subscribe(race -> {
