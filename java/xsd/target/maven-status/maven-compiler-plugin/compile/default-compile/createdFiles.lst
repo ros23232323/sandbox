@@ -1,0 +1,17 @@
+com/overstock/webdev/pofile/generated/bind/DeliveryServiceTypeRef.class
+com/overstock/webdev/pofile/generated/bind/BasketItem.class
+com/overstock/webdev/pofile/generated/bind/DomesticProfile.class
+com/overstock/webdev/pofile/generated/bind/OrderDate.class
+com/overstock/webdev/pofile/generated/bind/Marketing.class
+com/overstock/webdev/pofile/generated/bind/OrderFeed.class
+com/overstock/webdev/pofile/generated/bind/OrderId.class
+com/overstock/webdev/pofile/generated/bind/Address.class
+com/overstock/webdev/pofile/generated/bind/OrderDetails.class
+com/overstock/webdev/pofile/generated/bind/CreditCard.class
+com/overstock/webdev/pofile/generated/bind/ObjectFactory.class
+com/overstock/webdev/pofile/generated/bind/DomesticBasket.class
+com/overstock/webdev/pofile/generated/bind/Order.class
+com/overstock/webdev/pofile/generated/bind/DeliveryServiceType.class
+com/overstock/webdev/pofile/generated/bind/Expiry.class
+com/overstock/webdev/pofile/generated/bind/BasketDetails.class
+com/overstock/webdev/pofile/generated/bind/InternationalProfile.class
