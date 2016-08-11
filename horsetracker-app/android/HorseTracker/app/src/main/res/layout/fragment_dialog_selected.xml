@@ -16,16 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:clickable="true"
-            android:onClick="@{(v) -> eventHandler.onTrackEntity(v, entity)}"/>
+            android:clickable="true" />
 
         <TextView
             android:text="View Profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:clickable="true"
-            android:onClick="@{(v) -> eventHandler.onViewEntityProfile(v, entity)}"/>
+            android:clickable="true"/>
 
     </LinearLayout>
 

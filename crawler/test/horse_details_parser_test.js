@@ -4,7 +4,6 @@ var fs = require('fs');
 
 var file_name = './tmp/apache-outlaw.html';
 
-
 describe("Parse horse details", function() {
 
     before(function(done){
@@ -13,7 +12,7 @@ describe("Parse horse details", function() {
             done();
         }, 1000);
     });
-    
+
     it("get horse details", function (done) {
 
         var html = fs.readFileSync(file_name);

@@ -5,16 +5,14 @@ import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.lucidlogic.horsetracker.model.Entity;
 import com.lucidlogic.horsetracker.model.Meeting;
+import com.lucidlogic.horsetracker.model.Race;
+import com.lucidlogic.horsetracker.model.Racecard;
 import com.lucidlogic.horsetracker.model.Runner;
 import com.lucidlogic.horsetracker.model.dto.EntityDTO;
 import com.lucidlogic.horsetracker.model.dto.MeetingDTO;
-import com.lucidlogic.horsetracker.model.Race;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
-import com.lucidlogic.horsetracker.model.Racecard;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 import com.lucidlogic.horsetracker.model.dto.RunnerDTO;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 
 /**
  * Created by ian on 08/06/16.
@@ -89,6 +87,8 @@ public class BeanTransformers {
         entity.setId(entityDTO.getObjectId());
         entity.setProfileUrl(entityDTO.getProfileUrl());
         entity.setType(entityDTO.getType());
+        entity.setEdCollectDate(entityDTO.getEntityDetailsCollectionDate());
+        entity.setEntityDetails(entityDTO.getEntityDetails());
         return entity;
     }
 }

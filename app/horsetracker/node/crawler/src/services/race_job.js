@@ -20,7 +20,6 @@ var create_parse_obj = function(parseObjType,sourceObj){
     return parseObj;
 }
 
-
 module.exports = {
     init: function(mode, cfg){
 	console.log('******************************************************');
@@ -70,41 +69,6 @@ module.exports = {
                     console.log('All saved');
                 }
             );
-
-            // console.log(race_json);
         });
-        //     _.forEach(racecard_json.meetings,function(meeting, meeting_index, meeting_list){
-        //         _.forEach(meeting.races,function(race, race_index, race_list){
-        //             race.processed = false;
-        //             meeting.races[race_index] = create_parse_obj('Race',race);
-        //         });
-        //         racecard_json.meetings[meeting_index] = create_parse_obj('Meeting', meeting);
-        //     });
-        //     racecard_json = create_parse_obj('Racecard',racecard_json);
-        //
-        //     var tmp_list = []
-        //     _.forEach(racecard_json.get('meetings'),function(meeting, meeting_index, meeting_list){
-        //         tmp_list.push(meeting.get('races'));
-        //     });
-        //
-        //     Parse.Object.saveAll(tmp_list)
-        //     .then(
-        //         function(obj){
-        //             Parse.Object.saveAll(racecard_json.get('meetings'))
-        //                 .then(
-        //                     function(obj1){
-        //                         racecard_json.save(null, {
-        //                             success: function(result) {
-        //                                 console.log('New object created with objectId: ' + result.id);
-        //                             },
-        //                             error: function(result, error) {
-        //                                 console.log('Failed to create new object, with error code: ' + error.message);
-        //                             }
-        //                         });
-        //                     });
-        //             return 'saved';
-        //         }
-        //     );
-        // });
     }
 }

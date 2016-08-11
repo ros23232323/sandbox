@@ -1,13 +1,12 @@
 package com.lucidlogic.horsetracker.handler;
 
+import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.lucidlogic.horsetracker.R;
+import com.lucidlogic.horsetracker.config.Constants;
 import com.lucidlogic.horsetracker.model.Entity;
-import com.lucidlogic.horsetracker.model.Race;
-import com.lucidlogic.horsetracker.model.Runner;
 import com.lucidlogic.horsetracker.nav.AppNavigationManager;
-import com.lucidlogic.horsetracker.view.impl.EntitySelectedDialogFragment;
+import com.lucidlogic.horsetracker.view.impl.EntityFragment;
 
 import timber.log.Timber;
 
@@ -16,18 +15,18 @@ import timber.log.Timber;
  */
 public class RunnerEntityClickHandler {
 
-    public void onHorseClick(View v, Entity entity){
-        Timber.i("HORSE :: %s %s clicked" ,entity.getName(), entity.getId());
-        EntitySelectedDialogFragment entitySelectedDialogFragment
-                = EntitySelectedDialogFragment.newInstance(R.layout.fragment_dialog_selected, entity);
-        entitySelectedDialogFragment.show(AppNavigationManager.getFragmentManager(),"Dialog Fragment");
+    public void onHorseClick(View v, Entity e){
+        Timber.i("%s %s clicked" ,e.getName(), e.getId());
+        String fragmentTag = Constants.ENTITY + e.getId();
+        Fragment fragment = AppNavigationManager.findFragment(fragmentTag);
+        if(fragment == null){
+            fragment = EntityFragment.newInstance(e.getId());
+        }
+        AppNavigationManager.addFragment(fragment, fragmentTag);
     }
 
     public void onJockeyClick(View v, Entity entity){
         Timber.i("JOCKEY :: %s %s clicked" ,entity.getName(), entity.getId());
-        EntitySelectedDialogFragment entitySelectedDialogFragment
-                = EntitySelectedDialogFragment.newInstance(R.layout.fragment_dialog_selected, entity);
-        entitySelectedDialogFragment.show(AppNavigationManager.getFragmentManager(),"Dialog Fragment");
     }
 
 }

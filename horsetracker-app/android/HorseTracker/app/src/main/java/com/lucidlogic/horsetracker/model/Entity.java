@@ -4,9 +4,8 @@ import android.databinding.BaseObservable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.lucidlogic.horsetracker.config.Constants;
-import com.parse.ParseClassName;
-import com.parse.ParseObject;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by ian on 23/07/16.
@@ -16,10 +15,48 @@ public class Entity extends BaseObservable implements Parcelable{
     private String id;
     private String type;
     private String name;
+    private Date edCollectDate;
+    private Map<String, Parcelable> entityDetails;
     private String profileUrl;
 
     public Entity() {
     }
+
+    protected Entity(Parcel in) {
+        id = in.readString();
+        type = in.readString();
+        name = in.readString();
+        profileUrl = in.readString();
+        in.readMap(entityDetails, this.getClass().getClassLoader());
+        edCollectDate = new Date(in.readLong());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(type);
+        dest.writeString(name);
+        dest.writeString(profileUrl);
+        dest.writeMap(entityDetails);
+        dest.writeLong(edCollectDate.getTime());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Entity> CREATOR = new Creator<Entity>() {
+        @Override
+        public Entity createFromParcel(Parcel in) {
+            return new Entity(in);
+        }
+
+        @Override
+        public Entity[] newArray(int size) {
+            return new Entity[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -53,36 +90,20 @@ public class Entity extends BaseObservable implements Parcelable{
         this.profileUrl = profileUrl;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+
+    public Date getEdCollectDate() {
+        return edCollectDate;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(type);
-        dest.writeString(name);
-        dest.writeString(profileUrl);
+    public void setEdCollectDate(Date edCollectDate) {
+        this.edCollectDate = edCollectDate;
     }
 
-    protected Entity(Parcel in) {
-        id = in.readString();
-        type = in.readString();
-        name = in.readString();
-        profileUrl = in.readString();
+    public Map<String, Parcelable> getEntityDetails() {
+        return entityDetails;
     }
 
-    public static final Creator<Entity> CREATOR = new Creator<Entity>() {
-        @Override
-        public Entity createFromParcel(Parcel in) {
-            return new Entity(in);
-        }
-
-        @Override
-        public Entity[] newArray(int size) {
-            return new Entity[size];
-        }
-    };
-
+    public void setEntityDetails(Map<String, Parcelable> entityDetails) {
+        this.entityDetails = entityDetails;
+    }
 }

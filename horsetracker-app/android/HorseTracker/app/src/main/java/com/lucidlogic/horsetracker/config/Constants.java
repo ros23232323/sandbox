@@ -51,4 +51,6 @@ public class Constants {
 
 
     public static final String USER = "user";
+    public static final String ED_COLLECT_DATE = "ed_collect_date";
+    public static final String ENTITY_DETAILS = "entity_details";
 }

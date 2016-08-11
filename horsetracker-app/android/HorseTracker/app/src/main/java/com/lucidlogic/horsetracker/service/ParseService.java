@@ -1,5 +1,6 @@
 package com.lucidlogic.horsetracker.service;
 
+import com.lucidlogic.horsetracker.model.dto.EntityDTO;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 import com.parse.ParseException;
@@ -44,6 +45,13 @@ public class ParseService {
                 .include("runners.horse")
                 .include("runners.trainer")
                 );
+    }
+
+    public static Observable<EntityDTO> getEntity(String entityObjectId) {
+
+        return ParseObservable.find(
+                ParseQuery.getQuery(EntityDTO.class)
+                        .whereEqualTo("objectId", entityObjectId));
     }
 
     public static void putInLocalParseStore(ParseObject parseObject){
