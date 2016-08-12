@@ -1,6 +1,6 @@
 {
   "parse":{
-	"url":"http://10.10.2.28:1337/parse",
+	"url":"http://192.168.50.183:1337/parse",
 	"appId":"9c188b00235ac01ec4bff34fcd3f7838",
 	"masterKey":"9c188b00235ac01ec4bff34fcd3f7838"
   },

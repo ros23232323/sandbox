@@ -4,13 +4,10 @@ import com.lucidlogic.horsetracker.config.Constants;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
-import java.util.Date;
-import java.util.Map;
-
 /**
  * Created by ian on 23/07/16.
  */
-@ParseClassName("Entity")
+    @ParseClassName("Entity")
 public class EntityDTO extends ParseObject{
 
     public String getName(){
@@ -22,19 +19,16 @@ public class EntityDTO extends ParseObject{
     public String getType(){
         return getString(Constants.TYPE);
     }
-    public Date getEntityDetailsCollectionDate(){ return getDate(Constants.ED_COLLECT_DATE); }
-    public Map getEntityDetails(){
-        return getMap(Constants.ENTITY_DETAILS);
-    }
+    public EntityDetailHistoricalDTO getEntityDetailHistoricalDTO(){ return (EntityDetailHistoricalDTO)get(Constants.ENTITY_DETAIL_HIST); }
+    public EntityDetailFutureDTO getEntityDetailFutureDTO(){ return (EntityDetailFutureDTO)get(Constants.ENTITY_DETAIL_FUT); }
 
     public void setName(String name){ put(Constants.NAME, name) ; }
-    public void setProfileUrl(String  profileUrl){
-        put(Constants.PROFILE_URL, profileUrl);
-    }
+    public void setProfileUrl(String  profileUrl){ put(Constants.PROFILE_URL, profileUrl); }
     public void setType(String type){
         put(Constants.TYPE, type);
     }
-    public void setEntityDetailsCollectionDate(Date entityDetailsCollectionDate){ put(Constants.ED_COLLECT_DATE, entityDetailsCollectionDate); }
-    public void setEntityDetails(Map entityDetails){ put(Constants.ENTITY_DETAILS, entityDetails); }
+    public void setEntityDetailHistoricalDTO(EntityDetailHistoricalDTO  entityDetailHistoricalDTO){ put(Constants.ENTITY_DETAIL_HIST, entityDetailHistoricalDTO); }
+    public void setEntityDetailFutureDTO(EntityDetailFutureDTO entityDetailFutureDTO){ put(Constants.ENTITY_DETAIL_FUT, entityDetailFutureDTO); }
+
 
 }

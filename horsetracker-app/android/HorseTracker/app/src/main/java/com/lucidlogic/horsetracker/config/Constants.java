@@ -5,6 +5,9 @@ package com.lucidlogic.horsetracker.config;
  */
 public class Constants {
 
+
+    public static final String ENTITYDETAILHISTORICAL = "EntityDetailHistorical";
+    public static final String ENTITYDETAILFUTURE = "EntityDetailFuture";
     public static final String RACECARD = "Racecard";
     public static final String MEETING = "Meeting";
     public static final String RACE = "Race";
@@ -12,6 +15,10 @@ public class Constants {
     public static final String STABLE = "Stable";
     public static final String RUNNER = "Runner";
     public static final String ENTITY = "Entity";
+
+    public static final String USER_FOLLOWS_ENTITY_LIST = "USER_FOLLOWS_ENTITY_LIST";
+
+    public static final String OBJECT_ID = "objectId";
 
     //Fields for RacecardDTO
     public static final String DATE = "date";
@@ -49,8 +56,16 @@ public class Constants {
     public static final String STALL = "stall";
     public static final String SILK_IMG_LINK = "silk_img_link";
 
-
     public static final String USER = "user";
-    public static final String ED_COLLECT_DATE = "ed_collect_date";
-    public static final String ENTITY_DETAILS = "entity_details";
+    public static final String SEX = "sex";
+    public static final String SIRE = "sire";
+    public static final String DAM = "dam";
+    public static final String COLLECTION_DATE = "collection_date";
+    public static final String HISTORICAL_SUMMARY = "historical_summary";
+    public static final String HISTORICAL_FORM = "historical_form";
+    public static final String OWNER = "owner";
+    public static final String FUT_ENT = "fut_ent";
+
+    public static final String ENTITY_DETAIL_HIST = "entity_detail_hist";
+    public static final String ENTITY_DETAIL_FUT = "entity_detail_future";
 }

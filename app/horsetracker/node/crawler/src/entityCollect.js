@@ -13,7 +13,8 @@ if(entityId){
 	query.get(entityId,{
 	  success: function(entity) {
 	    console.log("Successfully retrieved " + entity.get('profile_url'));
-	    entity_job.start_job(entity);
+	    entity_job.start_job_hist(entity);
+			entity_job.start_job_future(entity);
 	  },
 	  error: function(error) {
 	    console.log("Error: " + error.code + " " + error.message);

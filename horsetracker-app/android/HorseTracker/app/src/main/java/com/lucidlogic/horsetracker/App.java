@@ -3,7 +3,7 @@ package com.lucidlogic.horsetracker;
 import android.app.Application;
 
 import com.lucidlogic.horsetracker.config.AppConfig;
-import com.parse.Parse;
+import com.lucidlogic.horsetracker.service.ParseService;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -24,5 +24,7 @@ public class App extends Application {
                 e.printStackTrace();
             }
         }
+        ParseService.initUser();
+
     }
 }

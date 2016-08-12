@@ -4,11 +4,15 @@ package com.lucidlogic.horsetracker.utils;
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.lucidlogic.horsetracker.model.Entity;
+import com.lucidlogic.horsetracker.model.EntityDetailFuture;
+import com.lucidlogic.horsetracker.model.EntityDetailHistorical;
 import com.lucidlogic.horsetracker.model.Meeting;
 import com.lucidlogic.horsetracker.model.Race;
 import com.lucidlogic.horsetracker.model.Racecard;
 import com.lucidlogic.horsetracker.model.Runner;
 import com.lucidlogic.horsetracker.model.dto.EntityDTO;
+import com.lucidlogic.horsetracker.model.dto.EntityDetailFutureDTO;
+import com.lucidlogic.horsetracker.model.dto.EntityDetailHistoricalDTO;
 import com.lucidlogic.horsetracker.model.dto.MeetingDTO;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
@@ -75,20 +79,53 @@ public class BeanTransformers {
         runner.setRunning(runnerDTO.isRunning());
         runner.setSilkImgLink(runnerDTO.getSilkImgLink());
         runner.setStall(runnerDTO.getStall());
-        runner.setHorse(entityFromEntityDTO(runnerDTO.getHorse()));
-        runner.setTrainer(entityFromEntityDTO(runnerDTO.getTrainer()));
-        runner.setJockey(entityFromEntityDTO(runnerDTO.getJockey()));
+        runner.setHorse(entityFromEntityDTO(runnerDTO.getHorse(), false));
+        runner.setTrainer(entityFromEntityDTO(runnerDTO.getTrainer(), false));
+        runner.setJockey(entityFromEntityDTO(runnerDTO.getJockey(), false));
         return runner;
     }
 
-    public static Entity entityFromEntityDTO(EntityDTO entityDTO) {
+    public static Entity entityFromEntityDTO(EntityDTO entityDTO, boolean details) {
         Entity entity = new Entity();
         entity.setName(entityDTO.getName());
         entity.setId(entityDTO.getObjectId());
         entity.setProfileUrl(entityDTO.getProfileUrl());
         entity.setType(entityDTO.getType());
-        entity.setEdCollectDate(entityDTO.getEntityDetailsCollectionDate());
-        entity.setEntityDetails(entityDTO.getEntityDetails());
+        if(details) {
+            entity.setEntityDetailFuture(entityDetailFutureFromEntityDetailFutureDTO(entityDTO.getEntityDetailFutureDTO()));
+            entity.setEntityDetailHistorical(entityDetailHistoricalFromEntityDetailHistoricalDTO(entityDTO.getEntityDetailHistoricalDTO()));
+        }
         return entity;
+    }
+
+    private static EntityDetailHistorical entityDetailHistoricalFromEntityDetailHistoricalDTO(EntityDetailHistoricalDTO entityDetailHistoricalDTO) {
+
+        EntityDetailHistorical entityDetailHistorical = new EntityDetailHistorical();
+        entityDetailHistorical.setId(entityDetailHistoricalDTO.getObjectId());
+        entityDetailHistorical.setName(entityDetailHistoricalDTO.getName());
+        entityDetailHistorical.setAge(entityDetailHistoricalDTO.getAge());
+        entityDetailHistorical.setCollectionDate(entityDetailHistoricalDTO.getCollectionDate());
+        entityDetailHistorical.setDam(entityDetailHistoricalDTO.getDam());
+        entityDetailHistorical.setSire(entityDetailHistoricalDTO.getSire());
+        entityDetailHistorical.setHistoricalForm(entityDetailHistoricalDTO.getHistoricalForm());
+        entityDetailHistorical.setHistoricalSummary(entityDetailHistoricalDTO.getHistoricalSummary());
+        entityDetailHistorical.setOwner(entityDetailHistoricalDTO.getOwner());
+
+        return entityDetailHistorical;
+    }
+
+    private static EntityDetailFuture entityDetailFutureFromEntityDetailFutureDTO(EntityDetailFutureDTO entityDetailFutureDTO) {
+        EntityDetailFuture entityDetailFuture = new EntityDetailFuture();
+
+        entityDetailFuture.setId(entityDetailFutureDTO.getObjectId());
+        entityDetailFuture.setName(entityDetailFutureDTO.getName());
+        entityDetailFuture.setAge(entityDetailFutureDTO.getAge());
+        entityDetailFuture.setCollectionDate(entityDetailFutureDTO.getCollectionDate());
+        entityDetailFuture.setDam(entityDetailFutureDTO.getDam());
+        entityDetailFuture.setSire(entityDetailFutureDTO.getSire());
+        entityDetailFuture.setOwner(entityDetailFutureDTO.getOwner());
+        entityDetailFuture.setFutEnt(entityDetailFutureDTO.getFutEnt());
+
+        return entityDetailFuture;
     }
 }

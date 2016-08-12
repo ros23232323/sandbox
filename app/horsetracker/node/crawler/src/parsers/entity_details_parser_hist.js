@@ -15,6 +15,7 @@ module.exports = {
             name : racecard_header.find('h2').text(),
             age : racecard_header.find('ul li:nth-child(1)').text(),
             profile_url: opts.profile_url,
+            collection_date: opts.collection_date,
             sex :  racecard_header.find('ul li:nth-child(2)').text(),
             sire : {
                 name:racecard_header.find('ul li:nth-child(3) a').text(),

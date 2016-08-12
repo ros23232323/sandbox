@@ -11,6 +11,7 @@
   "author": "it",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.1",
     "cheerio": "^0.20.0",
     "dateformat": "^1.0.12",
     "express": "^4.13.4",

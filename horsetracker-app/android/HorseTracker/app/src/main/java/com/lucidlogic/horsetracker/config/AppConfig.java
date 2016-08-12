@@ -7,10 +7,13 @@ import com.lucidlogic.horsetracker.BuildConfig;
 import com.lucidlogic.horsetracker.R;
 import com.lucidlogic.horsetracker.logging.ReleaseTree;
 import com.lucidlogic.horsetracker.model.dto.EntityDTO;
+import com.lucidlogic.horsetracker.model.dto.EntityDetailFutureDTO;
+import com.lucidlogic.horsetracker.model.dto.EntityDetailHistoricalDTO;
 import com.lucidlogic.horsetracker.model.dto.MeetingDTO;
 import com.lucidlogic.horsetracker.model.dto.RaceDTO;
 import com.lucidlogic.horsetracker.model.dto.RacecardDTO;
 import com.lucidlogic.horsetracker.model.dto.RunnerDTO;
+import com.lucidlogic.horsetracker.model.dto.UserFollowsEntityDTO;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.http.ParseHttpRequest;
@@ -35,7 +38,10 @@ public class AppConfig {
         ParseObject.registerSubclass(RacecardDTO.class);
         ParseObject.registerSubclass(RunnerDTO.class);
         ParseObject.registerSubclass(EntityDTO.class);
-        Parse.enableLocalDatastore(context);
+        ParseObject.registerSubclass(EntityDetailFutureDTO.class);
+        ParseObject.registerSubclass(EntityDetailHistoricalDTO.class);
+        ParseObject.registerSubclass(UserFollowsEntityDTO.class);
+
         String appId = context.getString(R.string.parse_app_id);
         String serverUrl = context.getString(R.string.parse_server_url);
         String clientId = context.getString(R.string.parse_client_id);
@@ -43,6 +49,7 @@ public class AppConfig {
         Parse.initialize(
             new Parse.Configuration.Builder(context)
                 .applicationId(appId)
+                .enableLocalDataStore()
                 .addNetworkInterceptor(new ParseNetworkInterceptor() {
                     @Override
                     public ParseHttpResponse intercept(Chain chain) throws IOException {

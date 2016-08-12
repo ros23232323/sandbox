@@ -1,11 +1,11 @@
 package com.lucidlogic.horsetracker.model;
 
 import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-import java.util.Map;
+import com.lucidlogic.horsetracker.BR;
 
 /**
  * Created by ian on 23/07/16.
@@ -15,9 +15,10 @@ public class Entity extends BaseObservable implements Parcelable{
     private String id;
     private String type;
     private String name;
-    private Date edCollectDate;
-    private Map<String, Parcelable> entityDetails;
     private String profileUrl;
+    private boolean userFollowing;
+    private EntityDetailFuture entityDetailFuture;
+    private EntityDetailHistorical entityDetailHistorical;
 
     public Entity() {
     }
@@ -27,8 +28,9 @@ public class Entity extends BaseObservable implements Parcelable{
         type = in.readString();
         name = in.readString();
         profileUrl = in.readString();
-        in.readMap(entityDetails, this.getClass().getClassLoader());
-        edCollectDate = new Date(in.readLong());
+        userFollowing = in.readByte() != 0;
+        entityDetailFuture = in.readParcelable(this.getClass().getClassLoader());
+        entityDetailHistorical = in.readParcelable(this.getClass().getClassLoader());
     }
 
     @Override
@@ -37,8 +39,10 @@ public class Entity extends BaseObservable implements Parcelable{
         dest.writeString(type);
         dest.writeString(name);
         dest.writeString(profileUrl);
-        dest.writeMap(entityDetails);
-        dest.writeLong(edCollectDate.getTime());
+        dest.writeByte((byte)(userFollowing ? 1 : 0));
+        dest.writeParcelable(entityDetailFuture, 0);
+        dest.writeParcelable(entityDetailHistorical, 0);
+
     }
 
     @Override
@@ -58,52 +62,79 @@ public class Entity extends BaseObservable implements Parcelable{
         }
     };
 
+    @Bindable
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+        notifyPropertyChanged(BR.id);
     }
 
+    @Bindable
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+        notifyPropertyChanged(BR.type);
+
     }
 
+    @Bindable
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+        notifyPropertyChanged(BR.name);
+
     }
 
+    @Bindable
     public String getProfileUrl() {
         return profileUrl;
+
     }
 
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
+        notifyPropertyChanged(BR.profileUrl);
     }
 
-
-    public Date getEdCollectDate() {
-        return edCollectDate;
+    @Bindable
+    public EntityDetailFuture getEntityDetailFuture() {
+        return entityDetailFuture;
     }
 
-    public void setEdCollectDate(Date edCollectDate) {
-        this.edCollectDate = edCollectDate;
+    public void setEntityDetailFuture(EntityDetailFuture entityDetailFuture) {
+        this.entityDetailFuture = entityDetailFuture;
+        notifyPropertyChanged(BR.entityDetailFuture);
+
     }
 
-    public Map<String, Parcelable> getEntityDetails() {
-        return entityDetails;
+    @Bindable
+    public EntityDetailHistorical getEntityDetailHistorical() {
+        return entityDetailHistorical;
     }
 
-    public void setEntityDetails(Map<String, Parcelable> entityDetails) {
-        this.entityDetails = entityDetails;
+    public void setEntityDetailHistorical(EntityDetailHistorical entityDetailHistorical) {
+        this.entityDetailHistorical = entityDetailHistorical;
+        notifyPropertyChanged(BR.entityDetailHistorical);
+
+    }
+
+    @Bindable
+    public boolean getUserFollowing() {
+        return userFollowing;
+    }
+
+    public void setUserFollowing(boolean userFollowing) {
+        this.userFollowing = userFollowing;
+        notifyPropertyChanged(BR.userFollowing);
+
     }
 }

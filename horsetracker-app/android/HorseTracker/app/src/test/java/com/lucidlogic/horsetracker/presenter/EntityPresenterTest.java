@@ -3,11 +3,11 @@ package com.lucidlogic.horsetracker.presenter;
 import com.lucidlogic.horsetracker.model.Entity;
 import com.lucidlogic.horsetracker.model.dto.EntityDTO;
 import com.lucidlogic.horsetracker.presenter.impl.EntityPresenterImpl;
+import com.lucidlogic.horsetracker.service.ParseService;
 import com.lucidlogic.horsetracker.service.ParseTest;
 import com.lucidlogic.horsetracker.utils.BeanTransformers;
 import com.lucidlogic.horsetracker.view.EntityView;
 import com.parse.ParseException;
-import com.parse.ParseQuery;
 
 import junit.framework.Assert;
 
@@ -17,7 +17,6 @@ import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 
 import rx.android.schedulers.AndroidSchedulers;
-import rx.parse.ParseObservable;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
@@ -49,11 +48,10 @@ public class EntityPresenterTest extends ParseTest {
 
     @Test
     public void updateViewTest() throws ParseException {
-
-        entityPresenter.updateView("XQBlgnwUC8");
-        EntityDTO entityDTO = ParseObservable.find( ParseQuery.getQuery(EntityDTO.class) .whereEqualTo("objectId", "XQBlgnwUC8") ).toBlocking().first();
+        entityPresenter.updateView("2HSiH6uODf");
+        EntityDTO entityDTO = ParseService.getEntity("2HSiH6uODf").toBlocking().first();
         Assert.assertNotNull(entityDTO);
-        Entity entity = BeanTransformers.entityFromEntityDTO(entityDTO);
+        Entity entity = BeanTransformers.entityFromEntityDTO(entityDTO, true);
         Assert.assertNotNull(entity);
     }
 }

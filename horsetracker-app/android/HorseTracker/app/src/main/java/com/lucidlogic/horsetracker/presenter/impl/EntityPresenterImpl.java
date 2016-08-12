@@ -26,7 +26,7 @@ public class EntityPresenterImpl implements EntityPresenter {
         ParseService.getEntity(entityObjectId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(entityDTO -> BeanTransformers.entityFromEntityDTO(entityDTO))
+                .map(entityDTO -> BeanTransformers.entityFromEntityDTO(entityDTO, true))
                 .subscribe(entity -> {
                             Timber.i("Item retrieved");
                             entityView.updateView(entity);
