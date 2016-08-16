@@ -1,0 +1,2 @@
+{"functionName":"hello","params":{},"level":"info","message":"Ran cloud function hello with:\nInput: {}\nResult: \"Hello world, Ian!\"","timestamp":"2016-08-16T09:21:17.124Z"}
+{"functionName":"hello","params":{},"level":"info","message":"Ran cloud function hello with:\nInput: {}\nResult: \"Hello world, Ian!\"","timestamp":"2016-08-16T09:21:41.138Z"}

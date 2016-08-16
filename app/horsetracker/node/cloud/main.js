@@ -4,6 +4,17 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world, Ian!");
 });
 
+Parse.Cloud.define("entity", function(request, response) {
+  var userId = request.params.entityId;
+
+  var todo = {
+    'callTimeStamp':new Date(),
+    'respose':'TODO',
+  };
+  response.success(todo);
+});
+
+
 var blahClass = 'Blah';
 
 Parse.Cloud.beforeSave(blahClass, function(request, response) {

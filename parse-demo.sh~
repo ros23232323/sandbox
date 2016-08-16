@@ -17,9 +17,11 @@ MONGO_URI=mongodb://localhost:27017/local
 parse-server --databaseURI $MONGO_URI --appId $APPLICATION_ID --masterKey $MASTER_KEY --restAPIKey $MASTER_KEY --cloud $CLOUD_DIR/main.js --port $PARSE_PORT & 
 sleep 5
 parse-dashboard --appId $APPLICATION_ID --masterKey $MASTER_KEY --serverURL "http://$PARSE_HOST_LOCAL:$PARSE_PORT/parse" --appName $PARSE_APP &
+cd ../crawler
+atom .
 
 
-curl -X POST \
+curl -s -X POST \
   -H "X-Parse-Application-Id: $APPLICATION_ID" \
   -H "X-Parse-REST-API-Key: $MASTER_KEY" \
   -H "Content-Type: application/json" \

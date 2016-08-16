@@ -21,11 +21,18 @@ cd ../crawler
 atom .
 
 
-curl -X POST \
+curl -s -X POST \
   -H "X-Parse-Application-Id: $APPLICATION_ID" \
   -H "X-Parse-REST-API-Key: $MASTER_KEY" \
   -H "Content-Type: application/json" \
   http://localhost:1337/parse/functions/hello
+
+curl -s -X POST \
+  -H "X-Parse-Application-Id: $APPLICATION_ID" \
+  -H "X-Parse-REST-API-Key: $MASTER_KEY" \
+  -H "Content-Type: application/json" \
+  http://localhost:1337/parse/functions/hello
+
 
 curl -X POST \
   -H "X-Parse-Application-Id: $APPLICATION_ID" \
@@ -33,6 +40,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"uniqueCol":"1234567-ADFGHJK"}' \
   http://$PARSE_HOST:$PARSE_PORT/parse/classes/Blah
+
 
 
 
