@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FreightForwarderLocation" table="FREIGHT_FORWARDER_LOCATION" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="freightForwarder" class="com.whatever.domain.FreightForwarder" fetch="select">
+            <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="addrLine1" type="string">
+            <column name="ADDR_LINE_1" length="250" not-null="true" />
+        </property>
+        <property name="addrLine2" type="string">
+            <column name="ADDR_LINE_2" length="250" />
+        </property>
+        <property name="addrLine3" type="string">
+            <column name="ADDR_LINE_3" length="250" />
+        </property>
+        <property name="city" type="string">
+            <column name="CITY" length="100" not-null="true" />
+        </property>
+        <property name="region" type="string">
+            <column name="REGION" length="250" not-null="true" />
+        </property>
+        <property name="countryCode" type="string">
+            <column name="COUNTRY_CODE" length="2" not-null="true" />
+        </property>
+        <property name="postalCode" type="string">
+            <column name="POSTAL_CODE" length="15" not-null="true" />
+        </property>
+        <property name="defaultFlg" type="string">
+            <column name="DEFAULT_FLG" length="1" />
+        </property>
+        <property name="activeFlg" type="string">
+            <column name="ACTIVE_FLG" length="1" />
+        </property>
+        <set name="ffRetailOrders" inverse="true">
+            <key>
+                <column name="FF_LOC_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfRetailOrder" />
+        </set>
+        <set name="ffLocationCountryServiceds" inverse="true">
+            <key>
+                <column name="FREIGHT_FORWARDER_LOCATION_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfLocationCountryServiced" />
+        </set>
+    </class>
+</hibernate-mapping>

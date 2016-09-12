@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FfTracking" table="FF_TRACKING" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ffOrderLineItem" class="com.whatever.domain.FfOrderLineItem" fetch="select">
+            <column name="ORDER_LINE_ITEM_ID" precision="38" scale="0" />
+        </many-to-one>
+        <property name="trackingNumber" type="string">
+            <column name="TRACKING_NUMBER" length="250" />
+        </property>
+        <property name="quantity" type="java.lang.Long">
+            <column name="QUANTITY" precision="10" scale="0" />
+        </property>
+        <property name="creationDt" type="timestamp">
+            <column name="CREATION_DT" length="7" not-null="true" />
+        </property>
+        <set name="ffLandmarkResponses" inverse="true">
+            <key>
+                <column name="TRACKING_ID" precision="38" scale="0" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfLandmarkResponse" />
+        </set>
+    </class>
+</hibernate-mapping>

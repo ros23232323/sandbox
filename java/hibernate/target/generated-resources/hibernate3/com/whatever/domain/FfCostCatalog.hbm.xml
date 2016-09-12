@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FfCostCatalog" table="FF_COST_CATALOG" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ffCostType" class="com.whatever.domain.FfCostType" fetch="select">
+            <column name="COST_TYPE_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ffProductCatalog" class="com.whatever.domain.FfProductCatalog" fetch="select">
+            <column name="PRODUCT_CATALOG_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="costPercent" type="big_decimal">
+            <column name="COST_PERCENT" precision="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

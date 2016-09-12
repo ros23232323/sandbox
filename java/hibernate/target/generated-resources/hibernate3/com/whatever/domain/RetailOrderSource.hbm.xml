@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.RetailOrderSource" table="RETAIL_ORDER_SOURCE" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" not-null="true" unique="true" />
+        </property>
+        <set name="ffProductCatalogs" inverse="true">
+            <key>
+                <column name="RETAIL_ORDER_SOURCE_ID" precision="38" scale="0" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfProductCatalog" />
+        </set>
+        <set name="ffRetailOrders" inverse="true">
+            <key>
+                <column name="RETAIL_ORDER_SOURCE_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfRetailOrder" />
+        </set>
+    </class>
+</hibernate-mapping>

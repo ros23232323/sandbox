@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FfLandmarkResponse" table="FF_LANDMARK_RESPONSE" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ffTracking" class="com.whatever.domain.FfTracking" fetch="select">
+            <column name="TRACKING_ID" precision="38" scale="0" />
+        </many-to-one>
+        <property name="responseCode" type="string">
+            <column name="RESPONSE_CODE" length="38" />
+        </property>
+        <property name="responseMessage" type="string">
+            <column name="RESPONSE_MESSAGE" length="250" />
+        </property>
+        <property name="errorCode" type="string">
+            <column name="ERROR_CODE" length="38" />
+        </property>
+        <property name="errorMessage" type="string">
+            <column name="ERROR_MESSAGE" length="250" />
+        </property>
+        <property name="trackingNumber" type="string">
+            <column name="TRACKING_NUMBER" length="100" not-null="true" />
+        </property>
+        <property name="landmarkTrackingNumber" type="string">
+            <column name="LANDMARK_TRACKING_NUMBER" length="100" />
+        </property>
+        <property name="packageReference" type="string">
+            <column name="PACKAGE_REFERENCE" length="100" />
+        </property>
+        <property name="additionalMessage" type="string">
+            <column name="ADDITIONAL_MESSAGE" length="200" />
+        </property>
+        <property name="creationDt" type="timestamp">
+            <column name="CREATION_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

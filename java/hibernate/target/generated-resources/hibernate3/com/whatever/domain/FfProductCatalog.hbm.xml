@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FfProductCatalog" table="FF_PRODUCT_CATALOG" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="freightForwarder" class="com.whatever.domain.FreightForwarder" fetch="select">
+            <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="retailOrderSource" class="com.whatever.domain.RetailOrderSource" fetch="select">
+            <column name="RETAIL_ORDER_SOURCE_ID" precision="38" scale="0" />
+        </many-to-one>
+        <property name="productId" type="big_decimal">
+            <column name="PRODUCT_ID" precision="38" scale="0" not-null="true" />
+        </property>
+        <property name="originCountryCd" type="string">
+            <column name="ORIGIN_COUNTRY_CD" length="2" />
+        </property>
+        <property name="destinationCountryCd" type="string">
+            <column name="DESTINATION_COUNTRY_CD" length="2" />
+        </property>
+        <set name="ffCostCatalogs" inverse="true">
+            <key>
+                <column name="PRODUCT_CATALOG_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfCostCatalog" />
+        </set>
+    </class>
+</hibernate-mapping>

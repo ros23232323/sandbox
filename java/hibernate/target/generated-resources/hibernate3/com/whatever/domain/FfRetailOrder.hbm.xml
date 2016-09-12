@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FfRetailOrder" table="FF_RETAIL_ORDER" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="freightForwarderLocation" class="com.whatever.domain.FreightForwarderLocation" fetch="select">
+            <column name="FF_LOC_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="retailOrderSource" class="com.whatever.domain.RetailOrderSource" fetch="select">
+            <column name="RETAIL_ORDER_SOURCE_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="currencyCd" type="string">
+            <column name="CURRENCY_CD" length="3" not-null="true" />
+        </property>
+        <property name="retailOrderId" type="big_decimal">
+            <column name="RETAIL_ORDER_ID" precision="38" scale="0" not-null="true" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="CREATION_DATE" length="7" not-null="true" />
+        </property>
+        <set name="ffOrderLineItems" inverse="true">
+            <key>
+                <column name="FF_RETAIL_ORDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfOrderLineItem" />
+        </set>
+        <set name="ffQuotes" inverse="true">
+            <key>
+                <column name="FF_RETAIL_ORDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfQuote" />
+        </set>
+    </class>
+</hibernate-mapping>

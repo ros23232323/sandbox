@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.FreightForwarder" table="FREIGHT_FORWARDER" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" />
+        </property>
+        <set name="ffQuotes" inverse="true">
+            <key>
+                <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfQuote" />
+        </set>
+        <set name="ffCountryWeightCosts" inverse="true">
+            <key>
+                <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfCountryWeightCost" />
+        </set>
+        <set name="ffProductCatalogs" inverse="true">
+            <key>
+                <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FfProductCatalog" />
+        </set>
+        <set name="freightForwarderLocations" inverse="true">
+            <key>
+                <column name="FREIGHT_FORWARDER_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.whatever.domain.FreightForwarderLocation" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Aug-2016 11:42:14 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.whatever.domain.BongoQuoteId" table="BONGO_QUOTE_ID" schema="FREIGHT_FORWARDER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ffQuote" class="com.whatever.domain.FfQuote" fetch="select">
+            <column name="FF_QUOTE_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="transactionId" type="string">
+            <column name="TRANSACTION_ID" length="100" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="CREATION_DATE" length="7" not-null="true" />
+        </property>
+        <property name="trackingUrl" type="string">
+            <column name="TRACKING_URL" />
+        </property>
+        <property name="ddpAvailable" type="java.lang.Boolean">
+            <column name="DDP_AVAILABLE" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

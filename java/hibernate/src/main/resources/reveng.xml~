@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC
+  "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+ 
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="FREIGHT_FORWARDER"/>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="WEIGHT_UOM"/>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="FF_COUNTRY_WEIGHT_COST"/>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="FF_COST_TYPE"/>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="FF_PRODUCT_CATALOG"/>
+  <schema-selection match-schema="FREIGHT_FORWARDER" match-table="FF_COST_CATALOG"/>
+</hibernate-reverse-engineering>
