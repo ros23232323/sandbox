@@ -1,5 +1,0 @@
-hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
-hibernate.connection.url=jdbc:oracle:thin:@shpdb01.dogfood.test.ostk.com:1521:shp
-hibernate.connection.username=d2prod
-hibernate.connection.password=d2prod
-#hibernate.default_schema=FREIGHT_FORWARDER
